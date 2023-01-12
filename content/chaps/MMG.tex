@@ -1,0 +1,284 @@
+ \chapter{Cистемы функций, ортогональные относительно дискретно-непрерывных скалярных произведений типа Соболева}
+
+
+
+\section*{Введение}
+Обозначим через $W^r_{L^p_\rho}=W^r_{L^p_\rho}[a,b]$ пространство Соболева, состоящее из $r-1$ непрерывно дифференцируемых на $[a,b]$ функций $f$, таких что $f^{(r-1)}$ абсолютно непрерывна и $f^{(r)} \in L^p_\rho[a,b]$, где $L^p_\rho=L^p_\rho[a,b]$ --- весовое пространство Лебега: $L^p_\rho[a,b] = \{ f: \int_a^b |f(x)|^p\rho(x)dx \}$. При $p=2$ в пространстве $W^r_{L^p_\rho}$ можно ввести скалярное произведение:
+\begin{equation}\label{mmg-sob-prod}
+	\langle f, g \rangle = \sum_{k=0}^{r-1}f^{(k)}(a)g^{(k)}(a)+\int_a^b f^{(r)}(x)g^{(r)}(x)\rho(x)dx.
+\end{equation}
+Указанное скалярное произведение принято называть дискретно-непрерывным скалярным произведением типа Соболева.
+
+Норму в пространстве $W^r_{L^p_\rho}$ определим следующим образом:
+\begin{equation}\label{mmg-sob-norm-def}
+	\|f\|_{W^r_{L^p_\rho}} = \Bigl[
+	\sum_{k=0}^{r-1}|f^{(k)}(a)|^p + \int_a^b |f^{(r)}(t)|^p \rho(t)dt
+	\Bigr]^{1/p}.
+\end{equation}
+
+Скалярное произведение типа Соболева характеризуется тем, что оно включает в себя производные перемножаемых функций. Достаточно общий вид скалярного произведения типа Соболева может быть выражен формулой
+\begin{equation}\label{mmg-inner-prod-sob-common}
+	\langle f,g \rangle = \sum_{k=0}^{m}\int\limits_{\mathbb{R}}f^{(k)}(x)g^{(k)}(x)d\mu_k,
+\end{equation}
+где $d\mu_k$ --- борелевские меры. Подробный обзор результатов, полученных для систем полиномов, ортогональных относительно различных соболевских скалярных произведений вида \eqref{mmg-inner-prod-sob-common}, можно найти в обзорной работе \cite{mmg-MarcellanXu2015}.
+
+Как правило, рассматриваются следующие виды соболевских скалярных произведений \eqref{mmg-inner-prod-sob-common}:
+\begin{itemize}
+	\item
+	непрерывные (все меры $\mu_k$, $k \ge 0$, абсолютно непрерывны),
+	\item
+	дискретные ($\mu_0$ абсолютна непрерывна, а $\mu_k$, $k \ge 1$, --- дискретны),
+	\item
+	дискретно-непрерывные ($\mu_m$ абсолютна непрерывна, а $\mu_k$, $k < m$, --- дискретны).	
+\end{itemize}
+
+Исследованиям вопросов сходимости рядов Фурье по полиномам, ортогональным относительно непрерывного скалярного произведения, посвящены, например, работы \cite{mmg-MarcellanJacobiSobolev,mmg-CiaurriJacobiSobolev,mmg-CiaurriCoherentPairs,mmg-Fejzullahu2010,mmg-Fejzullahu2013}. В \cite{mmg-MarcellanJacobiSobolev,mmg-CiaurriJacobiSobolev} рассматривается случай, когда $d\mu_k(x)=w_{\alpha+k,\beta+k}(x)dx$, где $w_{\alpha+k,\beta+k}(x)=(1-x)^{\alpha+k}(1+x)^{\beta+k}$ --- веса Якоби. В работе \cite{mmg-CiaurriCoherentPairs} исследуется случай $m=1$, причем меры $\mu_0$ и $\mu_1$ образуют так называемую когерентную пару (см. \cite{mmg-IserlesKoch1991,mmg-MarcellanXu2015}). В \cite{mmg-Fejzullahu2010} получены необходимые условия сходимости по норме ряда Фурье для полиномов, ортогональных относительно \eqref{mmg-inner-prod-sob-common} при $m=1$ и $d\mu_0(x)=d\mu_1(x)=(1-x^2)^{\alpha-1/2}dx$.
+
+В случае дискретных скалярных произведений сходимость соответствующих рядов Фурье исследовалась в работах \cite{mmg-Marcellan2002,mmg-Rocha2003,mmg-OsilenkerFourier2012,mmg-OsilenkerLinearMethods2015,mmg-Fejzullahu2009,mmg-CiaurriSigma2018}. В работах \cite{mmg-Marcellan2002,mmg-Rocha2003} рассмотрены вопросы поточечной и равномерной сходимости рядов Фурье в случае скалярного произведения вида:
+\begin{equation*}
+	\langle f,g \rangle = \int_{-1}^{1}f(x)g(x)d\mu(x)+
+	\sum_{k=1}^K\sum_{i=0}^{N_k} M_{k,i}f^{(i)}(a_k)g^{(i)}(a_k),
+\end{equation*}
+где $d\mu(x)$ --- мера Якоби. В \cite{mmg-OsilenkerFourier2012,mmg-OsilenkerLinearMethods2015,mmg-Fejzullahu2009,mmg-CiaurriSigma2018} рассмотрен частный случай приведенного выше скалярного произведения ($K=2$, $N_1=N_2=1$, $a_1=-1$, $a_2=1$) и исследована сходимость рядов Фурье и их линейных средних по соответствующим ортогональным полиномам.
+
+Ряды Фурье в дискретно-непрерывном случае довольно подробно исследовались в работах Шарапудинова И.И. (см. \cite{mmg-SharapudinovUMN,mmg-SharapudinovIzvRan2019} и приведенные там списки литературы). В них рассматривается скалярное произведение вида \eqref{mmg-sob-prod}.
+В \cite{mmg-SharapudinovUMN,mmg-SharapudinovIzvRan2019,mmg-MMG2019,mmg-Gadzhimirzaev2019} исследованы вопросы поточечной и равномерной сходимости рядов Фурье по системам, ортогональным относительно \eqref{mmg-sob-prod} и ассоциированным с такими классическими системами, как система полиномов Якоби, Лагерра, система функций Хаара, Уолша, Лагерра и система косинусов. При некоторых значениях параметров, фигурирующих в определениях классических систем, изучены аппроксимативные свойства рядов Фурье по указанным системам.
+
+Остановимся более подробно на некоторых результатах, связанных со скалярным произведением \eqref{mmg-sob-prod} в случае $\rho(x)=\rho(\alpha,\beta; x)=(1-x)^\alpha(1+x)^\beta$.
+
+Пусть $\mathcal{P}^{\alpha,\beta}=\{ \hat{P}_n^{\alpha,\beta} \}_{n=0}^\infty$ --- система полиномов, ортонормированных на отрезке $[-1,1]$ с весом Якоби $\rho(\alpha,\beta; x)$ (система полиномов Якоби). Введем в рассмотрение новую систему функций $\mathcal{P}^{\alpha,\beta}_r$, $r \ge 1$, с помощью равенств:
+\begin{gather}
+	\label{mmg-sob-def1}
+	P_{r,k}^{\alpha,\beta}(x) =\frac{(x+1)^k}{k!}, \quad k=0,1,\ldots, r-1,\\
+	\label{mmg-sob-def2}
+	P_{r,k}^{\alpha,\beta}(x) =\frac{1}{(r-1)!}\int\limits_{-1}^x(x-t)^{r-1}\hat{P}_{k-r}^{\alpha,\beta}(t)dt, \quad k=r,r+1,\ldots.
+\end{gather}
+Можно показать, что таким образом определенная система будет ортонормирована относительно \eqref{mmg-sob-prod} при $\rho(x)=\rho(\alpha,\beta; x)$ \cite[с.~231]{mmg-Shii-izvran2018}. Систему $\mathcal{P}_r^{\alpha,\beta}$ будем называть системой полиномов, ортогональной в смысле Соболева и ассоциированной с полиномами Якоби $P_n^{\alpha,\beta}$.
+Ряд Фурье функции $f \in W^r_{L^2_{\rho(\alpha,\beta)}}[-1,1]$ по системе $\mathcal{P}_r^{\alpha,\beta}$ и частичная сумма этого ряда имеют следующий вид \cite[с.~227]{mmg-Shii-izvran2018}:
+\begin{gather}
+	\label{mmg-sob-fourier-series}
+	f(x) \sim \sum_{k=0}^{r-1} f^{(k)}(-1)\frac{(x+1)^k}{k!}+ \sum_{k=r}^\infty c^{\alpha,\beta}_{r,k}(f) P_{r,k}^{\alpha,\beta}(x),\\
+	\label{mmg-sob-part-sum}
+	S^{\alpha,\beta}_{r,n}(f,x) = \sum_{k=0}^{r-1} f^{(k)}(-1)\frac{(x+1)^k}{k!}+ \sum_{k=r}^n c^{\alpha,\beta}_{r,k}(f) P_{r,k}^{\alpha,\beta}(x), \quad n \ge r,
+\end{gather}
+где $c^{\alpha,\beta}_{r,k}(f)=\int_{-1}^1 f^{(r)}(t)\hat{P}_{k-r}^{\alpha,\beta}(t)\rho(\alpha,\beta; t)dt$.
+
+Одно из замечательных свойств соболевского ряда Фурье \eqref{mmg-sob-fourier-series} состоит в том, что его частичная сумма \eqref{mmg-sob-part-sum} при $n \ge r$ совпадает $r$-кратно с исходной функцией $f(x)$ в точке $x=-1$ \cite[с. 228]{mmg-Shii-izvran2018}:
+\begin{equation}\label{mmg-sob-part-sum-coins}
+	(S^{\alpha,\beta}_{r,n})^{(\nu)}(f,-1)=f^{(\nu)}(-1), \quad 0\le\nu\le r-1.
+\end{equation}
+Это очень важное свойство, которое в сочетании с хорошими аппроксимативными свойствами сумм Фурье \eqref{mmg-sob-part-sum}
+делает их весьма эффективным инструментом приближённого решения краевых задач для обыкновенных дифференциальных уравнений спектральными методами. Заметим при этом, что суммы Фурье по классическим ортогональным полиномам таким свойством не обладают.
+
+\section{Вспомогательные сведения}
+%Рассмотрим некоторые свойства частичных сумм \eqref{mmg-sob-part-sum}.
+Из \eqref{mmg-sob-def1}, \eqref{mmg-sob-def2} вытекает соотношение
+\begin{equation}\label{mmg-Prk-deriv-prop}
+	(P^{\alpha,\beta}_{r,k}(x))^{(\nu)} =
+	\begin{cases}
+		P^{\alpha,\beta}_{r-\nu,k-\nu}(x), &\nu \le \min\{k,r\},\\
+		(P^{\alpha,\beta}_{k-r})^{(\nu-r)}(x), &r < \nu \le k,\\
+		0, &\nu > k,
+	\end{cases}
+\end{equation}
+где полагаем $P^{\alpha,\beta}_{0,k}(x)=P^{\alpha,\beta}_{k}(x)$, $r \ge 0$.
+
+Как отмечалось во введении, коэффициенты ряда Фурье по системе $\mathcal{P}^{\alpha,\beta}_r$ имеют вид \cite[с. 10]{mmg-SharapudinovIzvRan2019}:
+\begin{equation}\label{mmg-crk}
+	c^{\alpha,\beta}_{r,k}(f)=
+	\begin{cases}
+		f^{(k)}(-1), &k < r,\\
+		\int_{-1}^1 f^{(r)}(t)\hat{P}_{k-r}^{\alpha,\beta}(t)\rho(t;\alpha,\beta)dt, &k \ge r.
+	\end{cases}
+\end{equation}
+
+Отсюда нетрудно показать, что коэффициенты $c^{\alpha,\beta}_{r,k}(f)$ при различных $r$ связаны равенством
+\begin{equation}\label{mmg-crk-deriv}
+	c^{\alpha,\beta}_{r,k}(f)=c^{\alpha,\beta}_{r-\nu,k-\nu}(f^{(\nu)}), \quad 0 \le \nu \le \min\{r,k\}.
+\end{equation}
+
+Из соотношений \eqref{mmg-Prk-deriv-prop} и \eqref{mmg-crk-deriv} получаем:
+\begin{equation*}
+	(S^{\alpha,\beta}_{r,n})^{(\nu)}(f,x)=
+	\sum_{k=0}^{n}c^{\alpha,\beta}_{r,k}(f)(P^{\alpha,\beta}_{r,k})^{(\nu)}(x)=
+	\sum_{k=\nu}^{n}c^{\alpha,\beta}_{r-\nu,k-\nu}(f^{(\nu)})P^{\alpha,\beta}_{r-\nu,k-\nu}(x).
+\end{equation*}
+Последнее выражение представляет собой частичную сумму порядка $n-\nu$ ряда Фурье функции $f^{(\nu)}$ по системе $\mathcal{P}^{\alpha,\beta}_{r-\nu}$. Таким образом, имеет место равенство
+\begin{equation}\label{mmg-Srn-deriv}
+	(S^{\alpha,\beta}_{r,n})^{(\nu)}(f,x)=
+	S^{\alpha,\beta}_{r-\nu,n-\nu}(f^{(\nu)},x), \quad 0 \le \nu \le \min\{r,n\},
+\end{equation}
+при этом считаем, что $S^{\alpha,\beta}_{0,n}(f)=S^{\alpha,\beta}_n(f)$ --- частичная сумма ряда Фурье по полиномам Якоби $\hat{P}^{\alpha,\beta}_n$.
+
+Поскольку $P^{\alpha,\beta}_{r,k}(x)$ --- полином степени $k$, то $S^{\alpha,\beta}_{r,n}(f,x)$ будет полиномом степени $n$. Кроме того, $S^{\alpha,\beta}_{r,m}(f,x)$, $m \ge n$, оставляет на месте полиномы степени $n$:
+\begin{equation}\label{mmg-Srk-proj}
+	S^{\alpha,\beta}_{r,m}(p_n,x)=p_n(x), \quad m \ge n,
+\end{equation}
+где $p_n(x)$ --- полином степени $n$, что нетрудно показать индукцией по $r$. В самом деле, для $r=0$ соотношение \eqref{mmg-Srk-proj}, очевидно, выполнено. Шаг индукции доказывается с помощью следующего соотношения, которое вытекает из \eqref{mmg-Srn-deriv} и \eqref{mmg-sob-part-sum-coins}:
+\begin{equation}\label{mmg-Srn-int-1}
+	S^{\alpha,\beta}_{r,m}(f,x)=f(-1)+\int_{-1}^x S^{\alpha,\beta}_{r-1,m-1}(f',t)dt, \quad r \ge 1.
+\end{equation}
+
+Далее, из \eqref{mmg-sob-part-sum} можно получить следующее интегральное представление для частичных сумм $S^{\alpha,\beta}_{r,n}(f,x)$ при $r=1$:
+\begin{equation}\label{mmg-S1n-int-repr}
+	S^{\alpha,\beta}_{1,1+n}(f,x) = f(-1)+\int_{-1}^{1}f'(t)\rho(\alpha, \beta; t)K^{\alpha,\beta}_{1,1+n}(x,t)dt,
+\end{equation}
+где
+\begin{equation*}
+	K^{\alpha,\beta}_{1,1+n}(x,t)=\sum_{k=1}^{n+1}\hat{P}^{\alpha,\beta}_{k-1}(t)P^{\alpha,\beta}_{1,k}(x).
+\end{equation*}
+С помощью формулы \eqref{mmg-sob-def2} для ядра $K^{\alpha,\beta}_{1,1+n}(x,t)$ можно получить соотношение:
+\begin{equation}\label{mmg-K1n-Kn-repr}
+	K^{\alpha,\beta}_{1,1+n}(x,t)=\sum_{k=1}^{n+1}\hat{P}^{\alpha,\beta}_{k-1}(t)\int_{-1}^{x}\hat{P}^{\alpha,\beta}_{k-1}(u)du=\int_{-1}^{x}K^{\alpha,\beta}_n(t,u)du,
+\end{equation}
+где $K^{\alpha,\beta}_n(t,u)=\sum_{k=0}^{n}\hat{P}^{\alpha,\beta}_{k}(t)\hat{P}^{\alpha,\beta}_{k}(u)$.
+
+\section{Пространство Соболева}
+В этом разделе будут рассмотрены некоторые свойства пространств Соболева $W^r_{L^1_{\rho(\alpha, \beta)}}$, $\rho(\alpha, \beta; x)=(1-x)^\alpha(1+x)^\beta$.
+
+\begin{lemma}\label{mmg-complete-W1L1rho}
+	Пространство Соболева $W^r_{L^1_{\rho(\alpha, \beta)}}$ является полным при $-1 < \alpha, \beta \le 0$.
+\end{lemma}
+
+Пространство $W^r_{L^1_\rho}=W^r_{L^1_{\rho(\alpha, \beta)}}$ перестает быть полным при $\max\{\alpha,\beta\} > 0$. Покажем это для случая $r=1$. Пусть для определенности $\alpha>0$. Рассмотрим последовательность функций
+\begin{equation*}
+	f_n(x)=
+	\begin{cases}
+		0, &-1 \le x \le 0,\\
+		-\ln (1-x), &0<x<1-\frac{1}{n},\\
+		\ln n + n(x-(1-\frac{1}{n})), &1-\frac{1}{n} \le x \le 1.
+	\end{cases}
+\end{equation*}
+Легко видеть, что $f_n(x)$ --- абсолютные непрерывные на $[-1,1]$ функции, производные которых
+\begin{equation*}
+	f_n'(x)=
+	\begin{cases}
+		0, &-1 \le x < 0,\\
+		\frac{1}{1-x}, &0<x<1-\frac{1}{n},\\
+		n, &1-\frac{1}{n} \le x \le 1,
+	\end{cases}
+\end{equation*}
+принадлежат $L^1_{\rho}$. Следовательно, $f_n(x) \in W^1_{L^1_{\rho}}$.
+Нетрудно также убедиться в том, что $\|f_n'-g\|_{L^1_\rho} \to 0$, где
+\begin{equation*}
+	g(x)=
+	\begin{cases}
+		0, &-1 \le x < 0,\\
+		\frac{1}{1-x}, &0<x<1.
+	\end{cases}	
+\end{equation*}
+Отсюда в силу равенства $\|f_n-f_m\|_{W^1_{L^1_{\rho}}} = \|f_n'-f_m'\|_{L^1_\rho}$ вытекает фундаментальность последовательности $\{f_n\}$ в $W^1_{L^1_{\rho}}$. Покажем теперь, что указанная последовательность не имеет предела в $W^1_{L^1_{\rho}}$. Предположим противное, что существует функция $f \in W^1_{L^1_{\rho}}$, такая что $\|f_n-f\|_{W^1_{L^1_{\rho}}} \to 0$. Тогда, пользуясь определением нормы, получаем $\|f'_n-f'\|_{L^1_{\rho}} \to 0$, откуда в силу единственности предела следует равенство $f'(x)=g(x)$ почти всюду. Но такого быть не может, поскольку $f' \in L^1$, а $g \in L^1_\rho \setminus L^1$.
+
+\begin{lemma}\label{mmg-pol-dense}
+	Множество полиномов всюду плотно в пространстве $W^1_{L^1_{\rho(\alpha,\beta)}}$, $\alpha, \beta > -1$.
+\end{lemma}
+
+
+
+
+\section{Сходимость в равномерной метрике и метрике пространств Соболева}
+Из результатов, полученных в общем случае для систем вида \eqref{mmg-sob-def1}, \eqref{mmg-sob-def2} \cite[с. 38, теорема 2]{mmg-SharapudinovUMN}, следует, что при $-1 < \alpha, \beta < 1$ ряд Фурье \eqref{mmg-sob-fourier-series} сходится равномерно на $[-1,1]$ к функциям $f \in W^r_{L^2_{\rho(\alpha,\beta)}}[-1,1]$ \cite[с. 68, следствие 5]{mmg-SharapudinovUMN}.
+Возникает естественный вопрос о том, сохранится ли свойство равномерной сходимости рядов Фурье \eqref{mmg-sob-fourier-series} для функций $f(x)\in W^r_{L^p_{\rho(\alpha,\beta)}}[-1,1]$, когда $1 \le p < 2$.
+В статье \cite{mmg-Shii-izvran2018}, опираясь на результаты Макенхоупта, получены условия равномерной сходимости рядов Фурье по соболевской системе $\mathcal{P}^{-\frac12,-\frac12}_r=\{\hat{P}^{-\frac12,-\frac12}_{r,k}\}_{k=0}^\infty$, порождённой системой полиномов Чебышева первого рода $\{\hat{P}^{-\frac12,-\frac12}_{k}\}$.
+\begin{theoremA}\label{mmg-st-sob-cheb-uniconv}
+	Пусть $A, B \in \mathbb{R}$, $p>1$ таковы, что
+	\begin{equation}\label{mmg-}
+		\left|\frac{A+1}{p}-\frac{1}{4}\right|<\frac{1}{4},\quad
+		\left|\frac{B+1}{p}-\frac{1}{4}\right|<\frac{1}{4}.
+	\end{equation}
+	Тогда если $f\in W^r_{L_{\rho(A,B)}^p}[-1,1]$, $r \ge 1$, то ряд Фурье функции $f$ по системе $\mathcal{P}^{-\frac12,-\frac12}_r$ равномерно на $[-1,1]$ сходится к $f(x)$.
+\end{theoremA}
+Из этой теоремы непосредственно выводится следствие.
+\begin{corollaryA}
+	Если $f \in W^r_{L_{\rho(-\frac{1}{2},-\frac{1}{2})}^p}[-1,1]$, $p>1$, то ряд Фурье функции $f$ по системе $\mathcal{P}^{-\frac12,-\frac12}_r$ равномерно на $[-1,1]$ сходится к $f(x)$.
+\end{corollaryA}
+Заметим, что ряд Фурье по системе $\mathcal{P}^{-\frac12,-\frac12}_r$ может быть построен для любой функции $f \in W^r_{L_{\rho(-\frac{1}{2},-\frac{1}{2})}^1}[-1,1]$. Однако приведённое выше следствие справедливо только для функций $W^r_{L_{\rho(-\frac{1}{2},-\frac{1}{2})}^p}[-1,1]$ при $p>1$. Интерес представляет вопрос о том, будет ли справедливо утверждение следствия для более общего случая, когда $f \in W^r_{L_{\rho(-\frac{1}{2},-\frac{1}{2})}^1}[-1,1]$. Положительный ответ на этот вопрос получен в \cite[теорема 6]{mmg-Shii-izvran2018}.
+\begin{theoremA}
+	Если $f \in W^r_{L_{\rho(-\frac{1}{2},-\frac{1}{2})}^1}[-1,1]$, то ряд Фурье функции $f$ по системе $\mathcal{P}^{-\frac12,-\frac12}_r$ равномерно на $[-1,1]$ сходится к $f(x)$.
+\end{theoremA}
+
+Аналог теоремы \ref{mmg-st-sob-cheb-uniconv} доказан также для системы соболевских функций $\mathcal{P}_r^{\alpha,0}=\{P_{r,k}^{\alpha,0}\}_{k=0}^\infty$, порождённых полиномами Якоби $P_k^{\alpha,0}(x)$ при $-1<\alpha\le\frac{1}{2}$, $\alpha$ --- дробное \cite[с. 10, следствие 1]{mmg-Shii-matzam2017}.
+\begin{theoremA}\label{mmg-st-sob-jac-0-uniconv}
+	Пусть
+	$-1<\alpha\le\frac{1}{2}$, $A,B\in\mathbb{R}$, $p>1$ таковы, что
+	\begin{equation*}
+		\left|\frac{A+1}{p}-\frac{\alpha+1}{2}\right|<
+		\min\left\{\frac{1}{4},\frac{\alpha+1}{2}\right\}, \quad
+		\left|\frac{B+1}{p}-\frac{1}{2}\right|<\frac{1}{4}.
+	\end{equation*}
+	Тогда если $f\in W^r_{L_{\rho(A,B)}^p}[-1,1]$, $r \ge 1$, то ряд Фурье функции $f$ по системе $\mathcal{P}_r^{\alpha,\beta}$ равномерно на $[-1,1]$ сходится к $f(x)$.
+\end{theoremA}
+
+Одним из результатов данного раздела является обобщение теорем \ref{mmg-st-sob-cheb-uniconv}, \ref{mmg-st-sob-jac-0-uniconv}.
+\begin{theorem}\label{mmg-sob-uni-conv-muck}
+	Пусть $-1 < \alpha,\beta$, $A,B \in \mathbb{R}$, $p>1$, таковы, что
+	\begin{gather}
+		\label{mmg-muck-A}
+		\left|\frac{A+1}{p}-\frac{\alpha+1}{2}\right|<
+		\min\left\{\frac{1}{4},\frac{\alpha+1}{2}\right\},\\
+		\label{mmg-muck-B}
+		\left|\frac{B+1}{p}-\frac{\beta+1}{2}\right|<\min\left\{\frac{1}{4},\frac{\beta+1}{2}\right\},\\
+		\label{mmg-Lpw-in-L1-cond}
+		\frac{A+1}{p} < 1, \quad \frac{B+1}{p} < 1.
+	\end{gather}
+	Тогда если $f\in W^r_{L_{\rho(A,B)}^p}[-1,1]$, $r \ge 1$, то ряд Фурье функции $f$ по системе $\mathcal{P}_r^{\alpha,\beta}$ равномерно на $[-1,1]$ сходится к $f(x)$.
+\end{theorem}
+На самом деле указанную теорему можно несколько усилить.
+\begin{theorem}\label{mmg-sob-conv-muck}
+	Пусть $\alpha,\beta > -1$, $A,B \in \mathbb{R}$, $p>1$. Для каждой функции $f\in W^r_{L_{\rho(A,B)}^p}[-1,1]$, $r \ge 1$, ряд Фурье по системе $\mathcal{P}_r^{\alpha,\beta}$ сходится к $f(x)$ по норме пространства $W^r_{L_{\rho(A,B)}^p}[-1,1]$ тогда и только тогда, когда
+	\begin{gather}
+		\label{mmg-muck-A1}
+		\left|\frac{A+1}{p}-\frac{\alpha+1}{2}\right|<
+		\min\left\{\frac{1}{4},\frac{\alpha+1}{2}\right\},\\
+		\label{mmg-muck-B1}
+		\left|\frac{B+1}{p}-\frac{\beta+1}{2}\right|<\min\left\{\frac{1}{4},\frac{\beta+1}{2}\right\}.
+	\end{gather}
+\end{theorem}
+
+При условиях \eqref{mmg-Lpw-in-L1-cond} норма $W^r_{L_{\rho(A,B)}^p}[-1,1]$ сильнее равномерной нормы, поэтому теорема \ref{mmg-sob-uni-conv-muck} вытекает из теоремы \ref{mmg-sob-conv-muck}.
+
+Для $A=\alpha$, $B=\beta$ аналог теоремы \ref{mmg-sob-conv-muck} получен в работе \cite{mmg-Diaz-Gonzalez2020} (см. теорему 5). В ней получены достаточные условия сходимости в пространстве $W^{\alpha,\beta}_{\overline{w},p}$, $w=(w_0,\ldots,w_{r-1}) \in \mathbb{R}^r$, рядов Фурье по системе полиномов, ортогональных относительно более общего скалярного произведения
+\begin{equation*}
+	\langle f, g \rangle = \sum_{k=0}^{r-1} f^{(k)}(\omega_k)g^{(k)}(\omega_k)+\int_{-1}^{1}f^{(r)}(t)g^{(r)}(t)\rho(\alpha,\beta;t)dt.
+\end{equation*}
+
+
+
+Как и в случае системы $\mathcal{P}^{-\frac12,-\frac12}_r$, для построения ряда Фурье по системе $\mathcal{P}_r^{\alpha,\beta}$ необходимо и достаточно, чтобы $f\in W^r_{L_{\rho(\alpha,\beta)}^1}[-1,1]$. Теорема \ref{mmg-sob-uni-conv-muck} справедлива только при $p>1$. Основным результатом настоящего раздела является следующая теорема.
+
+\begin{theorem}\label{mmg-sob-uni-conv-L1}
+	Если $f \in W^r_{L^1_{\rho(\alpha,\beta)}}$, $r \ge 1$, $-1<\alpha,\beta \le 0$, то ряд Фурье функции $f$ по системе полиномов $\mathcal{P}_r^{\alpha,\beta}$ равномерно на $[-1,1]$ сходится к $f$.
+\end{theorem}
+
+Данная теорема носит окончательный характер в том смысле, что при заданных $\alpha, \beta$ нельзя расширить множество рассматриваемых функций (ряд Фурье по $\mathcal{P}_r^{\alpha,\beta}$ не определяется для функций $f \notin  W^r_{L^1_{\rho(\alpha,\beta)}}$).
+
+Доказательство теоремы \ref{mmg-sob-uni-conv-L1} основано на теореме \ref{mmg-st-S1n-norm-est}. Теорема \ref{mmg-st-S1n-norm-est} доказывается с помощью леммы \ref{mmg-st-K1n-bounded}. В доказательстве леммы \ref{mmg-st-K1n-bounded} используется следующее утверждение, которое вытекает из лемм, доказанных в работе А.\,В. Зорщикова \cite[леммы 2 и 3]{mmg-Zorschikov1967}.
+\begin{lemma}\label{mmg-st-Zor}
+	Пусть $-1 < \alpha,\beta \le 0$, $x \in [-1,1]$. Тогда существует такая постоянная $c(\alpha,\beta)$, зависящая только от $\alpha,\beta$, что для любых $n$  и любых $-1 \le a \le b \le 1$ выполняется неравенство
+	\begin{equation*}
+		\Bigl| \int_a^b \rho(\alpha,\beta;u)K_n^{\alpha,\beta}(t,u)du \Bigr| \le c(\alpha,\beta).
+	\end{equation*}
+\end{lemma}
+
+\begin{lemma}\label{mmg-st-K1n-bounded}
+	Справедлива оценка
+	\begin{equation}\
+		|K^{\alpha,\beta}_{1,1+n}(x,t)| \le c(\alpha, \beta), \quad -1 < \alpha, \beta \le 0, x,t \in [-1,1], n \ge 0.
+	\end{equation}
+\end{lemma}
+\begin{theorem}\label{mmg-st-S1n-norm-est}
+	Для частичных сумм рядов Фурье по системе полиномов $\mathcal{P}_1^{\alpha,\beta}$ при $-1< \alpha, \beta \le 0$ имеет место неравенство:
+	\begin{equation}\label{mmg-S1n-bound}
+		\|S^{\alpha,\beta}_{1,n}\|_{W^1_{L^1_{\rho(\alpha,\beta)}} \to C} \le c(\alpha,\beta),
+	\end{equation}
+	где $c(\alpha,\beta)$ --- константа, не зависящая от $n$.
+\end{theorem}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,523 @@
+\chapter{Ряды Фурье по системам функций, ортогональным относительно скалярных произведений типа Соболева}
+
+\begin{center}
+\textbf{ Аннотация}
+\end{center}
+Рассмотрена задача об отклонении от функции $f$ из пространства $W^r$ частичных сумм ряда Фурье по системе полиномов Якоби $\{P_n^{\alpha-r,-r}(x)\}$, ортогональной относительно скалярного произведения типа Соболева. Исследовано поведение функции типа Лебега частичных сумм ряда Фурье по системе $\{P_n^{\alpha-r,-r}(x)\}$. Получены оценки в терминах модуля непрерывности $r$ - ой производной функции $f$.
+
+Исследована задача о сходимости ряда Фурье по системе полиномов $\{m_{n,N}^{\alpha,r}(x)\}$, ортонормированной по Соболеву и порожденной системой модифицированных полиномов Мейкснера. В частности, показано, что ряд Фурье по этой системе сходится к $f\in W^r_{l^p_{\rho_N}(\Omega_\delta)}$ поточечно на сетке $\Omega_\delta$ при $p\ge2$. Получены оценки для соответствующей функции Лебега частичных сумм ряда Фурье по системе $\{m_{n,N}^{0,r}(x)\}$.
+
+
+\section*{Введение}
+
+В последние годы теории ортогональных по Соболеву полиномов посвящено большое число работ. В частности, это связано с тем, что соболевские скалярные произведения и соответствующие им ортогональные системы (и их дифференциальные аналоги) играют важную роль во многих проблемах теории функций, квантовой механики, математической физики, вычислительной математики и т.д. В частности, ряды Фурье по ним обладают важными для приложений свойствами, которые отсутствуют у рядов Фурье по классическим ортогональным системам (см., например, \cite{Ram-Ba-Ra-Pe,Ram-Mar-Xu,Ram-Shar-UMN}).
+Например, ряды Фурье по полиномам, ортогональным по Соболеву, представляется более естественным аппаратом, чем ряды Фурье по классическим ортогональным полиномам, для приближенного решения краевых задач, в которых требуется анализ поведения приближенного решения в одной или нескольких точках.
+При решении таких задач важную роль играют сходимость и скорость сходимости рядов Фурье. В этом параграфе эти вопросы будут рассмотрены для систем полиномов, ортогональных по Соболнву и порожденных полиномами Якоби (см. п. \ref{Ram-Jac}) и Мейкснера (см. п. \ref{Ram-Mex}).
+
+\section{Об аппроксимативных свойствах рядов Фурье по полиномам Якоби $P_n^{\alpha-r,-r}(x)$, ортогональным по Соболеву}\label{Ram-Jac}
+
+\textbf{ Аннотация.} Рассмотрена задача об отклонении от функции $f$ из пространства $W^r$ частичных сумм ряда Фурье по системе полиномов Якоби $\{P_n^{\alpha-r,-r}(x)\}$, ортогональной относительно скалярного произведения типа Соболева. Исследовано поведение функции типа Лебега частичных сумм ряда Фурье по системе $\{P_n^{\alpha-r,-r}(x)\}$. Получены оценки в терминах модуля непрерывности $r$ - ой производной функции $f$.
+
+\subsection{Введение}
+
+Пусть $-1<\alpha$ -- нецелое, $\rho(x)=(1-x)^\alpha$, $L_\rho^2$ -- пространство Лебега, состоящее из измеримых на $[-1,1]$ функций $f$, для которых
+$$
+\int_{-1}^{1}f^2(x)\rho(x)dx<\infty.
+$$
+Для $r\in\mathbb{N}$ через $W^r_{L_\rho^2}$ обозначим пространство функций $f$, непрерывно дифференцируемых $r-1$ раз, причем $f^{(r-1)}$ абсолютно непрерывна на $[-1,1]$, а $f^{(r)}\in L_\rho^2$, $W^r$ -- класс $r$ раз непрерывно дифференцируемых функций $f$, заданных на $[-1,1]$ и для которых $|f^{(r)}|\le 1$.
+Для $f,g\in W^r_{L_\rho^2}$ определим скалярное произведение Соболева следующего вида
+\begin{equation}\label{Ram-Sob_inner_product}
+\langle f,g\rangle_S=\sum_{\nu=0}^{r-1}f^{(\nu)}(-1)g^{(\nu)}(-1)+\int_{-1}^{1}f^{(r)}(x)g^{(r)}(x)\rho(x)dx.
+\end{equation}
+
+Рассмотрим систему полиномов
+\begin{equation}\label{Ram-Ort_Sob_pol}
+	\varphi_n(x)=
+	\begin{cases}
+		\frac{(x+1)^n}{n!}, & 0\le n\le r-1 \\
+		\frac{2^r}{(n+\alpha-r)^{[r]}\sqrt{h_{n-r}^{\alpha,0}}}P_n^{\alpha-r,-r}(x), & r\le n,
+	\end{cases}
+\end{equation}
+где $P_n^{\alpha-r,-r}(x)$ -- полином Якоби степени $n$. В работе~\cite{Ram-SharMN} было показано, что система~\eqref{Ram-Ort_Sob_pol} полна в $W^r_{L_\rho^2}$ и ортонормирована относительно скалярного произведения~\eqref{Ram-Sob_inner_product}. Ряд Фурье по этой системе имеет следующий вид
+\begin{equation}\label{Ram-Fourier_series} f(x)=\sum_{k=0}^{r-1}\frac{f^{(k)}(-1)}{k!}(x+1)^k+\sum_{k=r}^{\infty}\frac{2^r\widehat{f_k}P_k^{\alpha-r,-r}(x)}{\sqrt{h_{k-r}^{\alpha,0}}(k+\alpha-r)^{[r]}},
+\end{equation}
+где
+$$
+\widehat{f_k}=\langle f,\varphi_k\rangle_S=\int_{-1}^{1}f^{(r)}(t)\frac{P_{k-r}^{\alpha,0}(t)}{\sqrt{h_{k-r}^{\alpha,0}}}(1-t)^\alpha dt, \quad k\ge r.
+$$
+
+Через $S^\alpha_{n+2r}(f)=S^\alpha_{n+2r}(f,x)$ обозначим частичную сумму ряда~\eqref{Ram-Fourier_series}:
+$$
+S^\alpha_{n+2r}(f)=\sum_{k=0}^{r-1}\frac{f^{(k)}(-1)}{k!}(x+1)^k+
+\sum_{k=r}^{n+2r}\frac{2^r\widehat{f_k}P_k^{\alpha-r,-r}(x)}{\sqrt{h_{k-r}^{\alpha,0}}(k+\alpha-r)^{[r]}}.
+$$
+В той же работе были исследованы аппроксимативные свойства сумм $S^\alpha_{n+2r}(f)$ для функций из пространства $W^r$. В частности была доказана следующая (см.~\cite[теорема 4]{Ram-SharMN})
+
+\textbf{Теорема А.}
+\textit{Пусть $-1<\alpha$ -- нецелое, $r\in\mathbb{N}$, $f\in W^r$. Тогда
+\begin{multline}\label{Ram-ineq_f-S}
+|f(x)-S^\alpha_{n+2r}(f)|\le c(r)\left(\frac{\sqrt{1-x^2}}{n+2r}\right)^r\omega\left(f^{(r)},\frac{\sqrt{1-x^2}}{n+2r}\right)+ \\
+c(r)\left[\omega\left(f^{(r)},\frac{1}{n+2r}\right)\frac{I_{r,n}^\alpha(x)}{(n+2r)^r}+\omega\left(f^{(r)},\frac{1}{(n+2r)^2}\right)J_{r,n}^\alpha(x)\right],
+\end{multline}
+где
+\begin{equation}\label{Ram-value_I}
+I_{r,n}^\alpha(x)=(1+x)^r\int_{-1}^{1-1/n^2}(1-t)^{\alpha-\frac{r}{2}}(1+t)^{\frac{r}{2}}|K_{n+r}^{\alpha-r,r}(x,t)|dtб,
+\end{equation}
+\begin{equation}\label{Ram-value_J}
+J_{r,n}^\alpha(x)=(1+x)^r\int_{1-1/n^2}^{1}(1-t)^{\alpha}|K_{n+r}^{\alpha-r,r}(x,t)|dt,
+\end{equation}
+$$
+\omega(g,\delta)=\sup_{x,t\in[-1,1], |x-t|\le\delta}|f(x)-f(t)|.
+$$
+}
+
+В связи с неравенством~\eqref{Ram-ineq_f-S} возникает задача об оценке величин $I_{r,n}^\alpha(x)$ и $J_{r,n}^\alpha(x)$, определенных равенствами~\eqref{Ram-value_I} и~\eqref{Ram-value_J} соответственно. Основными результатами настоящего пункта являются теоремы~\ref{Ram-theo1} и~\ref{Ram-theo2}, в которых получены оценки сверху для $I_{r,n}^\alpha(x)$, $J_{r,n}^\alpha(x)$ при $x\in(-1,1)$.
+
+\subsection{Некоторые сведения о полиномах Якоби}
+
+Для произвольных действительных чисел $\alpha$ и $\beta$ полиномы Якоби $P_n^{\alpha,\beta}(x)$ можно определить~\cite{Ram-Sege} с помощью формулы Родрига
+$$
+P_n^{\alpha,\beta}(x)=\frac{(-1)^n}{2^nn!}\frac{1}{\kappa(x)}\frac{d^n}{dx^n}\{\kappa(x)\sigma^n(x)\},
+$$
+где $\kappa(x)=\kappa(x;\alpha,\beta)=(1-x)^\alpha(1+x)^\beta$, $\sigma(x)=1-x^2$. Отметим также следующие свойства полиномов $P_n^{\alpha,\beta}(x)$, которые можно найти в~\cite{Ram-Sege}:
+\begin{itemize}
+	\item
+	соотношение ортогональности
+	$$
+	\int_{-1}^{1}P_n^{\alpha,\beta}(x)P_m^{\alpha,\beta}(x)\kappa(x)dx=h_n^{\alpha,\beta}\delta_{n,m},\quad \alpha, \beta>-1,
+	$$
+	где
+	$$
+	h_n^{\alpha,\beta}=\frac{\Gamma(n+\alpha+1)\Gamma(n+\beta+1)2^{\alpha+\beta+1}}{n!(2n+\alpha+\beta+1)\Gamma(n+\alpha+\beta+1)};
+	$$
+	
+	\item
+	равенства
+	\begin{multline}\label{alpha_1}
+		(1-x)P_n^{\alpha+1,\beta}(x)=\\
+		\frac{2}{2n+\alpha+\beta+2}\left[(n+\alpha+1)P_n^{\alpha,\beta}(x)-(n+1)P_{n+1}^{\alpha,\beta}(x)\right],
+	\end{multline}
+	\begin{multline}\label{beta_1}
+		(1+x)P_n^{\alpha,\beta+1}(x)=\\
+		\frac{2}{2n+\alpha+\beta+2}\left[(n+\beta+1)P_n^{\alpha,\beta}(x)+(n+1)P_{n+1}^{\alpha,\beta}(x)\right];
+	\end{multline}
+	
+	\item
+	формула Кристоффеля -- Дарбу
+	\begin{multline}\label{Kris_Dar}
+		K_n^{\alpha,\beta}(x,t)=\sum_{k=0}^{n}\frac{P_k^{\alpha,\beta}(x)P_k^{\alpha,\beta}(t)}{h_k^{\alpha,\beta}}=\frac{2^{-\alpha-\beta}}{2n+\alpha+\beta+2}\times\\
+		\frac{\Gamma(n+2)\Gamma(n+\alpha+\beta+2)}{\Gamma(n+\alpha+1)\Gamma(n+\beta+1)}
+		\frac{P_{n+1}^{\alpha,\beta}(x)P_n^{\alpha,\beta}(t)-P_n^{\alpha,\beta}(x)P_{n+1}^{\alpha,\beta}(t)}{x-t};
+	\end{multline}
+	
+	\item
+	весовая оценка ($-1\le x\le1$)
+	\begin{equation*}
+		\sqrt{n}|P_n^{\alpha,\beta}(x)|\le c(\alpha,\beta)\left(\sqrt{1-x}+\frac{1}{n}\right)^{-\alpha-\frac12}
+		\left(\sqrt{1+x}+\frac{1}{n}\right)^{-\beta-\frac12},
+	\end{equation*}
+\end{itemize}
+где здесь и всюду в дальнейшем $c$, $c(\alpha,\beta)$, $c(\alpha,\beta,r)$ -- положительные числа, зависящие только от указанных параметров и различные в разных местах.
+
+\subsection{Формулировка основных результатов}
+
+В дальнейшем при оценке величин $I_{r,n}^\alpha(x)$, $J_{r,n}^\alpha(x)$ нам понадобятся некоторые преобразования формулы Кристоффеля -- Дарбу, определенной равенством~\eqref{Kris_Dar}. Для этого воспользуемся равенством~\eqref{alpha_1}, из которого находим
+$$
+P_{n+1}^{\alpha,\beta}(y)=\frac{n+\alpha+1}{n+1}P_{n}^{\alpha,\beta}(y)-\frac{2n+\alpha+\beta+2}{2(n+1)}(1-y)P_{n}^{\alpha+1,\beta}(y).
+$$
+С учетом этого равенства нетрудно получить оценку для ядра $K_n^{\alpha,\beta}(x,t)$:
+$$
+|K_n^{\alpha,\beta}(x,t)|\le
+c(\alpha,\beta)\frac{n}{|x-t|}\left[(1-t)|P_{n}^{\alpha+1,\beta}(t)P_{n}^{\alpha,\beta}(x)|+
+(1-x)|P_{n}^{\alpha+1,\beta}(x)P_{n}^{\alpha,\beta}(t)|\right].
+$$
+Если воспользоваться равенством~\eqref{beta_1}, то можно получить аналогичную оценку для $K_n^{\alpha,\beta}(x,t)$:
+$$
+|K_n^{\alpha,\beta}(x,t)|\le
+c(\alpha,\beta)\frac{n}{|x-t|}\left[(1+t)|P_{n}^{\alpha,\beta+1}(t)P_{n}^{\alpha,\beta}(x)|+
+(1+x)|P_{n}^{\alpha,\beta+1}(x)P_{n}^{\alpha,\beta}(t)|\right].
+$$
+
+Теперь перейдем к формулировке основных результатов. Имеет место следующая
+\begin{theorem}\label{Ram-theo1}
+	Пусть $r-1<\alpha$ -- нецелое, $x\in(-1,1)$. Тогда для величины $I_{r,n}^\alpha(x)$ справедливы следующие оценки:
+	
+	1) если $x\in\left[0,1-\frac{1}{2n^2}\right]$, то
+	\begin{equation*}
+		I_{r,n}^\alpha(x)\le c(\alpha,r)(1-x)^{\frac{r}{2}}\left[\ln(n\sqrt{1-x}+1)+(1-x)^{-\frac{\alpha}{2}-\frac14}+1\right];
+	\end{equation*}
+	
+	2) если $x\in\left(1-\frac{1}{2n^2},1\right)$, то
+	\begin{equation*}
+		I_{r,n}^\alpha(x)\le c(\alpha,r)
+		\begin{cases}
+			1, & \alpha\le r-\frac12, \\
+			(1-x)^{\frac{r-\alpha}{2}-\frac14}, & \alpha>r-\frac12;
+		\end{cases}
+	\end{equation*}
+	
+	3) если $x\in\left[-1+\frac{1}{2n^2},0\right)$, то
+	\begin{equation*}
+		I_{r,n}^\alpha(x)\le c(\alpha,r)(1+x)^{\frac{r}{2}}\left(\ln(n\sqrt{1+x}+1)+(1+x)^{-\frac14}+1\right);
+	\end{equation*}
+	
+	4) если $x\in\left(-1,-1+\frac{1}{2n^2}\right)$, то
+	\begin{equation*}
+		I_{r,n}^\alpha(x)\le c(\alpha,r)(1+x)^{\frac{r}{2}-\frac14}.
+	\end{equation*}
+\end{theorem}
+
+Перейдем теперь к оценке величины $J_{r,n}^\alpha(x)$, определенной равенством~\eqref{Ram-value_J}. Справедлива следующая
+
+\begin{theorem}\label{Ram-theo2}
+	Пусть $r-1<\alpha$ -- нецелое, $x\in(-1,1)$. Тогда для величины $J_{r,n}^\alpha(x)$ справедливы следующие оценки:
+	
+	1) если $x\in\left(1-\frac{2}{n^2},1\right)$, то
+	\begin{equation*}\label{est_for_J1_seg}
+		J_{r,n}^\alpha(x)\le \frac{c(\alpha,r)}{n^{2r}},
+	\end{equation*}
+	
+	2) если $x\in\left[0,1-\frac{2}{n^2}\right]$, то
+	\begin{equation*}
+		J_{r,n}^\alpha(x)\le c(\alpha,r)\frac{(1-x)^{\frac{r-\alpha}{2}-\frac34}}{n^{r+\alpha+\frac32}},
+	\end{equation*}
+	
+	3) если $x\in(-1,0)$, то
+	\begin{equation*}
+		J_{r,n}^\alpha(x)\le c(\alpha,r)\frac{(1+x)^{\frac{r}{2}-\frac14}}{n^{r+\alpha+\frac32}}.
+	\end{equation*}
+\end{theorem}
+
+Таким образом, сравнивая оценки для величин $I_{r,n}^\alpha(x)$ и $J_{r,n}^\alpha(x)$, мы можем переформулировать теорему {\textbf{A}} в следующем виде.
+\begin{theorem}\label{Ram-theo3}
+Пусть $r\in\mathbb{N}$, $r-1<\alpha$ -- нецелое, $f\in W^r$, $x\in(-1,1)$. Тогда
+\begin{equation*}
+|f(x)-S^\alpha_{n+2r}(f)|\le \frac{c(\alpha,r)}{(n+2r)^r}\omega\left(f^{(r)},\frac{1}{n+2r}\right)\mathcal{I}_{r,n}^\alpha(x),
+\end{equation*}
+где
+$$
+\mathcal{I}_{r,n}^\alpha(x)=
+\begin{cases}
+     (1-x)^{\frac{r}{2}}\left[\ln(n\sqrt{1-x}+1)+(1-x)^{-\frac{\alpha}{2}-\frac14}+1\right], & 0\le x\le 1-\frac{1}{2n^2}; \\
+     \begin{cases}
+	       1, & \alpha\le r-\frac12, \\
+	       (1-x)^{\frac{r-\alpha}{2}-\frac14}, & \alpha>r-\frac12,
+     \end{cases} & 1-\frac{1}{2n^2}<x<1;\\
+    (1+x)^{\frac{r}{2}}\left(\ln(n\sqrt{1+x}+1)+(1+x)^{-\frac14}+1\right), & -1+\frac{1}{2n^2}\le x<0; \\
+    (1+x)^{\frac{r}{2}-\frac14}, & -1<x<-1+\frac{1}{2n^2}.
+\end{cases}
+$$
+\end{theorem}
+
+\subsection{Заключение}
+Была рассмотрена задача об отклонении от функции $f$ из пространства $W^r$ частичных сумм ряда Фурье по ортогональной по Соболеву системе полиномов $\{\varphi_n(x)\}_{n=0}^\infty$, в которой $\varphi_n(x)=\frac{(x+1)^n}{n!}$ при $0\le n\le r-1$ и $\varphi_n(x)=\frac{2^r}{(n+\alpha-r)^{[r]}\sqrt{h_{n-r}^{\alpha,0}}}P_n^{\alpha-r,-r}(x)$ при $n\ge r$, где $P_n^{\alpha-r,-r}(x)$ -- полином Якоби степени $n$. Получены оценки сверху для функции типа Лебега частичных сумм ряда Фурье по системе $\{\varphi_n(x)\}_{n=0}^\infty$.
+
+
+\section{Сходимость ряда Фурье по полиномам Мейкснера -- Соболева и аппроксимативные свойства его частичных сумм}\label{Ram-Mex}
+
+\textbf{ Аннотация.} Исследована задача о сходимости ряда Фурье по системе полиномов $\{m_{n,N}^{\alpha,r}(x)\}$, ортонормированной по Соболеву и порожденной системой модифицированных полиномов Мейкснера. В частности, показано, что ряд Фурье по этой системе сходится к $f\in W^r_{l^p_{\rho_N}(\Omega_\delta)}$ поточечно на сетке $\Omega_\delta$ при $p\ge2$. Кроме того, исследованы аппроксимативные свойства частичных сумм ряда Фурье по системе $\{m_{n,N}^{0,r}(x)\}$. Получены оценки для соответствующей функции Лебега.
+
+\subsection{Введение}
+В настоящее время теория полиномов, ортогональных по Соболеву, продолжает интенсивно развиваться. В частности, это связано с тем, что системы полиномов, ортогональные относительно соболевских скалярных произведений, и ряды Фурье по ним обладают важными для приложений свойствами, которые отсутствуют у классических ортогональных систем \cite{Ram-Ba-Ra-Pe,Ram-Mar-Xu,Ram-Shar-UMN,Ram-Shar-VMJ}.
+В литературе можно встретить различные подходы к построению систем полиномов, ортогональных по Соболеву, отличающиеся выбором тех или иных скалярных произведений.
+Приведем некоторые виды скалярных произведений, связанные с полиномами Мейкснера.
+Например, в \cite{Ram-Ar-Go-Mar,Ram-Kh-Old} рассмотрено скалярное произведение Соболева следующего вида
+$$
+\langle f,g\rangle_S=\sum_{x=0}^{\infty}f(x)g(x)w(x)+\lambda\sum_{x=0}^{\infty}\Delta f(x)\Delta g(x)w(x),
+$$
+где $\lambda\ge 0$, $\Delta f(x)=f(x+1)-f(x)$, $w(x)$ -- вес Мейкснера. А в \cite{Ram-Bav1,Ram-Bav2} были рассмотрены частные случаи этого скалярного произведения, а именно, в \cite{Ram-Bav1} вместо второй суммы было рассмотрено одно слагаемое $\lambda f(0)g(0)$, в \cite{Ram-Bav2} -- два слагаемых $Mf(0)g(0)+N\Delta f(0)\Delta g(0)$, $M,N\ge 0$. При этом было показано, что полиномы $\{Q_n(x)\}$, ортогональные относительно этих скалярных произведений, можно определить посредством равенства $Q_n(x)=\sum_{k=0}^{n}c_{k,n}M_k^\alpha(x)$, где $M_k^\alpha(x)$ -- полином Мейкснера степени $k$. Далее, в \cite{Ram-Shar-VMJ,Ram-Shar-Sar} было рассмотрено скалярное произведение следующего вида
+\begin{equation}\label{Ram-Sob-inner-Intro}
+\langle f,g\rangle_S=\sum_{k=0}^{r-1}\Delta^kf(0)\Delta_\delta^kg(0)+\sum_{x=0}^\infty\Delta^rf(x)\Delta^rg(x)w(x)
+\end{equation}
+и показано, что полиномы, ортонормированные относительно \eqref{Ram-Sob-inner-Intro}, можно определить посредством равенств
+$$
+m_{r,n}^{\alpha}(x)=\frac{x^{[n]}}{n!},\ n=\overline{0,r-1},
+$$
+$$
+m_{r,n}^{\alpha}(x)=
+\frac{1}{\sqrt{h_{n-r}^\alpha}(r-1)!}\sum_{t=0}^{x-r}(x-1-t)^{[r-1]}M_{n-r}^\alpha(t),\ x\ge r,\ n\ge r,
+$$
+где $x^{[n]}=x(x-1)\cdots(x-n+1)$.
+В дальнейшем нам понадобятся некоторые обозначения. Пусть $1\le p<\infty$, $l_w^p(\Omega)$ -- пространство дискретных функций $f$, заданных на сетке $\Omega=\{0, 1, \ldots\}$ и для которых $\|f\|_{l_{w}^p(\Omega)}^p=\sum_{x\in\Omega}|f(x)|^pw(x)<\infty$, а $W^r_{l_{w}^p(\Omega)}$ -- подпространство в $l_{w}^p(\Omega)$.
+В \cite{Ram-Shar-Sar} была доказана следующая
+
+\textbf{Теорема B.}
+\textit{
+Система полиномов $\{m_{r,n}^\alpha(x)\}$ полна в $W^r_{l_w^2(\Omega)}$.
+}
+
+Другие виды скалярных произведений Соболева, связанные с полиномами Мейкснера, можно найти в \cite{Ram-Mor-Bal,Ram-Co-So-Vil}.
+Результаты, полученные в вышеприведенных работах \cite{Ram-Shar-VMJ,Ram-Ar-Go-Mar,Ram-Kh-Old,Ram-Bav1,Ram-Bav2,Ram-Shar-Sar,Ram-Mor-Bal,Ram-Co-So-Vil}, в основном связаны с исследованием распределения нулей полиномов Мейкснера --  Соболева, изучением их алгебраических, асимптотических и дифференциальных свойств. В то же время остаются мало изученными вопросы сходимости ряда Фурье по полиномам Мейкснера -- Соболева и аппроксимативные свойства его частичных сумм. В связи с этим в отчетном году была рассмотрена система полиномов $\{m_{n,N}^{\alpha,r}(x)\}$, ортонормированная по Соболеву и порожденная системой модифицированных полиномов Мейкснера $\{m_{n,N}^{\alpha}(x)\}$.
+Показано, что ряд Фурье по этой системе сходится к $f\in W^r_{l^p_{\rho_N}(\Omega_\delta)}$ поточечно на сетке $\Omega_\delta$ при $p\ge2$. А в случае, когда $1\le p<2$ показано, что существуют функция и сетка $\Omega_\delta$, ряд Фурье которой расходится в некоторой точке $x_0\in\Omega_\delta$. Кроме того, исследованы аппроксимативные свойства частичных сумм ряда Фурье по системе $\{m_{n,N}^{0,r}(x)\}$.
+
+\subsection{Некоторые сведения о полиномах Мейкснера}
+
+Пусть $N>0$, $\delta=1/N$, $\Omega_\delta=\{0,\delta,2\delta,\ldots \}$. Через $M_{n,N}^{\alpha}(x)$ обозначим модифицированные полиномы Мейкснера, которые при $\alpha>-1$ ортогональны на сетке $\Omega_\delta$ относительно веса $\rho_N(x)=e^{-x}\frac{\Gamma(Nx+\alpha+1)}{\Gamma(Nx+1)}(1-e^{-\delta})^{\alpha+1}$. Соответствующие ортонормированные полиномы мы обозначим через $m_{n,N}^{\alpha}(x)=\frac{1}{\sqrt{h_n^\alpha}}M_{n,N}^{\alpha}(x)$, где $h_n^\alpha={n+\alpha\choose n}e^{n\delta}\Gamma(\alpha+1)$. Приведем некоторые свойства полиномов $M_{n,N}^{\alpha}(x)$, которые можно найти в \cite{Ram-SharBook}:
+\begin{itemize}
+\item
+формула Родрига
+\begin{equation}\label{Ram-for-Rod}
+M_{n,N}^{\alpha}(x)=\frac{\Gamma(Nx+1)e^{n\delta+x}}{n!\Gamma(Nx+\alpha+1)}
+\Delta^n_\delta\left\{\frac{\Gamma(Nx+\alpha+1)}
+{\Gamma(Nx-n+1)}e^{-x}\right\};
+\end{equation}
+\item
+явный вид
+\begin{equation}\label{Ram-explicit-rep}
+M_{n,N}^\alpha(x)={n+\alpha\choose n}\sum_{k=0}^n{n^{[k]}(Nx)^{[k]}\over(\alpha+1)_kk!}\left(1-e^\delta\right)^k;
+\end{equation}
+\item
+равенства
+\begin{equation}\label{Ram-deriv}
+\Delta_\delta^r M_{n,N}^{\alpha}(x)=(1-e^{\delta})^rM_{n-r,N}^{\alpha+r}(x),
+\end{equation}
+\begin{equation}\label{Ram-parametr-r}
+M^{-l}_{n,N}(x)=\frac{(n-l)!}{n!}(e^\delta-1)^l(-Nx)_lM_{n-l,N}^l(x-l\delta),\ 1\le l\le n;
+\end{equation}
+
+\item
+формула Кристоффеля--Дарбу
+\begin{multline}\label{Ram-Kric-Dar}
+K_{n,N}^{\alpha}(x,y)=\sum_{k=0}^n m_{k,N}^{\alpha}(x)m_{k,N}^{\alpha}(y)=\\
+\frac{\delta}{(e^{\delta}-1)e^{n\delta}}\frac{(n+1)!}{\Gamma(n+\alpha+1)}\frac{M_{n,N}^\alpha(x)M_{n+1,N}^\alpha(y)-
+M_{n+1,N}^\alpha(x)M_{n,N}^\alpha(y)}{x-y},
+\end{multline}
+\end{itemize}
+которую посредством элементарных преобразований можно записать в следующем виде
+$$
+K_{n,N}^\alpha(x,y)={\alpha_n\over(\alpha_n+\alpha_{n-1})}m_{n,N}^{\alpha}(x)m_{n,N}^{\alpha}(y)+
+{\alpha_n\alpha_{n-1}\over\alpha_n+\alpha_{n-1}}{\delta\over e^{\delta\over2}-e^{-{\delta\over2}}} {1\over y-x}\times
+$$
+$$
+\left[m_{n,N}^\alpha(y)\left(m_{n+1,N}^\alpha(x)- m_{n-1,N}^\alpha(x)\right)
+-m_{n,N}^\alpha(x)\left(m_{n+1,N}^\alpha(y)-m_{n-1,N}^\alpha(y)
+\right)\right],
+$$
+где $\alpha_n=\sqrt{(n+1)(n+\alpha+1)}$.
+
+Далее, при $\alpha>-1$, $0\le x<\infty$, $\theta_n=4n+2\alpha+2$, $\lambda>0$, $1\le n\le \lambda N$, $s\geq0$ справедливы следующие весовые оценки~\cite{Ram-SharBook}:
+\begin{equation*}
+e^{-x/2}\left|m_{n,N}^\alpha(x\pm s\delta)\right|\le c(\alpha,\lambda,s)\theta_n^{-\frac{\alpha}{2}}A_n^\alpha(x),
+\end{equation*}
+\begin{equation*}
+A_n^\alpha(x)=\begin{cases}
+\theta_n^{\alpha},&  0\le x\le \frac{1}{\theta_n},\\
+\theta_n^{\alpha/2-1/4}x^{-\alpha/2-1/4},&     \frac{1}{\theta_n}<x\le {\theta_n\over 2},\\
+\left[\theta_n(\theta_n^{1/3}+|x-\theta_n|)\right]^{-1/4},& {\theta_n\over2}<x\leq{3\theta_n\over2},\\
+e^{-x/4}, & {3\theta_n\over2}<x<\infty,
+\end{cases}
+\end{equation*}
+$$
+e^{-x/2}\left|m_{n+1,N}^{\alpha}(x)-m_{n-1,N}^{\alpha}(x)\right|\leq
+$$
+\begin{equation*}
+c(\alpha,\lambda)\begin{cases}
+\theta_n^{\alpha/2-1},&  0\le x\le \frac{1}{\theta_n},\\
+\theta_n^{-3/4}x^{-\alpha/2+1/4},&     \frac{1}{\theta_n}<x\le {\theta_n\over 2},\\
+x^{-\alpha/2}\theta_n^{-3/4}\left[\theta_n^{1/3}+|x-\theta_n|\right]^{1/4},& {\theta_n\over2}<x\leq{3\theta_n\over2},\\
+e^{-x/4}, & {3\theta_n\over2}<x<\infty,
+\end{cases}
+\end{equation*}
+где здесь и далее $c(\alpha)$, $c(\alpha, \lambda)$, $c(\alpha, \lambda, s)$ -- положительные числа, зависящие только от указанных параметров, причем различные в разных местах.
+
+В дальнейшем нам также понадобятся следующие утверждения.
+\begin{lemma}
+Пусть $0\le l$ -- целое, $r\in\mathbb{N}$, $l\le r$. Тогда имеет место равенство:
+\begin{equation*}
+\Delta^l_\delta\left((Nx)^{[r]}M^r_{n,N}(x-r\delta)\right)=(n-l+r+1)_l(Nx)^{[r-l]}M^{r-l}_{n,N}(x-(r-l)\delta).
+\end{equation*}
+\end{lemma}
+
+\begin{lemma}[\cite{Ram-MN2019}]
+Пусть $-1<\alpha\in\mathbb{R}$, $\theta_n=4n+2\alpha+2$, $\lambda>0$, $N=1/\delta$, $0<\delta\leq1$. Тогда для $1\leq n\leq \lambda N$ имеет место следующая оценка
+\begin{equation*}
+e^{-x}K_{n,N}^\alpha(x,x)\le c(\alpha,\lambda)
+\begin{cases}
+n^{1-\alpha}(A_n^\alpha(x))^2, & x\in[0,\frac{\theta_n}{2}]\cup[\frac{3\theta_n}{2},\infty), \\
+n^{-\alpha}, & x\in[\frac{\theta_n}{2},\frac{3\theta_n}{2}].
+\end{cases}
+\end{equation*}
+\end{lemma}
+
+\subsection{Ряд Фурье по полиномам Мейкснера -- Соболева и аппроксимативные свойства его частичных сумм}
+
+Пусть $\alpha>-1$. Рассмотрим систему полиномов $\{m_{n,N}^{\alpha,r}(x)\}$:
+\begin{equation*}
+m_{n,N}^{\alpha,r}(x)=\frac{(Nx)^{[n]}}{n!},\ n=\overline{0,r-1},
+\end{equation*}
+\begin{equation}\label{Ram-Pol-second}
+m_{n,N}^{\alpha,r}(x)=
+\frac{1}{(r-1)!}\sum\limits_{t\in \Omega_\delta^x}(Nx-1-Nt)^{[r-1]}m_{n-r,N}^\alpha(t),\ x\ge r\delta,\ n\ge r.
+\end{equation}
+где $x^{[n]}=x(x-1)\cdots(x-n+1)$, $\Omega_\delta^x=\{0, \delta, \ldots, x-r\delta\}$. Заметим, что $m_{n,N}^{\alpha,r}(x)=0$ при $n\ge r$, $x\in\{0, \delta, \ldots, (r-1)\delta\}$. Действительно, из~\eqref{Ram-Pol-second} и~\eqref{Ram-explicit-rep} имеем
+$$
+m_{n,N}^{\alpha,r}(x)=\frac{1}{\sqrt{h_{n-r}^\alpha}}
+{n-r+\alpha\choose n-r}\sum_{k=0}^{n-r}{(n-r)^{[k]}\left(1-e^\delta\right)^k\over(\alpha+1)_kk!}P_{k+r}(x),
+$$
+где $P_{k+r}(x)=\frac{1}{(r-1)!}\sum\limits_{t\in \Omega_\delta^x}(Nx-1-Nt)^{[r-1]}(Nx)^{[k]}$. Запишем дискретный аналог формулы Тейлора для функции $d(x)=(Nx)^{[k+r]}$:
+$$
+d(x)=\sum_{k=0}^{r-1}\Delta_\delta^kd(0){(Nx)^{[k]}\over k!}+\frac{1}{(r-1)!}\sum\limits_{t\in \Omega_\delta^x}(Nx-1-Nt)^{[r-1]}\Delta^r_\delta d(x)=
+$$
+$$
+\sum_{k=0}^{r-1}\Delta_\delta^kd(0){(Nx)^{[k]}\over k!}+(k+r)^{[r]}P_{k+r}(x)=(k+r)^{[r]}P_{k+r}(x).
+$$
+Отсюда $P_{k+r}(x)=\frac{d(x)}{(k+r)^{[r]}}=\frac{(Nx)^{[k+r]}}{(k+r)^{[r]}}$. А поскольку $(Nx)^{[k+r]}=0$ для $k\ge0$, $x\in\{0, \delta, \ldots, (r-1)\delta\}$, то $m_{n,N}^{\alpha,r}(x)=0$ при $n\ge r$, $x\in\{0, \delta, \ldots, (r-1)\delta\}$.
+
+Если теперь запишем дискретный аналог формулы Тейлора для полинома $M_{n,N}^{\alpha-r}(x)$ и воспользуемся равенством~\eqref{Ram-deriv}, то получим
+$$
+M_{n,N}^{\alpha-r}(x)=\sum_{k=0}^{r-1}\Delta_\delta^kM_{n,N}^{\alpha-r}(0){(Nx)^{[k]}\over k!}+
+\frac{(1-e^\delta)^r}{(r-1)!}\sum\limits_{t\in \Omega_\delta^x}(Nx-1-Nt)^{[r-1]}M_{n-r,N}^{\alpha}(x).
+$$
+Отсюда с учетом~\eqref{Ram-Pol-second} имеем
+\begin{equation}\label{Ram-rep-alpha-r}
+m_{n,N}^{\alpha,r}(x)= \frac{1}{(1-e^\delta)^r}\frac{1}{\sqrt{h_{n}^{\alpha}}}\left[M_{n,N}^{\alpha-r}(x)-\sum_{k=0}^{r-1}\Delta_\delta^kM_{n,N}^{\alpha-r}(0){(Nx)^{[k]}\over k!}\right],
+\end{equation}
+где $\Delta^k_\delta M_{n,N}^{\alpha-r}(0)=(1-e^\delta)^k\frac{\Gamma(n+\alpha-r+1)}{(n-k)!\Gamma(\alpha-r+k+1)}$. Заметим, что $\Delta^k_\delta M_{n,N}^{\alpha-r}(0)=0$ при $\alpha=0$.
+
+Из определения системы $\{m_{n,N}^{\alpha,r}(x)\}$ также вытекает следующее свойство:
+\begin{equation}\label{Ram-deriv-for-sys}
+\Delta_\delta^\nu m_{n,N}^{\alpha,r}(x)=
+\begin{cases}
+m_{n-\nu,N}^{\alpha,r-\nu}(x),& 0\le\nu\le r-1, r\le n,\\
+m_{n-r,N}^{\alpha}(x),& \nu=r\le n,\\
+m_{n-\nu,N}^{\alpha,r-\nu}(x),& \nu\le n<r,\\
+0,& n<\nu\le r.
+\end{cases}
+\end{equation}
+Из~\eqref{Ram-deriv-for-sys} следует, что система $\{m_{n,N}^{\alpha,r}(x)\}$ ортонормирована относительно скалярного произведения следующего вида
+\begin{equation*}
+\langle f,g\rangle_S=\sum_{k=0}^{r-1}\Delta_\delta^kf(0)\Delta_\delta^kg(0)+\sum_{x\in\Omega_\delta}\Delta_\delta^rf(x)\Delta_\delta^rg(x)\rho_N(x).
+\end{equation*}
+
+Из теоремы \textbf{B} следует, что система полиномов $\{m_{n,N}^{\alpha,r}(x)\}$ полна в пространстве $W^r_{l^2_{\rho_N}(\Omega_\delta)}$. Нетрудно проверить, что ряд Фурье функции $f\in W^r_{l^2_{\rho_N}(\Omega_\delta)}$ по этой системе имеет следующий вид
+\begin{equation}\label{Ram-Fourier-series}
+f(x)\sim \sum_{k=0}^{r-1}\Delta_\delta^kf(0){(Nx)^{[k]}\over k!}+\sum_{k=r}^\infty c^\alpha_{r,k}(f)m^{\alpha,r}_{k,N}(x),
+\end{equation}
+где
+\begin{equation*}
+c^\alpha_{r,k}(f)=\sum_{t\in\Omega_\delta}\Delta_\delta^r f(t)m^\alpha_{k-r,N}(t)\rho_N(t),\ k\ge r.
+\end{equation*}
+Из неравенства Гельдера следует, что коэффициенты $c^\alpha_{r,k}(f)$ существуют для любой функции $f\in W^r_{l^p_{\rho_N}(\Omega_\delta)}$ при $p\ge 1$. В связи с этим возникает вопрос о сходимости ряда Фурье~\eqref{Ram-Fourier-series} к функции $f\in W^r_{l^p_{\rho_N}(\Omega_\delta)}$. Справедлива следующая
+\begin{theorem}\label{Ram-theoMex1}
+Пусть $\alpha>-1$, $1\le p<\infty$. Тогда, если $f\in W^r_{l^p_{\rho_N}(\Omega_\delta)}$, то при $p\ge2$ ряд~\eqref{Ram-Fourier-series} сходится поточечно к $f$ на $\Omega_\delta$. Если же $1\le p<2$, то существуют сетка $\Omega_\delta$ и функция $f\in W^r_{l^p_{\rho_N}(\Omega_\delta)}$, ряд Фурье которой расходится в некоторой точке $x_0\in \Omega_\delta$.
+\end{theorem}
+
+Далее, через $S_{n+r,N}^{\alpha,r}(f,x)$ обозначим частичную сумму ряда~\eqref{Ram-Fourier-series}:
+\begin{equation}\label{Ram-Part-sum}
+S_{n+r,N}^{\alpha,r}(f,x)=\sum_{k=0}^{r-1}\Delta_\delta^kf(0){(Nx)^{[k]}\over k!}+\sum_{k=r}^{n+r} c^\alpha_{r,k}(f)m^{\alpha,r}_{k,N}(x).
+\end{equation}
+Из~\eqref{Ram-Part-sum} следует, что для $S_{n+r,N}^{\alpha,r}(x)$ имеют место равенства
+\begin{equation*}
+S_{n+r,N}^{\alpha,r}(f,x)=f(x), \quad x\in\{0, \delta, \ldots, (r-1)\delta\}.
+\end{equation*}
+Кроме того, если $f(x)=p_{n+r}(x)$ -- алгебраический полином степени не выше $n+r$, то
+\begin{equation*}
+S_{n+r,N}^{\alpha,r}(p_{n+r},x)\equiv p_{n+r}(x).
+\end{equation*}
+
+Рассмотрим теперь вопрос об аппроксимативных свойствах частичных сумм $S_{n+r,N}^{\alpha,r}(f,x)$ при $\alpha=0$. В этом случае из~\eqref{Ram-rep-alpha-r} и~\eqref{Ram-parametr-r} следует, что для $m_{n+r,N}^{0,r}(x)$ имеет место равенство
+$$
+m_{n+r,N}^{0,r}(x)=\frac{(Nx)^{[r]}}{\sqrt{(n+r)^{[r]}}}m_{n,N}^r(x-r\delta).
+$$
+Тогда~\eqref{Ram-Part-sum} можно записать в виде
+\begin{equation*}
+S_{n+r,N}^{0,r}(f,x)=\sum_{k=0}^{r-1}\Delta_\delta^kf(0){(Nx)^{[k]}\over k!}+(Nx)^{[r]}\sum_{k=r}^{n+r} c^0_{r,k}(f)\frac{m^{r}_{k-r,N}(x-r\delta)}{\sqrt{k^{[r]}}}.
+\end{equation*}
+
+Далее, через $q_{n+r}(x)$ алгебраический полином степени $n+r,$ для которого
+$
+\Delta^i_\delta f(0)=\Delta^i_\delta q_{n+r}(0)\ (i=\overline{0, r-1}).
+$
+Тогда
+$$
+\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq\left|f(x)-q_{n+r}(x)\right|+\left|S_{n+r,N}^{0,r}(q_{n+r}-f,x)\right|.
+$$
+Отсюда для $x\in\Omega_{r,\delta}=\{r\delta, (r+1)\delta, \ldots\}$
+$$
+e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-q_{n+r}(x)\right|+
+$$
+\begin{equation}\label{Ram-gadz-eq15}
+e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|S_{n+r,N}^{0,r}(q_{n+r}-f,x)\right|.
+\end{equation}
+Так как $\sum\limits_{k=0}^{r-1}\Delta_\delta^k(q_{n+r}(0)-f(0)){(Nx)^{[k]}\over k!}=0$, то
+$$
+S_{n+r,N}^{0,r}(q_{n+r}-f,x)=
+(Nx)^{[r]}\sum_{k=r}^{n+r}c_{r,k}^0(q_{n+r}-f) \frac{m^{r}_{k-r,N}(x-r\delta)}{\sqrt{k^{[r]}}}=
+$$
+$$
+(Nx)^{[r]}\sum_{k=r}^{n+r}\frac{m^{r}_{k-r,N}(x-r\delta)}{\sqrt{k^{[r]}}}
+\sum_{t\in\Omega_{\delta}}\Delta_\delta^r(q_{n+r}(t)-f(t))e^{-t}(1-e^{-\delta})m_{k-r,N}^0(t).
+$$
+К внутренней сумме применим преобразование Абеля (попутно воспользуемся равенствами \eqref{Ram-for-Rod}, \eqref{Ram-parametr-r}) и получим
+$$
+\sum_{t\in\Omega_{\delta}}\Delta_\delta^r(q_{n+r}(t)-f(t))e^{-t}(1-e^{-\delta})m_{k-r,N}^0(t)=
+$$
+$$
+(-1)^r(1-e^{-\delta})\sum_{t\in\Omega_{\delta}}(q_{n+r}(t+r\delta)-f(t+r\delta))\frac{\sqrt{e^{(k-r)\delta}}}{(k-r)!}
+\Delta_\delta^k\left\{\frac{\Gamma(Nt+1)e^{-t}}{\Gamma(Nt-k+r+1)}\right\}=
+$$
+$$
+(-1)^r\frac{1-e^{-\delta}}{\sqrt{e^{(k-r)\delta}}}\sum_{t\in\Omega_{r,\delta}}(q_{n+r}(t)-f(t))\frac{\Gamma(Nt-r+1)}{\Gamma(Nt+1)}e^{-t}M_{k,N}^{-r}(t)=
+$$
+$$
+\frac{(e^{\delta}-1)^{r+1}}{e^\delta}\sum_{t\in\Omega_{r,\delta}}(q_{n+r}(t)-f(t))e^{-t}\sqrt{k^{[r]}}m_{k-r,N}^{r}(t-r\delta).
+$$
+Тогда
+$$
+S_{n+r,N}^{0,r}(q_{n+r}-f,x)=\frac{(e^{\delta}-1)^{r+1}}{e^\delta}(Nx)^{[r]}\sum_{t\in\Omega_{r,\delta}}(q_{n+r}(t)-f(t))e^{-t}K_{n,N}^r(t-r\delta,x-r\delta).
+$$
+Отсюда и из \eqref{Ram-gadz-eq15} выводим
+\begin{multline}\label{Ram-gadz-eq16}
+e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-q_{n+r}(x)\right|+\\
+\frac{(e^{\delta}-1)^{r+1}}{e^\delta}e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}(Nx)^{[r]}\sum_{t\in\Omega_{r,\delta}}(q_{n+r}(t)-f(t))e^{-t}K_{n,N}^r(t-r\delta,x-r\delta).
+\end{multline}
+
+Положим
+\begin{equation}\label{Ram-gadz-eq17}
+E_{k}^r(f,\delta)=\inf_{q_{k}}\sup_{x\in\Omega_{r,\delta}} e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-q_{k}(x)\right|,
+\end{equation}
+где нижняя грань берется по всем алгебраическим полиномам $q_{k}(x)$ степени $k,$ для которых $\Delta_\delta^i f(0)=\Delta_\delta^i q_{k}(0)\ (i=\overline{0, r-1}).$
+Тогда из \eqref{Ram-gadz-eq16} и \eqref{Ram-gadz-eq17} получаем
+\begin{equation}\label{Ram-LebIne}
+e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq E_{n+r}^r(f,\delta)(1+\lambda_{n,N}^{r}(x)),
+\end{equation}
+где
+$$
+\lambda_{n,N}^{r}(x)=\frac{(e^{\delta}-1)^{r+1}}{e^\delta}e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}(Nx)^{[r]}
+\sum_{t\in\Omega_{r,\delta}}e^{-{t\over 2}}t^{{r\over 2}-{1\over 4}}
+\left|K_{n,N}^r(t-r\delta,x-r\delta)\right|.
+$$
+В связи с неравенством \eqref{Ram-LebIne} возникает задача об оценке величины $\lambda_{n,N}^{r}(x)$ на $[r\delta,\infty)$. Пусть $\nu=4n+2r+2$. Введем обозначения:
+$X_1=\left[r\delta, \frac{3}{\nu}\right]$,
+$X_2=\left(\frac{3}{\nu}, \frac{\nu}{2}\right]$,
+$X_3=\left(\frac{\nu}{2}, \frac{3\nu}{2}\right]$,
+$X_4=\left(\frac{3\nu}{2}, \infty\right)$.
+Справедлива следующая
+\begin{theorem}\label{Ram-theoMex2}
+Пусть $r\in\mathbb{N}$, $\lambda> 0$, $n\leq\lambda N.$ Тогда имеют место следующие оценки:\\
+1) если $x\in X_1\cup X_2$, то
+$$
+\lambda_{n,N}^{r}(x)\leq c(\lambda, r)\ln (n+1);
+$$
+2) если $x\in X_3$, то
+$$
+\lambda_{n,N}^{r}(x)\leq c(\lambda,r)\left[\ln(n+1)+\left(\frac{\nu}{\nu^{1\over3}+|x-\nu|}\right)^{\frac{1}{4}}\right];
+$$
+3) если $x\in X_4$, то
+$$
+\lambda_{n,N}^{r}(x)\leq c(\lambda,r)n^{-{r\over 2}+{7\over 4}}x^{{r\over 2}+{1\over 4}}e^{-\frac{x}{4}}.
+$$
+\end{theorem}
+
+\subsection{Заключение}
+Была исследована задача о сходимости ряда Фурье по полиномам, ортогональным по Соболеву и порожденным полиномами Мейкснера.
+Кроме того, были исследованы аппроксимативные свойства частичных сумм Фурье по указанным полиномам. В частности, получены оценки для функции Лебега, зависящие от расположения переменной $x$ на полуоси $[r\delta, \infty)$.
+
+
+
+
+	
+
+
+
+
