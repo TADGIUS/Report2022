@@ -1,0 +1,925 @@
+ \documentclass[a4paper,12pt]{article}
+%\usepackage[cp1251]{fontenc}				% Поддержка русских букв
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{mathrsfs}
+%\usepackage{showkeys} %добавлено
+\usepackage{mdwlist}
+\usepackage{mathtools}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, dsfont}
+%\usepackage{amsfonts, amssymb, amsthm}
+\usepackage{amscd}
+\usepackage{dsfont}
+\usepackage{cite}
+\usepackage{verbatim}
+\usepackage[plainpages=false,pdfpagelabels=false,colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{cmap}
+\usepackage{color}
+\usepackage[all,cmtip]{xy}
+\graphicspath{{pictures/}}
+
+
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem*{remark}{Замечание}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[section]
+\renewcommand\qedsymbol{$\square$}
+
+
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\DeclareMathOperator*{\essinf}{ess\,inf}
+
+\textwidth=16.5cm
+\hoffset=-2.5cm
+\textheight=25.5cm
+\voffset=-2.5cm
+
+\righthyphenmin=2
+\parindent=0mm
+\parskip=3.5mm
+
+\def\<{\left<}
+\def\>{\right>}
+\def\Ker{\operatorname{Ker}}
+\def\const{\mathrm{const}}
+
+% Заменяем библиографию с квадратных скобок на точку:
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}
+\makeatother
+
+\bibliographystyle{utf8gost705u}
+%\bibliographystyle{unsrt}
+
+\begin{document}
+\begin{center}
+  \section*{Отчет НИР за 2022 год Сиражудинова М.М.}
+\end{center}
+
+\section{Оценки погрешности усреднения периодической \\ задачи  для уравнения Бельтрами\\
+	с локально-периодическим коэффициентом}
+\begin{abstract}
+Локальные характеристики математических моделей сильно неоднородных сред, как правило, описываются функциями вида $a(\varepsilon^{-1} x)$, или $b(x,\varepsilon^{-1} x)$, или $c(\varepsilon^{-1} x,\delta^{-1} x)$, \linebreak или $d(\varepsilon^{-1} x,\delta^{-1} x,\gamma^{-1} x)$ и т.\,д., где $\varepsilon$, $\delta$,$\gamma,\ldots>0$ – малые параметры, при этом функции $a$, $b$, $c$, $d$, $\ldots$ имеют упорядоченную структуру (они, например, периодические по переменным $y=\varepsilon^{-1} x$, $z=\delta^{-1} x$  и т.\,д.). Следовательно, соответствующие математические модели – дифференциальные уравнения с быстро осциллирующими коэффициентами.
+Нами изучена уравнение Бельтрами с локально периодическим коэффициентом $\mu(x,\varepsilon^{-1} x)$. Получены оценки
+погрешности усреднения периодической задачи в пространствах Соболева и Лебега.
+\end{abstract}
+
+
+
+\section*{Введение}
+        \bigskip
+
+Теория усреднения имеет многочисленные приложения в различных областях физики и механики сплошных сред (см. монографию \cite{smm-1} и литературу в  ней). Операторные оценки погрешности классических задач усреднения для дивергентных уравнений хорошо изучены Жиковым В. В., Бирманом   М. Ш., Суслиной  Т. А. и их учениками (см. \cite{smm-2,smm-3}).
+
+Операторным оценкам погрешности усреднения  эллиптических операторов второго порядка дивергентного вида  с локально-периодическими коэффициентами посвящены работы \cite{smm-4,smm-5,smm-6,smm-7}.
+В этой работе получены оценки усреднения периодической задачи  для уравнения Бельтрами с локально-периодическим коэффициентом:
+$$
+	A_\varepsilon w_\varepsilon\equiv\partial_{\bar{z}}u_\varepsilon+\mu(x,\varepsilon^{-1}x)\,\partial_z w_\varepsilon
+=f\in L_2(\square),\quad w_\varepsilon\in W_2^1(\square),
+$$
+где $\varepsilon>0$ --- малый параметр, $\square$ --- ячейка периодов со стороной 1.
+комплекснозначная измеримая периодическая (периода 1 по всем переменным   функция, удовлетворяющая условию эллиптичности
+ $\mathop{\rm vrai\, sup}\limits_{(x,y)\in\square\times\square}|\mu(x,y)|\leqslant k_0,\quad k_0<1$  --- постоянная.
+ Более того, $\mu(x,y)$  как функция $x$ равномерно непрерывна по Липшицу
+$$
+|\mu(x^\prime,y)-\mu(x,y)|\leqslant L|x^\prime-x|,\quad x^\prime,\ x\in\square,  \text{ \ п.в.\ }   y\in\square,
+$$
+где $L>0$ --- постоянная.
+
+Это уравнение --- недивергентное, поэтому полученные оценки (см. Теорему 1.8) отличаются от оценок для дивергентных операторов.
+В работе \cite{smm-8} получены оценки погрешности классического усреднения (порядка  $O(\sqrt\varepsilon)$ задачи Римана-Гильберта  для уравнения Бельтрами с периодическим коэффициентом. Оценки погрешности усреднения (порядка $O(\varepsilon)$) периодической задачи для таких уравнений даются в работе \cite{smm-9}.  Оценки усреднения  порядка $O(\sqrt\varepsilon)$  задачи Римана-Гильберта для уравнения Бельтрами с локально-периодическим коэффициентом получены  в \cite{smm-10}.
+
+
+
+ \subsection{Задача Римана-Гильберта} 
+ В ограниченной односвязной области $Q$ с кусочно-гладкой границей рассмотрим задачу Римана-Гильберта (Р-Г) для уравнения Бельтрами:
+\begin{equation}\label{f:1.001}
+	\left\{\begin{array}{l}
+		A w\equiv\partial_{\bar{z}}w+\mu\,\partial_z w=f\in L_2(Q;\mathbb{C}), \\[3mm]
+		w\in W_0(Q)=\{u\in W_2^1(Q) \mid {\rm Re\ u}_{|\partial Q}=0,\quad \int_Q\text{\rm Im} u=0\},
+	\end{array}\right.
+\end{equation}
+где коэффициент $\mu=\mu(x)$ --- измеримая ограниченная комплекснозначная функция, удовлетворяющая условию эллиптичности
+\begin{equation}\label{f:1.2}
+	\mathop{\rm vrai\,sup}_{x\in Q}\left(|\mu(x)|\right)\leqslant k_0 <1,
+\end{equation}
+$k_0>0$ --- постоянная (\textit{константа эллиптичности}).
+
+Имеет место
+
+%\smallskip
+\begin{theorem}\label{smm-th1.1}
+Задача Римана--Гильберта { \eqref{smm-f:1.001}} однозначно разрешима для любой правой части $f$ из $L_2(Q;\mathbb{C})$,
+причем имеют место априорные оценки:
+\begin{gather*}
+(1-k_0)\left\|\partial_{\bar{z}}w\right\|^2_{L_2(Q;\mathbb{C})}\leqslant \text{\rm Re\,} \int_{Q} Aw\cdot \overline{\partial_{\bar{z}}w}\,dx,\quad w\in W_0(Q),\\
+(1-k_0)\left\|\partial_{\bar{z}}w\right\|_{L_2(Q;\mathbb{C})}\leqslant \left\| Aw\right\|_{L_2(Q;\mathbb{C})} \leqslant
+(1+k_0)\left\|\partial_{\bar{z}}w\right\|_{L_2(Q;\mathbb{C})}, \quad w\in W_0(Q),\\
+	c_1\|w\|_{W^1_2(Q;\mathbb{C})}\leqslant\|Aw\|_{L_2(Q;\mathbb{C})}\leqslant c_2 \|w\|_{W^1_2(Q;\mathbb{C})},
+\end{gather*}
+где $c_1$, $c_2>0$ --- постоянные, зависящие только от постоянной эллиптичности $k_0$.
+
+
+\hspace{5.mm} Пусть $w\in W_2^1(Q;\mathbb{C})$ --- решение уравнения  {\rm \eqref{smm-f:1.001}}, коэффициент $\mu=\mu(x)$ которого равномерно непрерывен по Липшицу в $\overline Q$, т.е.
+$$
+|\mu(x^\prime)-\mu(x)|\leqslant L\,|x^\prime-x|,\quad x,\,x^\prime\in \overline{Q},
+$$
+где $L>0$ --- постоянная, И пусть  $f\in W_2^1(Q;\mathbb{C})$, тогда $w\in W_{2,\text{\rm loc}}^2(Q)$ и в любой компактной подобласти $Q_1\Subset Q$ имеет место оценка
+\begin{equation*}
+	\|w\|_{W^2_2(Q_1; \mathbb{C})}\leqslant c\left(\|f\|_{W^1_2(Q; \mathbb{C})}+\|w\|_{W^1_2(Q; \mathbb{C})}\right),
+\end{equation*}
+где $c>0$ --- постоянная, зависящая только от $k_0$, $L$ и $\text{\rm dist\,}(Q_1,\partial Q)$.
+
+\hspace{5.mm} Пусть дополнительно граница $\partial Q$ принадлежит классу $C^2$ и $w$ принадлежит $W_0(Q)\cap W_2^1(Q; \mathbb{C})$, тогда $w$ принадлежит $W_2^2(Q; \mathbb{C})$ и имеет место оценка
+\begin{equation*}
+\|w\|_{W^2_2(Q; \mathbb{C})}\leqslant c\|f\|_{W^1_2(Q; \mathbb{C})},
+\end{equation*}
+где $c>0$ --- постоянная, $c=\text{\rm const\,}(k_0, L, Q)$.
+\end{theorem}
+
+
+
+
+\smallskip
+
+\textbf{1.2. $G$-сходимость.}
+Обозначим через $A(k_0)$ --- множество операторов Бельтрами.
+
+\begin{definition}
+Скажем, что последовательность операторов $\left\{ {\it A}_k\right\}$ из класса $A(k_0)$
+$G$-сходится в области $Q$ к оператору $A\in A(k_0)$
+(и будем писать $A_k\overset{G}{\longrightarrow} A$),
+если для любого $f\in L_2(Q;\mathbb{C})$ последовательность $w_k$ решений задачи Р--Г: $A_kw_k=f$, $w_k\in W_0(Q)$,
+сходится в $L_2(Q;\mathbb{C})$. {Сходимость в
+	$L_2(Q;\mathbb{C})$ можно заменить на слабую сходимость в
+	$W_2^1(Q;\mathbb{C})$. Эквивалентность полученных при этом определений следует из оценок теоремы \ref{smm-th1.1} и компактности вложения
+	$W_2^1(Q;\mathbb{C})\subset L_2(Q;\mathbb{C})$.} к решению задачи Р--Г: $Aw=f$, $w\in W_0(Q)$.
+\end{definition}
+
+
+
+
+Как известно \cite{smm-11}, {\it $G$-предел определен единственным образом.
+Класс $A(k_0)$
+		%обобщенных операторов Бельтрами, операторов Бельтрами
+		$G$-компактен}.
+	
+
+	\smallskip
+	
+	\textbf{1.3. Понятие усреднения.}
+	Рассмотрим задачу Р--Г с малым параметром $\varepsilon$, $\varepsilon>0$:
+	\begin{equation}\label{smm-f:1.8}
+		\left\{\begin{array}{l}
+			A_\varepsilon w_\varepsilon\equiv\partial_{\bar{z}}w_\varepsilon+\mu^{\varepsilon}\,\partial_z w_\varepsilon
+			=f\in L_2(Q;\mathbb{C}), \\[3mm]
+			w_\varepsilon\in W_0(Q).
+		\end{array}\right.
+	\end{equation}
+	Всюду в работе   {\it коэффициент
+		$\mu^\varepsilon=\mu^\varepsilon(x)$ --- измеримая ограниченная функции, имеющая локально-периодическую структуру:
+		$\mu^\varepsilon(x)=\mu(x,\varepsilon^{-1}x)$,
+		т.\,е. функция $\mu(x,y)$ периодическая
+		по второй переменной $y$ {\rm (}периодичность по первой переменной $x$ не требуется{\rm)}. Предполагаем, что функция $\mu(x,y)$ равномерно непрерывна по Липшицу  по первой переменной $x$
+		\begin{equation*}
+			|\mu(x^\prime,y)-\mu(x,y)|\leqslant L\,|x^\prime-x|,\quad x,\,x^\prime\in \overline{Q},\quad \text{п.\,в.\quad} y\in\square_T,
+		\end{equation*}
+		где $L>0$ --- постоянная. Кроме того, $\mu(x,y)$ удовлетворяет условию эллиптичности
+		\begin{equation}\label{smm-f:1.2''}
+			\mathop{\rm vrai\,sup}\limits_{(x,y)\in \overline{Q}\times\square_T}\left(|\mu(x,y)|\right)\leqslant
+			k_0 <1.
+	\end{equation}}
+	\hspace{5.mm}	Очевидно, что оператор $A_\varepsilon$ принадлежит классу $A(k_0)$.
+	
+\begin{definition}
+	Скажем, что семейство $\left\{ A_\varepsilon \right\}$ операторов
+краевой задачи \eqref{smm-f:1.8}  допускает усреднение, если $A_\varepsilon \overset{G}{\longrightarrow}A\in A(k_0) $ при
+$\varepsilon\to 0$.
+\end{definition}
+
+	В вопросах усреднения важную роль играет ядро оператора $\mathcal{A}^*$, сопряженного оператору периодической по $y=(y_1,y_2)$ задачи:
+	\begin{equation}\label{smm-f:1.7}
+		\mathcal{A}w\equiv \partial_{\overline{\xi}}w +\mu(x,y) \partial_{\xi}w =f\in L_2(\square_T;\mathbb{C}),\quad
+		w(x,\cdot)\in W_2^1(\square_T;\mathbb{C}),
+	\end{equation}
+	где $x\in \overline Q$, играет роль параметра,
+	$$
+	\partial_{\bar \xi}=2^{-1}\Big(\frac{\partial}{\partial y_1}+i\frac{\partial}{\partial y_2}\Big),\qquad  \partial_{\xi}=2^{-1}\Big(\frac{\partial}{\partial y_1}-i\frac{\partial}{\partial y_2}\Big).
+	$$
+	
+	Сформулируем в виде теоремы результаты по периодической задаче, необходимые нам в дальнейшем.
+	
+	
+\begin{theorem}
+Для каждого $x\in\overline Q$ справедливы следующие утверждения:
+\begin{itemize}
+\item  Для периодической задачи имеют место оценки
+\begin{gather*}
+	(1-k_0)\left<|\partial_{\bar{\xi}}w(x,\cdot)|^2\right>_y\leqslant \text{\rm Re\,}\left<\mathcal{A}w(x,\cdot)\cdot \overline{\partial_{\bar{\xi}}w(x,\cdot)}\,\right>_y,\quad  w(x,\cdot)\in W_2^1(\square_T;\mathbb{C}),\\
+	c_1\left<|\partial_{\bar{\xi}}w(x,\cdot)|^2\right>_y^{1/2}\leqslant
+	\left<|\mathcal{A}w(x,\cdot)|^2\right>_y^{1/2}\leqslant c_2\left<|\partial_{\bar{\xi}}w(x,\cdot)|^2\right>_y^{1/2}, \quad  w(x,\cdot)\in W_2^1(\square_T;\mathbb{C}),
+\end{gather*}
+где $c_1=1-k_0$, $c_2=1+k_0$. Первое из этих неравенств называют <<неравенством острого угла>>.
+\item  Периодическая задача \eqref{smm-f:1.7} фредгольмова.
+\item Ядра  $\text{\rm Ker\,}\mathcal{A}^\ast$, $\text{\rm Ker\,}\mathcal{A}\,(=\mathbb{C})$
+	--- одномерные подпространства соответствующих пространств,
+	причем один из базисов $p$ ядра
+	$\text{\rm Ker\,}\mathcal{A}^\ast$ обладает свойством
+	\begin{equation}\label{smm-df:1.10}
+ \left< p(x,\cdot)\right>_y=1.
+	\end{equation}
+\end{itemize}
+\end{theorem}
+
+\smallskip
+	\textbf{1.4. Задача на ячейке периодов.}
+	Для применения асимптотических методов при получении оценок погрешности усреднения
+	уравнения \eqref{smm-f:1.8} нам потребуются периодическое
+	решение следующей задачи на ячейке периодов
+	\begin{equation}\label{smm-f:1.11}
+		\begin{aligned}
+			&\mathcal{A}N\equiv \partial_{\bar\xi}N_j(x,y)+\mu(x,y)\,\partial_\xi N(x,y) =\mu^0(x)-\mu(x,y), \quad \langle N(x,\cdot)\rangle_y=0,
+				\end{aligned}
+	\end{equation}
+	где $x\in \overline Q$ выступает в роли параметра.
+
+	
+	\textit{Здесь и далее  $\mu^0(x)$ --- функция, определённая
+		формулой}
+		\begin{equation*}
+		\mu^0(x)=\left<\,\mu(x,\cdot)\,\overline{p(x,\cdot)}\right>
+	\end{equation*}
+	\textit{где} 	\textit{$p$ ---  базисный вектор из теоремы {\rm 2}}.
+	
+	\begin{theorem}\label{smm-th1.3}
+	Для каждого $x\in\overline{Q}$ задача \eqref{smm-f:1.11}
+		однозначно разрешима.
+	\end{theorem}
+
+	\subsection{Периодические задачи}
+	В дальнейшем нам потребуются периодические задачи трех видов. Сформулируем в виде   лемм  результаты по этим задачам.
+	\begin{lemma}
+		Рассмотрим периодическую задачу
+		\begin{equation}\label{smm-Sirazhudinov:4}
+			\mathscr{A}w\equiv\partial_{\bar{\xi}}w+\mu(x,y)\partial_\xi w=f\in L_2 (\square;\mathbb{C}),\quad w(x,\cdot)
+			\in W_2^1 (\square),
+		\end{equation}
+		где $x\in \overline{\square}$ выступает в роли параметра, $\xi=y_1+iy_2$,
+		$\partial_{\bar{\xi}}=2^{-1}(\mathscr{D}_{y_1}+i\mathscr{D}_{y_2})$,
+		$\partial_\xi=2^{-1}(\mathscr{D}_{y_1}-i\mathscr{D}_{y_2})$,
+		$\mathscr{D}_{y_j}=\partial/\partial y_j$, $j=1,2$,
+		$\mu(x,y)$ --- измеримая комплекснозначная 1-периодическая по $x$ и $y$ функция, удовлетворяющая условию эллиптичности
+		\begin{equation}\label{smm-Sirazhudinov:5}
+			\mathop{\mathrm{vrai\, sup}}\limits_{(x,y)\in\overline\square\times\square} (|\mu(x,y)|)     \leqslant k_0<1,
+		\end{equation}
+		$k_0>0$ --- постоянная {\rm(}константа эллиптичности{\rm)}.
+		Тогда для  каждого $x\in \overline\square$ справедливы следующие утверждения:
+		\begin{enumerate}
+			\item[1)]       Периодическая задача \eqref{smm-Sirazhudinov:4} фредгольмова, причем каждое из ядер $\text{\rm Ker\,}\mathscr{A}=\mathbb{C}$, $\text{\rm Ker\,}\mathscr{A}^\ast$ --- одномерное подпространство соответствующего пространства {\rm(}напомним,
+			что в работе используются пространства над полем действительных чисел{\rm)}.
+			\item[2)] Один из векторов $p$ базиса ядра $\text{\rm Ker\,}\mathscr{A}^\ast$ обладает свойством: $\left\langle p(x,\cdot)\right\rangle_y=1$.
+		\end{enumerate}
+	\end{lemma}
+	\begin{lemma}
+		Рассмотрим периодическую задачу
+		\begin{equation}\label{smm-Sirazhudinov:6}
+			\mathscr{A}_\varepsilon w_\varepsilon\equiv
+			\partial_{\bar z}w_\varepsilon+\mu^\varepsilon(x)\partial_zw_\varepsilon
+			=f\in L_2(\square),\quad w_\varepsilon\in W_2^1(\square),
+		\end{equation}
+		где $\mu^\varepsilon(x)=\mu(x,\varepsilon^{-1}x)$ 	--- {\rm 1}-периодические функции, удовлетворяющие условию эллиптичности \eqref{smm-Sirazhudinov:5}.
+		Тогда для каждого $\varepsilon=n^{-1}$, $n\in \mathbb N$, справедливы утверждения:
+		\begin{enumerate}
+			\item[1)] Для периодической задачи \eqref{smm-Sirazhudinov:6} имеет место <<неравенство острого угла>>
+			\begin{equation}\label{smm-Sirazhudinov:7}
+				(1-k_0)\left<|\partial_{\bar{z}}w_\varepsilon|^2\right>\leqslant \text{\rm Re\,}\left<\mathscr{A}_\varepsilon w_\varepsilon\cdot \overline{\partial_{\bar{z}}w_\varepsilon}\,\right>,\qquad  w_\varepsilon\in W_2^1(\square;\mathbb{C}),
+			\end{equation}
+			где $k_0$ --- постоянная эллиптичности.
+			\item[2)] Задача \eqref{smm-Sirazhudinov:6} фредгольмова, причем ядро  $\text{\rm Ker\,}\mathscr{A}_\varepsilon^\ast$, $\text{\rm Ker\,}\mathscr{A}_\varepsilon\,(=\mathbb{C})$
+			--- одномерные подпространства соответствующих пространств,
+			причем один из базисов $\left\{P_\varepsilon\right\}$ ядра
+			$\text{\rm Ker\,}\mathscr{A}_\varepsilon^\ast$ обладает свойством
+			\begin{equation*}%\label{smm-f:1.10}
+				\left<P_\varepsilon\right>=1.
+			\end{equation*}
+			\end{enumerate}
+	\end{lemma}
+	\begin{lemma}
+		Для периодической задачи
+		\begin{equation}\label{smm-Sirazhudinov:8}
+			\mathscr{A}w\equiv \partial_{\bar{z}}w +\mu(x) \partial_{z}w =f\in L_2(\square;\mathbb{C}),\quad
+			w\in W_2^1(\square;\mathbb{C}),
+		\end{equation}
+		где коэффициент $\mu(x)$  --- {\rm T}-периодическая функция, удовлетворяющая условию эллиптичности \eqref{smm-Sirazhudinov:5}, имеют место  утверждения:
+		\begin{enumerate}
+			\item[1)] Задача  \eqref{smm-Sirazhudinov:8} фредгольмова с одномерным ядром $\text{\rm Ker\,}\mathscr{A}^\ast$, $\text{\rm Ker\,}\mathscr{A}\,(=\mathbb{C})$,
+			причем один из базисов $p$ ядра
+			$\text{\rm Ker\,}\mathscr{A}^\ast$ обладает свойством
+			\begin{equation*}%\label{smm-f:1.10}
+				\left< p\right>=1.
+			\end{equation*}
+			\item[2)] Для периодической задачи \eqref{smm-Sirazhudinov:8} имеет место неравенство острого угла
+			\begin{equation}\label{smm-Sirazhudinov:9}
+				(1-k_0)\left<|\partial_{\bar{z}}w|^2\right>\leqslant \text{\rm Re\,}
+				\left<\mathscr{A} w\cdot \overline{\partial_{\bar{z}}w}\,\right>,\qquad
+				w \in W_2^1(\square_T;\mathbb{C}).
+			\end{equation}
+		\end{enumerate}
+	\end{lemma}
+	Утверждения этих лемм --- очевидные следствия результатов работы [10].
+
+
+	\smallskip
+	\textbf{1.7. Усреднение и оценки погрешности усреднения.}
+	
+	Имеет место (см. [10])  следующая
+	
+\begin{theorem}[Об усреднении]
+ Для семейства $\{A_\varepsilon\}$ операторов краевой
+		задачи Римана-Гильберта \eqref{smm-f:1.8} имеет место усреднение, причем коэффициент
+		усредненного оператора $A_0$, $A_0w\equiv\partial_{\overline{z}}w+\mu^0(x)\partial_zw$, $w\in W_0(Q)$ --- равномерно непрерывен  по Липшицу в $\overline{Q}$ и он даётся равенством \eqref{smm-f:1.11}.
+\end{theorem}
+
+Рассмотрим специальную периодическую задачу \eqref{smm-f:1.11} на ячейке, где вместо $\overline{Q}$ имеем $\square$,  которая понадобится для применения асимптотических методов при усреднении периодической задачи. Для каждого $x\in\square$ эта задача однозначно разрешима, причем решение её обладает свойствами (см. [10])
+
+	1) Существует показатель $q>2$ (повышенной) суммируемости, определяемый только по константе эллиптичности $k_0$, такой, что  для каждого $x\in\overline\square$ решение $N(x,y)$ как функция $y$ принадлежит пространству $W_q^1(\square)$ и имеют место равномерные по $x\in\overline\square$ оценки:
+	$$
+	\|N(x,\cdot)\|_{C^\alpha(\overline\square)}\leqslant c,\quad \|N(x,\cdot)\|_{W_q^1(\square)}\leqslant c,
+	$$
+	где $c>o$ --- зависящая только от $k_0$, $\alpha=(q-2)/q$.
+	
+	2) Функция $N(x,y)$ и её первые производные по $x_1$ и $x_2$ ограничены постоянной,
+	зависящей только от $k_0$ и $L$.
+	
+	\textit{Основное утверждение.}
+	Рассмотрим периодическую задачу:
+	\begin{equation}\label{smm-00}
+	\left\{\begin{aligned}
+	&\mathscr{A}_\varepsilon w_\varepsilon\equiv \partial_{\bar{z}}w_\varepsilon +\mu^\varepsilon(x) \partial_{z}w_\varepsilon =f-\<f\overline{P_\varepsilon}\>,\quad f\in L_2(\square;\mathbb{C}),\\
+	&w_\varepsilon\in W_2^1(\square;\mathbb{C}),	\quad \<w_\varepsilon\>=0,
+	\end{aligned}\right.	
+	\end{equation}
+	   		где $\langle P_\varepsilon\rangle=1$, --- базисный вектор ядра оператора $\mathscr{A}_\varepsilon^\ast$, сопряженного оператору $\mathscr{A}_\varepsilon$ периодической задачи \eqref{smm-f:1.11}, $\square$ --- ячейка периодов, $\<g\>=\int_\square g(x)dx$ --- среднее значение функции  $g=g(x)$. Для того чтобы задача \eqref{smm-00} для любого $f\in L_2(\square)$ имела периодическое (периода 1) решение необходимо положить малый параметр $\varepsilon$ равным $n^{-1}$, $n\in \mathbb{N}$.
+		Очевидно, что правая часть  уравнения  (14) ортогональна ядру оператора $\mathscr{A}_\varepsilon^\ast:L_2 (\square)\to W_2^(-1) (\square)$. Следовательно, из леммы 1.5 вытекает: Периодическая задача (14) имеет единственное решение для любой функции $f\in L_2(\square)$.
+		
+	
+	В качестве первого приближения к решению $w_\varepsilon$  периодической задачи
+	для уравнения Бельтрами \eqref{smm-00} с локально-периодическим коэффициентом возьмем функцию:
+	$$ w_1^\varepsilon(x)=w^0(x)+\varepsilon N(x,y)\partial_zw^0(x)), \quad y=\varepsilon^{-1}x,$$
+где $N(x,y)$  --- периодическое решение задачи на ячейке (см. теорему \ref{smm-th1.3}), $w^0$ --- решение усредненной задачи $A_0w\equiv\partial_{\overline{z}}w+\mu^0(x)\partial_zw=f\in W_2^1(Q;\mathbb{C})$, $w\in W_0(Q)$. Заметим, что $w^0\in W_2^2(Q;\mathbb{C})\cap W_0(Q)$, ввиду 	теоремы \ref{smm-th1.1}, так как $f\in W_2^1(Q;\mathbb{C})$.
+	
+\begin{theorem}[Оценки погрешности усреднения]
+Пусть правая часть $f$ периодической задачи \eqref{smm-00} принадлежит пространству $W_2^1(Q;\mathbb{C})$, тогда для малых $\varepsilon$ имеют место оценки
+		\begin{equation*}
+			\|w_\varepsilon-w_1^\varepsilon\|_{W_2^1 (\square; \mathbb{C})}\leqslant c\sqrt{\varepsilon}\|f
+			\|_{L_2 (\square; \mathbb{C})}, \quad \|w_\varepsilon-w^0\|_{W_2^1 (Q; \mathbb{C})}\leqslant c\sqrt{\varepsilon}\|f
+			\|_{W_2^1 (\square; \mathbb{C})},
+		\end{equation*}
+		где $c>0$ --- постоянная, зависящая только от постоянной эллиптичности $k_0$ и постоянной Липшица $L$.
+\end{theorem}
+
+ %%%%++++++
+% \newcommand{\<}{\langle}
+% \newcommand{\>}{\rangle}
+\section{Оценки локально-периодического усреднения задачи Римана-Гильберта для обобщенного уравнения Бельтрами}	
+
+\begin{abstract}\noindent
+	Метод усреднения дифференциальных операторов, основанный на асимптотическом разложении по малому параметру, широко используется  в математической и физической литературе. Этот метод позволяет помимо теоремы усреднения получить
+	оценки разности точного решения и его приближений.
+	Настоящая работа\footnote{Результаты этого параграфа опубликованы в работах
+		[12], [13], [14]} посвящена оценкам погрешности усреднения обобщенного уравнения Бельтрами с локально-периодическими коэффициентами $\mu(x,\varepsilon^{-1} x)$, $\nu(x,\varepsilon^{-1} x)$.
+	\medskip\\
+	DOI: % Необходимый номер DOI поставит редакция журнала
+\end{abstract}
+
+\textbf{1. Формулировка результатов}
+
+\smallskip
+
+\textbf{1.1. Задача Римана-Гильберта.} В ограниченной односвязной области $Q$ с кусочно-гладкой границей рассмотрим задачу Римана-Гильберта (Р-Г) для обобщенного уравнения Бельтрами:
+\begin{equation}\label{smm-0sirazhf:1.1}
+	\left\{\begin{array}{l}
+		A w\equiv\partial_{\bar{z}}w+\mu\,\partial_z w+\nu\,\partial_{\bar z}\overline{w}=f\in L_2(Q;\mathbb{C}), \\[3mm]
+		w\in W_0(Q),
+	\end{array}\right.
+\end{equation}
+где коэффициенты $\mu=\mu(x)$, $\nu=\nu(x)$ --- измеримые ограниченные комплекснозначные функции, удовлетворяющие условию эллиптичности
+\begin{equation}\label{smm-00sirazhf:1.2}
+	\mathop{\rm vrai\,sup}_{x\in Q}\left(|\mu(x)|+|\nu(x)|\right)\leqslant k_0 <1,
+\end{equation}
+$k_0>0$ --- постоянная (\textit{константа эллиптичности}).
+
+Как известно, имеет место
+
+%\smallskipвыкин
+\textbf{Теорема 1 (см. [13]).}
+{\it Задача Римана--Гильберта {\rm (\ref{smm-sirazhf:1.1})} однозначно разрешима для любой правой части $f$ из $L_2(Q;\mathbb{C})$,
+	причем имеют место априорные оценки}:
+\begin{gather}\label{smm-0sirazhf:1.3}
+	(1-k_0)\left\|\partial_{\bar{z}}w\right\|^2_{L_2(Q;\mathbb{C})}\leqslant \text{Re\,} \int_{Q} Aw\cdot \overline{\partial_{\bar{z}}w}\,dx,\quad w\in W_0(Q),\\
+	\label{smm-0sirazhf:1.4}
+	(1-k_0)\left\|\partial_{\bar{z}}w\right\|_{L_2(Q;\mathbb{C})}\leqslant \left\| Aw\right\|_{L_2(Q;\mathbb{C})} \leqslant
+	(1+k_0)\left\|\partial_{\bar{z}}w\right\|_{L_2(Q;\mathbb{C})}, \quad w\in W_0(Q).
+\end{gather}
+Выражение
+$
+\left\| w\right\|_{W_0(Q)}=\left\| \partial_{\bar{z}}w\right\|_{L_2(Q;\mathbb{C})}$, $w\in W_0(Q),
+$
+задает в подпространстве $W_0(Q)$ норму, эквивалентную норме исходного пространства $W_2^1(Q;\mathbb{C})$ (см.  [12,\,13]),
+поэтому имеют место оценки:
+\begin{equation}\label{smm-0sirazhf:1.5}
+	c_1\|w\|_{W^1_2(Q;\mathbb{C})}\leqslant\|Aw\|_{L_2(Q;\mathbb{C})}\leqslant c_2 \|w\|_{W^1_2(Q;\mathbb{C})},
+\end{equation}
+где $c_1$, $c_2>0$ --- постоянные, зависящие только от постоянной эллиптичности $k_0$ и области $Q$.
+
+\smallskip
+\textbf{Теорема 2.} \textit{Пусть $w\in W_2^1(Q;\mathbb{C})$ --- решение уравнения  {\rm (\ref{smm-sirazhf:1.1})}, коэффициенты $\mu=\mu(x)$, $\nu=\nu(x)$ которого равномерно непрерывны по Липшицу в $\overline Q$, т.е.
+	$$
+	|\varphi(x^\prime)-\varphi(x)|\leqslant L\,|x^\prime-x|,\quad x,\,x^\prime\in \overline{Q},\quad \varphi\in\{\mu,\,\nu\},
+	$$
+	где $L>0$ --- постоянная. И пусть  $f\in W_2^1(Q;\mathbb{C})$, тогда $w\in W_{2,\text{\rm loc}}^2(Q)$ и в любой компактной подобласти $Q_1\Subset Q$ имеет место оценка
+	\begin{equation}\label{smm-0sirazhf:1.6_1}
+		\|w\|_{W^2_2(Q_1; \mathbb{C})}\leqslant c\left(\|f\|_{W^1_2(Q; \mathbb{C})}+\|w\|_{W^1_2(Q; \mathbb{C})}\right),
+	\end{equation}
+	где $c>0$ --- постоянная, зависящая только от $k_0$, $L$ и $\text{\rm dist\,}(Q_1,\partial Q)$}.
+
+\textit{Пусть дополнительно граница $\partial Q$ принадлежит классу $C^2$ и $w$ принадлежит $W_0(Q)$, тогда $w$ принадлежит $W_0(Q)\cap W_2^2(Q; \mathbb{C})$ и имеет место оценка}
+\begin{equation}\label{smm-0sirazhf:1.6_2}
+	\|w\|_{W^2_2(Q; \mathbb{C})}\leqslant c\|f\|_{W^1_2(Q; \mathbb{C})},
+\end{equation}
+\textit{где $c>0$ --- постоянная, зависящая только от $k_0$, $L$ и $Q$.}
+
+
+
+\smallskip
+
+\textbf{1.2. $G$-сходимость.}
+Обозначим через $A(k_0)$ --- множество обобщенных  операторов Бельтрами
+\eqref{smm-0sirazhf:1.1}, $\tilde{A}(k_0)$ --- подмножество $A(k_0)$  операторов Бельтрами
+(\eqref{smm-0sirazhf:1.1} с $\nu=0$).
+
+\smallskip
+\textbf{Определение 1.}
+Скажем, что последовательность операторов $\left\{ {\it A}_k\right\}$ из класса $A(k_0)$
+$G$-сходится в области $Q$ к оператору $A\in A(k_0)$
+(и будем писать $A_k\overset{G}{\longrightarrow} A$),
+если для любого $f\in L_2(Q;\mathbb{C})$ последовательность $\{w_k\}$ решений задачи Р--Г: $A_kw_k=f$, $w_k\in W_0(Q)$,
+сходится в $L_2(Q;\mathbb{C})$. Сходимость в
+$L_2(Q;\mathbb{C})$ можно заменить на слабую сходимость в
+$W_2^1(Q;\mathbb{C})$ к решению задачи Р--Г: $Aw=f$, $w\in W_0(Q)$. Эквивалентность полученных при этом определений следует из оценок \eqref{smm-0sirazhf:1.5} и компактности вложения
+$W_2^1(Q;\mathbb{C})\subset L_2(Q;\mathbb{C})$.
+
+\smallskip
+$G$-предел определен единственным образом и
+классы $A(k_0)$, $\tilde{A}(k_0)$
+%обобщенных операторов Бельтрами, операторов Бельтрами
+$G$-компактны (см. \cite{smm-11}).
+
+$G$-сходимость обладает следующим свойством \textit{сходимости <<произвольных>>  решений\,}:
+
+\noindent\textit{пусть $A_k\overset{G}{\longrightarrow} A$, $w_k\rightharpoonup w$ в $W_2^1(Q;\mathbb{C})$, $f_k\to f$ в $L_2(Q;\mathbb{C})$,
+	$A_kw_k=f_k$, тогда $Aw=f$ {\rm(см. \cite{smm-11})}.}
+%\smallskipвыкин
+\smallskip
+
+\textbf{1.3. Понятие усреднения.}
+Рассмотрим задачу Р--Г с малым параметром $\varepsilon$, $\varepsilon>0$:
+\begin{equation}\label{smm-0sirazhf:1.8}
+	\left\{\begin{array}{l}
+		A_\varepsilon w_\varepsilon\equiv\partial_{\bar{z}}w_\varepsilon+\mu^{\varepsilon}\,\partial_z w_\varepsilon
+		+\nu^\varepsilon\,\partial_{\bar z}\overline w_\varepsilon=f\in L_2(Q;\mathbb{C}), \\[3mm]
+		w_\varepsilon\in W_0(Q).
+	\end{array}\right.
+\end{equation}
+Всюду в работе   {\it коэффициенты
+	$\mu^\varepsilon=\mu^\varepsilon(x)$, $\nu^\varepsilon=\nu^\varepsilon(x)$ --- измеримые ограниченные функции, имеющие локально-периодическую структуру:
+	$\mu^\varepsilon(x)=\mu(x,\varepsilon^{-1}x)$, $\nu^\varepsilon(x)=\nu(x,\varepsilon^{-1}x)$,
+	т.\,е. функции $\mu(x,y)$, $\nu(x,y)$ периодические
+	по второй переменной $y$ (периодичность по первой переменной $x$ не требуется). Кроме того, функции $\mu(x,y)$, $\nu(x,y)$ равномерно непрерывны по Липшицу  по первой переменной $x$
+	
+	\begin{equation}\label{smm-0sirazhf:1.2'}
+		|\varphi(x^\prime,y)-\varphi(x,y)|\leqslant L\,|x^\prime-x|,\quad x,\,x^\prime\in \overline{Q},\quad \text{п.\,в.\quad} y\in\square,\quad  \varphi\in\{\mu,\,\nu\},
+	\end{equation}
+	где $L>0$ --- постоянная, и $\mu(x,y)$, $\nu(x,y)$ удовлетворяют условию эллиптичности
+	\begin{equation}\label{smm-0sirazhf:1.2''}
+		\mathop{\rm vrai\,sup}\limits_{(x,y)\in \overline{Q}\times\square}\left(|\mu(x,y)|+|\nu(x,y)|\right)\leqslant
+		k_0 <1.
+\end{equation}}
+
+
+Очевидно, что оператор $A_\varepsilon$ принадлежит классу $A(k_0)$.
+
+\smallskip
+\textbf{Определение 2.}
+Скажем, что семейство $\left\{ A_\varepsilon \right\}$ операторов
+краевой задачи \eqref{smm-0sirazhf:1.8}  допускает усреднение, если $A_\varepsilon \overset{G}{\longrightarrow}A\in A(k_0) $ при
+$\varepsilon\to 0$.
+
+\smallskip
+В вопросах усреднения важную роль играет ядро оператора $\mathcal{A}^*,$ сопряженного оператору периодической по $y=(y_1,y_2)$ задачи:
+\begin{equation}\label{smm-0sirazhf:1.7}
+	\mathcal{A}w\equiv \partial_{\overline{\xi}}w +\mu(x,y) \partial_{\xi}w +\nu(x,y)\,
+	\partial_{\overline \xi}\overline w=f\in L_2(\square;\mathbb{C}),\quad
+	w(x,\cdot)\in W_2^1(\square;\mathbb{C}),
+\end{equation}
+где  $x\in \overline Q$, играет роль параметра,
+$$
+\partial_{\bar \xi}=2^{-1}\Big(\frac{\partial}{\partial y_1}+i\frac{\partial}{\partial y_2}\Big),\qquad  \partial_{\xi}=2^{-1}\Big(\frac{\partial}{\partial y_1}-i\frac{\partial}{\partial y_2}\Big).
+$$
+
+Сформулируем в виде теоремы результаты по периодической задаче из работы [15], необходимые нам в дальнейшем.
+
+
+\smallskip
+\textbf{Теорема 3.} {\it Пусть $x\in\overline Q$, тогда справедливы следующие утверждения}:
+\begin{itemize}
+	\item  {\it Для периодической задачи имеют место оценки}
+	\begin{gather}\label{smm-0sirazhf:1.9}
+		c_1\big<|\partial_{\bar{\xi}}w(x,\cdot)|^2\big>_y\leqslant \text{\rm Re\,}\big<\mathcal{A}w(x,\cdot)\cdot \overline{\partial_{\bar{\xi}}w(x,\cdot)}\,\big>_y,\quad  w(x,\cdot)\in W_2^1(\square;\mathbb{C}),\\
+		c_1\big<|\partial_{\bar{\xi}}w(x,\cdot)|^2\big>_y^{1/2}\leqslant
+		\big<|\mathcal{A}w(x,\cdot)|^2\big>_y^{1/2}\leqslant c_2\big<|\partial_{\bar{\xi}}w(x,\cdot)|^2\big>_y^{1/2},\quad  w(x,\cdot)\in W_2^1(\square;\mathbb{C}),\label{smm-0sirazhf:1.9'}
+	\end{gather}
+	{\it где $c_1=1-k_0$, $c_2=1+k_0$. Первое из этих неравенств будем называть <<неравенством острого угла>>}.
+	\item {\it Периодическая задача \eqref{smm-0sirazhf:1.7} фредгольмова.}
+	\item \textit{Ядра  $\text{\rm Ker\,}\mathcal{A}^\ast$ и $\text{\rm Ker\,}\mathcal{A}\,(=\mathbb{C})$
+		--- двумерные подпространства пространств $L_2(\square;\mathbb{C})$ и $W_2^1(\square;\mathbb{C})$ соответственно {\rm(}напомним, что
+		наши пространства --- пространства над полем $\mathbb{R}${\rm)},
+		причем один из базисов $\left\{p_1,p_2\right\}$ ядра
+		$\text{\rm Ker\,}\mathcal{A}^\ast$ обладает свойствами
+		\begin{equation}\label{smm-0sirazhdf:1.10}
+			\left< p_1(x,\cdot)\right>_y=1,\quad \left< p_2(x,\cdot)\right>_y=i.
+		\end{equation}
+		В случае оператора Бельтрами {\rm(}$\nu=0${\rm)} имеем: $p_2=ip_1$.}
+\end{itemize}
+Пусть $w=w(y)$, $w=w_1+iw_2\in W_2^1(\square;\mathbb{C})$, тогда имеют место равенства
+\begin{equation}\label{smm-0sirazhdf.1.11}
+	\left<|\partial_{\bar{\xi}}w|^2\right>_y=\left<|\partial_{\xi}w|^2\right>_y=4^{-1}\sum_{j=1}^2\left<
+	\,|\nabla w_j|^2\right>_y.
+\end{equation}
+Справедливость равенств \eqref{smm-0sirazhdf.1.11} достаточно проверить  для  гладких периодических $w=w_1+iw_2\in C^2(\square;\mathbb{C})$. Легко видеть, что имеет место равенство
+\begin{equation}\label{smm-0sirazhdf.1.111}
+	\begin{gathered}
+		\left<\,|\partial_{\bar \xi} w|^2\right>_y=4^{-1}\sum_{j=1}^2\left<
+		\,|\nabla w_j|^2\right>_y+\\
+		+2^{-1}|\square|^{-1}\int_{\square}\left(\mathscr{D}_{y_2}w_1\mathscr{D}_{y_1}w_2-\mathscr{D}_{y_1}w_1\mathscr{D}_{y_2}w_2\right)\,dy,\quad w\in C^2(\square;\mathbb{C}).
+	\end{gathered}
+\end{equation}
+(Аналогичное равенство, со знаком минус перед вторым слагаемым справа, имеет место и для $\left<\,|\partial_{\xi} w|^2\right>_y$). Второе слагаемое справа в \eqref{smm-0sirazhdf.1.111} равен нулю, в чем можно убедиться перебросив производные с
+$w_1$ на $w_2$ с учетом периодичности. (При этом граничный интеграл равен нулю, так как нормали к противоположным
+сторонам ячейки периодов противоположно направлены.) Отсюда вытекают равенства \eqref{smm-0sirazhdf.1.11}.
+
+
+\smallskip
+\textbf{1.4. Задача на ячейке периодов.}
+Для применения асимптотических методов при получении оценок погрешности усреднения
+уравнения \eqref{smm-0sirazhf:1.8} нам потребуются периодические
+решения следующей задачи на ячейке периодов
+\begin{equation}\label{smm-0sirazhf:1.11}
+	\left\{\begin{aligned}
+		&\mathcal{A}N_j\equiv \partial_{\bar\xi}N_j(x,y)+\mu(x,y)\,\partial_\xi N_j(x,y)+\nu(x,y)\,
+		\partial_{\bar\xi}\overline{N_j(x,y)}=\chi_j(x,y),\\
+		& N_j(x,\cdot)\in W_2^{1}(\square;\mathbb{C}),\quad \left<N_j(x,\cdot)\right>_y=0,\quad j=1;2,
+	\end{aligned}\right.
+\end{equation}
+где $x\in \overline Q$ выступает в роли параметра, $\square$ --- квадрат периодов со стороной $T$,
+\begin{equation}\label{smm-0sirazhdf:1}
+	\begin{aligned}
+		&\chi_1(x,y)=2^{-1}\left(\mu^0(x)+\nu^0(x)-\mu(x,y)-\nu(x,y)\right),\\
+		&\chi_2(x,y)=2^{-1}i\left(\mu^0(x)-\nu^0(x)-\mu(x,y)+\nu(x,y)\right).
+	\end{aligned}
+\end{equation}
+
+\textit{Здесь и всюду далее  $\mu^0(x)$, $\nu^0(x)$ --- функции, определённые
+	формулами}
+\begin{equation}\label{smm-0sirazhdf:1.11}
+	\mu^0(x)=\big<\,\mu(x,\cdot)\, \mathscr Q(x,\cdot)+\overline{\nu(x,\cdot)}\,\mathscr{P}(x,\cdot)\,\big>_y, \quad
+	\nu^0(x)=\big<\,\overline{\mu(x,\cdot)}\,\mathscr{P}(x,\cdot)+\nu(x,\cdot)\, \mathscr Q(x,\cdot)\,\big>_y,
+\end{equation}
+\textit{где}
+$
+\mathscr{P}(x,y)=2^{-1}(p_1(x,y)+ip_2(x,y)),
+\quad \mathscr Q(x,y)=2^{-1}(\overline{p_1(x,y)}+i\,\overline{p_2(x,y)}),
+$
+\textit{{\rm(}$p_1$, $p_2$ ---  базисные векторы из теоремы {\rm 3}},
+$\overline{p_1}$, $\overline{p_2}$ --- комплексно сопряженные $p_1$, $p_2$
+функции{\rm)}.
+
+\textit{В случае уравнения Бельтрами {\rm($\nu=0$)} имеем{\,\rm :} $\mu^0(x)=\big<\mu(x,\cdot)\,\overline{p_1(x,\cdot)}\,\big>_y$,
+	$\nu^0=0$.}
+
+
+\smallskip
+\textbf{Теорема 4.} \textit{Для каждого $x\in\overline{Q}$ задача \eqref{smm-0sirazhf:1.11}
+	однозначно разрешима.}
+
+\smallskip
+Действительно, согласно теореме 3, для разрешимости задачи необходимо и достаточно,
+чтобы для каждого $x\in\overline{Q}$ функции $\chi_1(x,y)$, $\chi_2(x,y)$, как функции $y$, были ортогональны
+базисным векторам $p_1$ и $p_2$ из ядра оператора $\text{\rm Ker\,}\mathcal{A}^\ast$.
+Это легко проверить, используя равенс  тва \eqref{smm-0sirazhdf:1.10}. Единственность
+решения следует из неравенства острого угла \eqref{smm-0sirazhf:1.9}, ввиду
+неравенства Пуанкаре.
+
+В случае уравнения Бельтрами имеем $\nu=0$, $\nu^0=0$, следовательно, $\chi_2=i\chi_1$.
+Значит, $N_2=iN_1$.
+
+\smallskip
+\textbf{1.5. Свойства решений задачи на ячейке.}
+
+\smallskip
+\textbf{Свойство 1.}
+\textit{Пусть $N_j$, $j=1,2$, --- решение задачи \eqref{smm-0sirazhf:1.11}, тогда отображение $\overline{Q}\ni x \mapsto  N_j(x,\cdot)\in W_2^1(\square;\mathbb{C})$  ограничено, причем имеет место оценка
+	\begin{equation}\label{smm-0sirazhdf:1.14}
+		\|N_j(x,\cdot)\|_{W_2^1(\square;\mathbb{C})}\leqslant c,\quad x\in \overline{Q},\quad j=1,2,
+	\end{equation}
+	%      ?N(x,?)?_(W_2^1 (?; C))?c ,     x??Q,                 (1.14)
+	где $c>0$ --- постоянная, определяемая только по постоянной эллиптичности $k_0$.}
+
+
+\smallskip
+\textbf{Следствие 1.}
+Функции $\mu^0(x)$, $\nu^0(x)$, $x\in\overline{Q}$, определенные формулами \eqref{smm-0sirazhdf:1.11},  ограничены постоянной, зависящей только от постоянной эллиптичности $k_0$.
+
+\smallskip
+\textbf{Свойство 2.}
+\textit{Найдется число $q>2$ (показатель повышенной суммируемости), зависящее только от постоянной
+	эллиптичности $k_0$, такое, что
+	решения $N_j$, $j=1,2$  принадлежат $W_q^1(\square;\mathbb{C})$ и имеют место неравенства
+	\begin{equation}\label{smm-0sirazhdf:1.15}
+		\|N_j(x,\cdot)\|_{C^\alpha(\overline\square;\mathbb{C)}}      \leqslant c,\quad
+		\|N_j(x,\cdot)\|_{W_r^1(\square;\mathbb{C})}\leqslant c,\quad j=1,2, \quad\text{для всех\,}\quad x
+		\in\overline{Q},
+	\end{equation}
+	где $c>0$ --- постоянная, зависящая только от постоянной эллиптичности  $k_0$, $2<r\leqslant q$, $\alpha=(r-2)/r$.}
+
+
+\smallskip
+\textbf{Свойство 3.}
+\textit{Пусть $N_j$, $j=1,2$ --- решение задачи \eqref{smm-0sirazhf:1.11}, тогда отображение
+	$\overline{Q}\ni x \mapsto  N_j(x,\cdot)\in W_2^1(\square;\mathbb{C})$ липшицево, т.\,е.
+	\begin{equation}\label{smm-0sirazhdf:1.16}
+		\|N_j(x,\cdot)-N_j(x^\prime,\cdot)\|_{W_2^1(\square;\mathbb{C})}\leqslant c\,|x-x^\prime|,
+		\qquad x,x^\prime\in\overline{Q},
+	\end{equation}
+	где $c>0$ --- постоянная, зависящая только от постоянной эллиптичности $k_0$
+	и постоянной Липшица $L$.}
+
+\smallskip
+\textbf{Следствие 2.}
+\textit{Функции $\mu^0 (x)$ и $\nu^0(x)$, определенные формулами \eqref{smm-0sirazhdf:1.11},
+	равномерно непрерывны по Липшицу в замыкании $\overline{Q}$, т.\,е.
+	\begin{equation*}
+		|\varphi(x)-\varphi(x^\prime)|\leqslant L_1|x-x^\prime|,\quad x,x^\prime\in\overline{Q},\qquad
+		\varphi\in\{\mu^0,\nu^0\},
+	\end{equation*}
+	где  $L_1>0$ --- постоянная, зависящая только от $k_0$ и $L$.}
+
+
+\smallskip
+\textbf{Свойство 4.}
+\textit{Пусть $q>2$ --- показатель повышенной суммируемости из
+	свойства 2  и пусть $2<r\leqslant q$. Тогда отображение $\overline{Q}\ni x \mapsto  N_j(x,\cdot)\in W_r^1(\square;\mathbb{C})$, $j=1,2$,
+	липшицево:
+	\begin{equation}\label{smm-0sirazhdf:21}
+		\|N_j(x,\cdot)-N_j(x^\prime,\cdot)\|_{W_r^1(\square;\mathbb{C})}\leqslant c\,|x-x^\prime|,\quad x,x^\prime\in\overline{Q},\quad
+		j=1,2,
+	\end{equation}
+	где $c>0$ --- постоянная, зависящая только от постоянной эллиптичности $k_0$ и постоянной Липшица $L$}.
+
+\smallskip
+\textbf{Следствие 3.}
+\textit{Решение $N_j=N_j(x,y)$, $j=1,2$, задачи \eqref{smm-0sirazhf:1.11} непрерывно в $\overline{Q}\times\overline\square$,
+	липшицево по $x$ в $\overline{Q}$ и гельдерово по $y$ в $\overline\square$ с показателем $\alpha=(r-2)/r$,
+	($2<r\leqslant q$,  $q>2$ --- показатель повышенной суммируемости), т.\,е. для любых
+	$x, x^\prime \in \overline{Q}$,  $y, y^\prime \in \overline\square$ имеем:}
+\begin{equation}\label{smm-0sirazhdf:1.18}
+	|N_j(x,y)-N_j(x^\prime,y^\prime)|\leqslant c_0|x-x^\prime|+c_1|y-y^\prime|^\alpha, \quad j=1,2,
+\end{equation}
+\textit{где $c_0$, $c_1>0$ --- постоянные, зависящие только от $k_0$ и $L$.}
+
+{\it Кроме того, производные $\mathscr{D}_{x_l} N_j(x,y)={\partial N_j(x,y)}/{\partial x_l}$ , $j,l=1,2$,  принадлежат
+	пространству $L_\infty(Q\times\square;\mathbb{C})$  и имеют место оценки}
+\begin{equation}\label{smm-0sirazhdf:1.19}
+	\|N_j\|_{L_\infty(Q\times\square;\mathbb{C})}\leqslant c_0,\quad \|
+	\mathscr{D}_{x_l} N_j(x,y)\|_{L_\infty(Q\times\square;\mathbb{C})} \leqslant c_1,
+\end{equation}
+{\it где $c_0$, $c_1>0$ --- постоянные, $c_0$ --- зависит только от $k_0$, $c_1$ --- от $k_0$ и $L$.}
+
+\smallskip
+\textbf{1.6. Вспомогательные утверждения.}
+Пусть $Q$ --- ограниченная гладкая (класса $C^2$) область плоскости,
+тогда справедлива следующая
+
+\smallskip
+\textbf{Лемма 1.}
+{\it Пусть $\mathfrak{a}=\mathfrak{a}(x,y)\in \text{\rm Lip}(\overline{Q}$,$L_r (\square;\mathbb{C}))$, $1<r<2$, (т.\,е. $\mathfrak{a}$  периодична по
+	$y$ и равномерно непрерывна  по Липшицу как функция $x\in\overline{Q}$
+	со значениями в $L_r (\square;\mathbb{C})$),  $\mathfrak{a}(x,y)\geqslant
+	0$, {\rm ($x\in\overline{Q}$, $y\in\square$)}  и пусть  $\mathfrak{a}^\varepsilon(x)
+	=\mathfrak{a}(x,\varepsilon^{-1} x))$, $x\in\overline{Q}$. Тогда для
+	любого $w\in W_2^1 (Q;\mathbb{C})$ имеют место неравенства
+	\begin{gather}\label{smm-0sirazhVf:1}
+		\int_Q\mathfrak{a}^\varepsilon(x) |w|^2 dx\leqslant c\left(\|w\|_{L_2 (Q;\mathbb{C})}^2+
+		\varepsilon^2 \|w\|_{W_2^1 (Q;\mathbb C)}^2 \right),  \\\label{smm-0sirazhVf:2}
+		\int_{Q\cap Q_\varepsilon}\mathfrak{a}^\varepsilon(x) |w|^2 dx\leqslant c\varepsilon\|w\|_{W_2^1 (Q;\mathbb{C})}^2,
+	\end{gather}
+	для всех достаточно малых $\varepsilon$, $\varepsilon\leqslant\varepsilon_0
+	(Q)$,
+	где $Q_\varepsilon$ --- $\varepsilon$-окрестность границы $\partial Q$,
+	постоянная $c>0$ зависит только от области $Q$ и $\mathop{\rm max}\limits_{x\in\overline{Q}}\|
+	\mathfrak{a}(x,\cdot)\|_{L_r (\square;\mathbb C)}$}.
+
+
+
+
+\smallskip
+Пусть $Q\subset\mathbb{R}^2$ --- ограниченная
+односвязная область с гладкой (класса $C^2$) границей,  коэффициенты
+уравнения \eqref{smm-0sirazhf:1.8} ---  локально-периодические функции, удовлетворяющие соотношениям  \eqref{smm-0sirazhf:1.2'}, \eqref{smm-0sirazhf:1.2''} и пусть
+$w^0\in W^2_2(Q;\mathbb{C})\cap W_0(Q)$, $f=A_0w^0$, где $A_0w^0\equiv\partial_{\overline{z}}w^0+\mu^0(x)\partial_zw^0+\nu^0(x)\partial_{\overline{z}}
+\overline{w^0}$ (коэффициенты $\mu^0(x)$, $\nu^0(x)$   определены  формулами \eqref{smm-0sirazhdf:1.11}),
+
+\begin{equation}\label{smm-0sirazhL:1}
+	w_1^\varepsilon(x)=w^0(x)+\varepsilon\left(N(x,y)\partial_zw^0(x)+M(x,y)\partial_{\bar{z}}\overline{w^0(x)}\right),
+	\quad  y=\varepsilon^{-1}x,
+\end{equation}
+где $N(x,y)=N_1(x,y)-iN_2(x,y)$, $M(x,y)=N_1(x,y)+iN_2(x,y)$, $N_1$ и $N_2$ --- периодические решения задачи на ячейке (см. теорему 4).
+Легко видеть, что
+имеет место равенство
+\begin{equation}\label{smm-0sirazhL:2}
+	A_{\varepsilon}w_1^{\varepsilon}=f+\varepsilon r_\varepsilon,
+\end{equation}
+
+\vspace{-0.8cm}
+\begin{multline}\label{smm-0sirazhL:3}
+	{\hspace{-0.33cm}}      \text{где \quad} r_\varepsilon=N(x,y)
+	\left(\partial^2_{\bar{z}z}w^0(x)+\mu(x,y)\,\partial^2_{zz}w^0(x)\right)+\nu(x,y)\overline{N(x,y)}\,\partial^2_{\bar{z}\bar{z}}\overline{w^0(x)
+	}+\\
+	+M(x,y)
+	\left(\partial^2_{\bar{z}\bar{z}}\overline{w^0(x)}+\mu(x,y)\,
+	\partial^2_{z\bar{z}}\overline{w^0(x)}\right)+
+	\nu(x,y)\,\overline{M(x,y)}\,\partial^2_{\bar{z}z}w^0(x)+\\
+	+\partial_{z}\overline{w^0(x)}\left(\partial_{\overline{z}}\overline{N(x,y)}+\mu(x,y)
+	\partial_{z}N(x,y)\right)+\nu(x,y)\partial_{\overline z}\overline{N(x,y)}\,
+	\partial_{\overline{z}}\overline{w^0(x)}+\\
+	+\partial_{\overline{z}}\overline{w^0(x)}\left(\partial_{\overline{z}}M(x,y)+\mu(x,y)
+	\partial_{z}M(x,y)\right)+\nu(x,y)\partial_{\overline z}\overline{M(x,y)}\,
+	\partial_{z}w^0(x),
+	\quad y=\varepsilon^{-1}x.
+\end{multline}
+
+Справедлива следующая
+
+\smallskip
+\textbf{Лемма 2.} {\it Невязка \eqref{smm-0sirazhL:3} $r_\varepsilon$ ограничена в $L_2(Q;\mathbb{C})$, причем}
+\begin{equation}\label{smm-0sirazhL:0}
+	\|r_\varepsilon\|_{L_2(Q;\mathbb{C})}\leqslant c\|w^0\|_{W_2^2(Q;\mathbb{C})},
+\end{equation}
+{\it где $c>0$ --- постоянная, зависящая только от постоянной эллиптичности $k_0$ и постоянной Липшица $L$. И имеют место следующие оценки}
+\begin{align}\label{smm-0sirazh4.12}
+	&\|A_\varepsilon w_1^\varepsilon-A_0w^0\|_{L_2(Q; \mathbb{C})}\leqslant c\,\varepsilon\|w^0\|_
+	{W_2^2 (Q; \mathbb{C})},\quad\|A_\varepsilon w_1^\varepsilon-A_\varepsilon w_\varepsilon\|_{L_2(Q; \mathbb{C})}\leqslant c\,\varepsilon\|w^0\|_
+	{W_2^2 (Q; \mathbb{C})},\\\label{smm-0sirazh4.13}
+	& \|w_1^\varepsilon-w^0\|_{L_2 (Q; \mathbb{C})}\leqslant c\,\varepsilon\|w^0\|_
+	{W_2^2 (Q; \mathbb{C})},\quad w_1^\varepsilon\rightharpoonup w^0 \text{\ \ в \ \  } W_2^1(Q;\mathbb{C})\text{\ \it при \ \ } \varepsilon\to0,
+\end{align}
+{\it где $c>0$ --- постоянная, зависящая только от $k_0$ и $L$,
+	$w_\varepsilon$ ---  решение задачи Римана-Гильберта \eqref{smm-0sirazhf:1.8}, функция
+	$w_1^\varepsilon$ определена в формуле \eqref{smm-0sirazhL:1}}.
+%
+
+
+\smallskip
+\textbf{1.7. Усреднение и оценки погрешности усреднения.}
+
+Имеет место  следующая
+
+\smallskip
+\textbf{Теорема 5 (Об усреднении).} {\it Для семейства $\{A_\varepsilon\}$ операторов краевой
+	задачи Римана-Гильберта \eqref{smm-0sirazhf:1.8} имеет место усреднение, причем коэффициенты
+	усредненного оператора $A_0$, $A_0w\equiv\partial_{\overline{z}}w+\mu^0(x)\partial_zw+\nu^0(x)\partial_{\overline{z}}
+	\overline w$, $w\in W_0(Q)$ --- равномерно непрерывные  по Липшицу в $\overline{Q}$ функции и они даются равенствами \eqref{smm-0sirazhdf:1.11}.}
+
+%Покажем, что оператор $A_0=\partial_{\bar z}+\mu^0\,\partial_z+\nu^0\,\overline{\partial}_{ z}$ принадлежит классу $A(k_0;Q)$.
+
+\smallskip
+\textit{Сформулируем основные утверждения работы.} В качестве первого приближения к решению $w_\varepsilon$  задачи
+Римана-Гильберта  для обобщенного уравнения Бельтрами \eqref{smm-0sirazhf:1.8} с локально-периодическими коэффициентами, по аналогии с первым приближением к решению  задачи Римана-Гильберта для обобщенного уравнения Бельтрами (см. [8]) с периодическими коэффициентами, возьмем функцию \eqref{smm-0sirazhL:1}:
+$$ w_1^\varepsilon(x)=w^0(x)+\varepsilon\left(N(x,y)\partial_zw^0(x)+M(x,y)\partial_{\bar{z}}\overline{w^0(x)}\right),$$ где теперь $w^0$ --- решение усредненной задачи $A_0w\equiv\partial_{\overline{z}}w+\mu^0(x)\partial_zw+\nu^0(x)\partial_{\overline{z}}
+\overline{w}=f\in W_2^1(Q;\mathbb{C})$, $w\in W_0(Q)$. Заметим, что $w^0\in W_2^2(Q;\mathbb{C})\cap W_0(Q)$, ввиду
+теоремы 2, так как $f\in W_2^1(Q;\mathbb{C})$.
+
+\smallskip
+\textbf{Теорема 6 (Оценки погрешности усреднения).}
+{\it Пусть $Q$ --- ограниченная односвязная область с гладкой (класса $C^2$) границей и пусть правая часть $f$ задачи Р--Г \eqref{smm-0sirazhf:1.8} принадлежит пространству $W_2^1(Q;\mathbb{C})$, тогда для малых $\varepsilon$, $\varepsilon\leqslant \varepsilon(Q)$ имеют место оценки
+	\begin{equation}\label{smm-0sirazhT6:1}
+		\|w_\varepsilon-w_1^\varepsilon\|_{W_2^1 (Q; \mathbb{C})}\leqslant c\sqrt{\varepsilon}\|f
+		\|_{W^1_2 (Q; \mathbb{C})}, \quad \|w_\varepsilon-w^0\|_{L_2 (Q; \mathbb{C})}\leqslant c\sqrt{\varepsilon}\|f
+		\|_{W_2^1 (Q; \mathbb{C})},
+	\end{equation}
+	где $c>0$ --- постоянная, зависящая только от постоянной эллиптичности $k_0$,  постоянной Липшица $L$ и области $Q$.}
+
+%++++
+\smallskip
+
+
+
+\smallskip
+\textbf{Теорема 7 (Операторные оценки  усреднения).}
+{\it Справедливы следующие операторные оценки усреднения задачи Римана--Гильберта \eqref{smm-0sirazhf:1.8}
+	\begin{gather}\label{smm-0sirazhOpop1}
+		\left\|\left(A_\varepsilon^{-1}-A_0^{-1}\right)\partial_{\overline z}^{-1}\right\|_{L_2(Q;\,\mathbb{C})\to L_2(Q;\,\mathbb{C})}
+		\leq c\,\sqrt\varepsilon,\quad
+		\left\|A_\varepsilon^{-1}-A_0^{-1}\right\|_{W_0(Q)\to L_2(Q;\,\mathbb{C})}
+		\leq c\,\sqrt\varepsilon,\\\label{smm-0sirazhOpop2}
+		\left\|\left(A_\varepsilon^{-1}-A_0^{-1}\right)\partial_{\overline z}^{-1}-\varepsilon\Big(N^\varepsilon
+		\partial_zA_0^{-1}
+		\partial_{\overline z}^{-1}\right.
+		+\left.M^\varepsilon\partial_{\overline z}\overline{A_0^{-1}\partial_{\overline z}^{-1}}\Big)
+		\right\|_{L_2(Q;\,\mathbb{C})\to W^1_2(Q;\,\mathbb{C})}
+		\leq c\,\sqrt\varepsilon,\\\label{smm-0sirazhOpop3}
+		\left\|A_\varepsilon^{-1}-A_0^{-1}-\varepsilon\left(N^\varepsilon\partial_zA_0^{-1}
+		+M^\varepsilon\partial_{\overline z}\overline{A_0^{-1}}\right)
+		\right\|_{W^1_2(Q;\,\mathbb{C})\to W^1_2(Q;\,\mathbb{C})}
+		\leq c\,\sqrt\varepsilon,
+	\end{gather}
+	где $c>0$ --- постоянная из \eqref{smm-0sirazhT6:1}; $\partial_{\overline z}^{-1}$ --- оператор обратный к
+	оператору краевой задачи
+	\eqref{smm-0sirazhf:1.8} для уравнения Коши -- Римана;
+	$\overline{A_0^{-1}\partial_{\overline z}^{-1}}$ --- оператор,
+	определенный равенством $\overline{A_0^{-1}\partial_{\overline z}^{-1}}{\,v}=\overline{A_0^{-1}\partial_{\overline z}^{-1}{v\,}}$,
+	аналогичный смысл имеет и оператор $\overline{A_0^{-1}}$. Здесь
+	$N^\varepsilon=N_1(x,\varepsilon^{-1}x)-iN_2(x,\varepsilon^{-1}x)$, $M^\varepsilon=N_1(x,\varepsilon^{-1}x)+iN_2(x,\varepsilon^{-1}x)$,  где $N_1(x,y)$, $N_2(x,y)$ --- решения задачи
+	на ячейке (см. теорему 4); $A_\varepsilon^{-1}$, $A_0^{-1}$
+	--- обратные операторы к операторам соответствующих  задач Римана--Гильберта}.
+
+
+В случае оператора Бельтрами ($\nu=0$), ввиду теоремы 4, имеем
+$N^\varepsilon=2N_1^\varepsilon$, $M^\varepsilon=0$. Следовательно, корректоры в \eqref{smm-0sirazhOpop2}, \eqref{smm-0sirazhOpop3} упрощаются
+и мы имеем более простые оценки.
+%\begin{equation*}
+%\left\|\left(A_\varepsilon^{-1}-A_0^{-1}-\varepsilon N
+%\partial_zA_0^{-1}\right)
+%\partial_{\overline z}^{-1}
+%\right\|_{L_2(Q;\,\mathbb{C})\to W^1_2(Q;\,\mathbb{C})}
+%\leq c\,\sqrt\varepsilon,
+%\end{equation*}
+%\begin{equation*}
+%\left\|A_\varepsilon^{-1}-A_0^{-1}-\varepsilon N\partial_zA_0^{-1}
+%\right\|_{W^1_2(Q;\,\mathbb{C})\to W^1_2(Q;\,\mathbb{C})}
+%\leq c\,\sqrt\varepsilon.
+%\end{equation*}
+
+
+
+ \section{Заключение.}
+
+ Задачи рассмотренные нами возникают при изучении плоско-парал\-лельных физических процессов в сильно неоднородных
+ средах периодической или локально-периодической структуры.
+
+ Получены результаты по оценке погрешности усреднения задачи Римана-Гильберта для обобщенного уравнения Бельтрами
+ с локально-периодическими коэффициентами.
+
+\begin{thebibliography}{22}
+ \bibitem{smm-1} Жиков В. В, Козлов С. М., Олейник О. А. Усреднение дифференциальных операторов. – М: «Наука». 1993.
+
+ \bibitem{smm-2} Жиков В. В., Пастухова С. Е. Об операторных оценках в теории усреднения//Успехи мат. наук. – 2016. – Т.71., № 3. – С. 27–122.
+
+ \bibitem{smm-3} Бирман М. Ш., Суслина Т. А. Периодические дифференциальные операторы второго порядка. Пороговые свойства  и усреднения// Алгебра  и  анализ. – 2003. – Т.15, № 5. – С. 1–108.
+
+ \bibitem{smm-4} Борисов Д. И. Асимптотики решений эллиптических систем с быстро осциллирующими коэффициентами// Алгебра и анализ. – 2008. – Т.20, № 2. – С. 19–42.
+
+ \bibitem{smm-5} Сеник Н. Н. Об усреднении несамосопряженных локально-периодических эллиптических операторов// Функц. Анализ и его прил. – 2017. – Т.51, № 2. – С. 92–96.
+
+ \bibitem{smm-6} Пастухова C. Е., Тихомиров Р. Н. Операторные оценки повторного  и локально-периодического  усреднения // Доклады РАН. – 2007. – Т. 415, № 3. –  С. 304-309.
+
+ \bibitem{smm-7} Жиков В. В. Об операторных оценках в теории усреднения// Доклады РАН. – 2005. – Т.403, № 3. – С. 305–308.
+
+ \bibitem{smm-8} Сиражудинов М. М. Асимптотический метод усреднения обобщенных  операторов Бельтрами// Матем. сборник. – 2017. - Т. 208, № 4. – С. 87–110.
+
+ \bibitem{smm-9} Сиражудинов М. М., Тихомирова С. В. Оценки погрешности усреднения периодической задачи для обобщенного уравнения Бельтрами // Дифференциальные уравнения. – 2020. – Т. 56, № 12.  С.1651–1659.
+
+ \bibitem{smm-10} Сиражудинов М. М., Джамалудинова С. П. Оценки погрешности усреднения задачи Римана–Гильберта для уравнения Бельтрами с локально-периодическим коэффициентом//  Вестник Даг. Гос. университета. Серия1: Естественные науки. – 2021. – Том 36, № 4. – С. 23-38.
+
+ \bibitem{smm-11} Сиражудинов М. М. О G-сходимости и усреднении обобщенных операторов Бельтрами// Матем. сборник. – 2008. – Том 199, № 5 – С.127–158
+
+  \bibitem{smm-12}	Сиражудинов М.М., Ибрагимов М.Г., Магомедова М.Г. Оценки погрешности локально-периодического усреднения периодической задачи для уравнения Бельтрами// Вестник Дагестанского государственного университета. Серия1: Естественные науки 2022, № 1. С. 24-31
+
+  \bibitem{smm-13}	Сиражудинов М.М. Оценки локально-периодического усреднения Задачи Римана–Гильберта для обобщённого уравнения Бельтрами// Дифференциальные уравнения, 2022, том 58, № 6, с. 777–794
+
+  \bibitem{smm-14}	Сиражудинов М.М. Estimates for the Locally Periodic Homogenization of the Riemann–Hilbert Problem for a Generalized Beltrami Equation// Differential Equations, 2022, Vol. 58, No. 6, pp. 771–790
+
+  \bibitem{smm-15} Сиражудинов М.М. О периодических решениях одной
+  	эллиптической системы первого порядка //  Матем. заметки.
+  	--- 1990.  Т. 48. № 5. --- С. 153---155.
+\end{thebibliography}
+
+\end{document}
+
+
