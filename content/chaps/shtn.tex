@@ -1,0 +1,221 @@
+\chapter{Тема основной части отчета сотрудника}
+
+
+\section*{Аннотация}
+
+Была предпринята попытка ослабить условия базисности системы полиномов Лежандра в пространствах Лебега с переменным показателем. Были получены оценки и представления для ядра, играющего важную роль при изучении вопроса базисности данной системы.
+
+
+\section*{Введение}
+
+Интерес к пространствам Лебега с переменным показателем $L^{p(\cdot)}$ возрос с 1990-х годов ввиду
+их использования в различных приложениях. Прежде всего, это математические
+моделирование электрореологических жидкостей. Эти пространства также использовались для моделирования поведения других физических явлений, а также для изучения процессов обработки изображений и т. д. Эти задачи, в свою очередь, приводят к поиску систем, образующих базисы в этих пространствах. В работах И.И. Шарапудинова и его учеников \cite{tad-SHII-Haar,tad-SHII-AnalisysMath,tad-SHII-Leg,tad-MMG-Haar,tad-SHII-Jacob,tad-SHII-Ult,tad-RAM-Jacob} была показана базисность в $L^{p(\cdot)}$  тригонометрической системы, системы полиномов Якоби и системы функций Хаара при определенных условиях на показатель $p(x)$.
+
+В отчетном году была предпринята попытка ослабить эти условия на переменный показатель $p(x)$ (постоянство показателя на концах отрезка $[-1,1]$) в случае системы полиномов Лежандра. При исследовании этой задачи возникла необходимость изучения свойств ядра $K(x,y)$, связанного с ядром Кристоффеля -- Дарбу для системы полиномов Лежандра. А именно для $K(x,y)$ получены  представления и оценки, в зависимости от расположения $x,y$ на квадрате $[-1,1]\times[-1,1]$.
+
+
+\section{О базисности системы полиномов Лежандра в пространствах Лебега с переменным показателем}
+
+Исследован вопрос базисности системы полиномов Лежандра в пространствах Лебега с переменным показателем с целью устранения условия постоянства переменного показателя на концах отрезка $[-1,1]$.
+
+
+\subsection{Введение}
+
+Пусть $p(x)$ -- неотрицательная измеримая функция, $E=[-1,1]$. Множество функций $f$ таких, что
+\begin{equation}\label{s2-lpx-def-1}
+  \int_{E}|f(x)|^{p(x)}dx<\infty,
+\end{equation}
+обозначим через $L^{p(\cdot)}(E)$ и назовем пространством Лебега с переменным показателем. Положим $p_+(E)=ess\sup_{x\in E} p(x)$ и и $p_-(E)=ess\inf_{x\in E} p(x)$. При условии $1\le p_-\le p(x)\le p_+<\infty$ пространство $L^{p(\cdot)}(E)$ нормируемо \cite{tad-lpxtopology} и одну из эквивалентных норм можно задать следующим образом
+\begin{equation}\label{s2-lpx-norm}
+  \|f\|_{p(\cdot)}=\|f\|_{p(\cdot)}(E)=\inf\left\{\lambda>0:\int_{E}\left|\frac{f(x)}\lambda\right|^{p(x)}dx\right\}.
+\end{equation}
+Отметим некоторые свойства этих пространств, которые понадобятся в дальнейшем. Пусть $1\le p(x)\le q(x)\le q_+(E)<\infty$. Тогда \cite{tad-SHII-Haar} $L^{q(\cdot)}(E)\subset L^{p(\cdot)}(E)$ и для $f\in L^{q(\cdot)}$
+\begin{equation}\label{LpxLqxNormIneq}
+  \|f\|_{p(\cdot)}\le r_{p,q}\|f\|_{q(\cdot)},
+\end{equation}
+где $r_{p,q}=\frac1{\mu_-(E)}+\frac1{\mu'(E)}$ ($\mu(x)=q(x)/p(x)$, $\frac1{\mu(x)}+\frac1{\mu'(x)}=1$).
+Если $p(x)>1,\, x \in A$ (не исключая и случай, когда $p_-(A)=1$), то справедливо неравенство типа Гёльдера для пространств Лебега с переменным показателем~\cite[нер-во (8)]{tad-lpxtopology}:
+\begin{equation}\label{LpxHoelderIneq}
+  \int\limits_A |f(x)||g(x)|dx \le
+  C(p,A) \cdot \|f\|_{p(\cdot)}(A) \cdot \|g\|_{p'(\cdot)}(A),
+\end{equation}
+где $\frac{1}{p(x)}+\frac{1}{p'(x)}=1$, $C(p,A)\le \frac{1}{\underline{p}(A)}+\frac{1}{\underline{p}'(A)}$.
+Для любых измеримых множеств $A\subset B$ справедливо неравенство
+\begin{equation}\label{LpxNormSubsetIneq}
+  \|f\|_{p(\cdot)}(A) \le \|f\|_{p(\cdot)}(B).
+\end{equation}
+Основополагающую роль в теории пространств Лебега с переменным показателем играет условие Дини -- Липшица
+\begin{equation}\label{DiniLipCond}
+	|p(x)-p(y)| \le \frac{C}{|\log |x-y||};\ x,y \in E.
+\end{equation}
+
+
+Приведем теперь некоторые сведения о полиномах Лежандра $P_n(x)$, которые нам понадобятся в дальнейшем. Эти полиномы определим при помощи формулы Родрига
+\begin{equation}\label{RodrigueFormula}
+  P_n(x)=\frac{(-1)^n}{2^nn!}\{(1-x^2)^n\}^{(n)}.
+\end{equation}
+Для полиномов Лежандра имеет место следующее соотношение ортогональности
+\begin{equation}\label{LegOrthRel}
+  \int_{-1}^1P_n(x)P_m(x)dx=\frac{2}{2n+1}\delta_{nm},
+\end{equation}
+где $\delta_{nm}$ -- символ Кронекера. Имеют место следующие свойства полиномов Лежандра
+\begin{equation}\label{Leg-Prop1}
+  |P_n(x)|\le1,\ x\in[-1,1],
+\end{equation}
+\begin{equation}\label{Leg-Prop2}
+  (1-x^2)^{\frac14}n^{\frac12}|P_n(x)|\le\sqrt{\frac2\pi}.
+\end{equation}
+\begin{equation}\label{Leg-Prop3}
+  (1-x^2)^{\frac14}(n+1)^{\frac12}|P_n(x)-P_{n+2}(x)|\le c\ x\in[-1,1],
+\end{equation}
+\begin{equation}\label{Leg-Prop4}
+  P_n(\cos\theta)=\sqrt{\frac2{n\pi\sin\theta}}\cos\left[\left(n+\frac12\right)\theta-\frac\pi4\right]+\Phi_n(\theta),
+\end{equation}
+\begin{equation}\label{Leg-Prop5}
+  |\Phi_n(\theta)|\le\frac c{(n\sin\theta)^\frac32},\ \theta\in(0,\pi).
+\end{equation}
+Для функции $f(x)$, интегрируемой на $[-1,1]$ мы можем сопоставить соответствующий ряд Фурье -- Лежандра
+\begin{equation}\label{FourLegSeries}
+  f\sim\sum_{k=0}^\infty f_kP_k(x),
+\end{equation}
+где
+\begin{equation}\label{FourLegCoeffs}
+  f_k=\frac{2k+1}{2}\int_{-1}^1f(t)P_k(t)dt
+\end{equation}
+-- коеффициенты Фурье -- Лежандра функции $f$. Частичная сумма ряда \eqref{FourLegCoeffs} имеет вид
+\begin{equation}\label{FourLegPartialSum}
+  S_n(f,x)=\sum_{k=0}^\infty f_kP_k(x)=\int_{-1}^{1}f(t)K_n(x,t)dt,
+\end{equation}
+где $K_n(x,t)$ -- ядро Кристоффеля -- Дарбу
+\begin{equation}\label{KrisDarbouxFormula}
+ K_n(x,t)=\sum_{k=0}^n\frac{2k+1}{2}P_k(x)P_k(t)=\frac{n+1}2\frac{P_{n+1}(x)P_n(t)-P_{n+1}(t)P_n(x)}{x-t}.
+\end{equation}
+В работе \cite{tad-SHII-Leg} была показана сходимость частичных сумм Фурье-Лежандра  \eqref{FourLegPartialSum} в пространствах $L^{p(\cdot)}(E)$ в случае когда переменный показатель $p(x)$ удовлетворяет условию \eqref{DiniLipCond} и дополнительному условию постоянства на отрезках $[-1,-1+\delta_1]$ и $[1-\delta_2,1]$, причем $4/3\le p(\pm1)\le4$. В отчетном году был исследован вопрос устранения условия постоянства переменного показателя у концов отрезка $[-1,1]$.
+Справедлива
+\begin{lemma}\label{st-Kxy-bounded}
+Пусть $-1+\varepsilon < x < 1 - \varepsilon$, $0 < \varepsilon < 1$. Тогда ядро $K(x,y)$ равномерно ограничено по $y \in [-1,1]$ и по $0 < \alpha \le 1$:
+\begin{equation*}
+|K(x,y)| \le \frac{c}{\varepsilon}.
+\end{equation*}
+\end{lemma}
+
+
+\subsection{Результаты}
+
+Пусть
+\begin{equation}
+K(x,y)=\frac{1}{x-y}\Biggl[ \Bigl(\frac{1-y^2}{1-x^2} \Bigr)^\frac14 - 1 \Biggr].
+\end{equation}
+Как было показано в \cite{tad-SHII-Leg}, из ограниченности в $L^{p(\cdot)}$ операторов
+\begin{equation}\label{T1T2-def}
+T_1(f)=\int_{-1}^1 |K(x,y)||f(y)|dy, \quad
+T_2(f)=\int_{-1}^1 |K(y,x)||f(y)|dy
+\end{equation}
+для $f\in L^{p(\cdot)}(E)$ вытекает сходимость $S_n(f,x)$ к $f$ по норме пространства $L^{p(\cdot)}(E)$, а следовательно и базисность системы полином Лежандра в этом пространстве. С целью ослабления условий на переменный показатель было иссследовано ядро $K(x,y)$ и получены некоторые оценки представления для него. Отметим эти свойства.
+
+\begin{enumerate}
+\item $K(-x,-y)=-K(x,y)$.
+
+\item
+
+$$
+\Bigl|K(x,y)-\frac{x}{2(1-x^2)}\Bigr|\rightrightarrows0\ \text{при} \ y\rightarrow x.
+$$
+
+\item
+При $y=\pm 1$ имеем
+\begin{equation*}
+K(x, 1) = \frac{1}{1-x}, \quad K(x,- 1) = -\frac{1}{1+x}, \quad -1 < x < 1.
+\end{equation*}
+
+\item $K(x,y)$ непрерывна на $[-1,1]^2 \setminus \{ (x,y): x=y \lor x=\pm 1  \}$.
+
+\item
+Если $-1 < y < 1$, $\frac{y+1}{2} \le x < 1$, то
+\begin{equation*}
+|K(x,y)| \le \frac{2}{1-y}\Biggl[ \Bigl(\frac{1-y^2}{1-x^2} \Bigr)^\frac14 - 1 \Biggr] \le 2\frac{(1-y^2)^\frac14}{(1-y)(1+x)^\frac14} \cdot \frac{1}{(1-x)^\frac14}.
+\end{equation*}
+Поскольку $\frac{y+1}{2} < x$, $\frac{1}{(1+x)^\frac14} \le \frac{2^\frac14}{(y+3)^\frac14} < 1$. Тогда
+\begin{multline}\label{K-est-all-y}
+|K(x,y)| \le 2\frac{(1-y^2)^\frac14}{1-y} \cdot \frac{1}{(1-x)^\frac14} \le \\
+2 \frac{2^\frac14}{1-y} \Bigl( \frac{1-y}{1-x} \Bigr)^\frac14
+, \quad -1 < y < 1, \frac{y+1}{2} < x < 1.
+\end{multline}
+
+\item
+Пусть $0 \le y < 1$, $y \le x$. Тогда $\frac{1+y}{1+x} \le 1$, $\frac{1-y^2}{1-x^2} \ge 1$. Поэтому
+\begin{equation}\label{K-est-y-less-x}
+|K(x,y)| \le \frac{1}{x-y}\Bigl[\Bigl(\frac{1-y^2}{1-x^2}\Bigr)^\frac14 - 1\Bigr] \le
+\frac{1}{x-y}\Bigl[\Bigl(\frac{1-y}{1-x}\Bigr)^\frac14 - 1\Bigr]
+\quad
+0 \le y < 1, y \le x.
+\end{equation}
+
+\item
+Если $1-\varepsilon < x < 1$, $x < y$, то $\frac{1-y^2}{1-x^2}<1$. Следовательно,
+\begin{equation}\label{K-est-x-less-y}
+|K(x,y)|\le\frac{1}{y-x}.
+\end{equation}
+
+\item
+Справедливы неравенства \cite[формула (5.20)]{tad-SHII-Leg}
+\begin{equation}\label{overK-est}
+\frac13 \overline{K}(x,y)\le K(x,y)\le\overline{K}(x,y),
+\end{equation}
+где
+$$
+\overline{K}(x,y)=\frac{1}{(1-x^2)^{\frac14}}\frac{|x+y|}{(1-y^2)^{\frac34}+(1-x^2)^{\frac34}}.
+$$
+\end{enumerate}
+
+Ниже приведем результаты, связанные с исследованием вопроса об ограниченности операторов $T_1(f)$ и $T_2(f)$ полученные в отчетном году.
+\begin{lemma}\label{st-Int1-x-p4-bounded}
+Пусть $p(x)$ непрерывна на $[0,1]$ и $p(1)<1$. Тогда
+\begin{equation}\label{int-of-1-x-qrtr-exp}
+  \int_{\frac12}^1\Bigl(\frac1{1-x}\Bigr)^{p(x)}dx<\infty.
+\end{equation}
+\end{lemma}
+
+\begin{lemma}\label{est-px-p1}
+Пусть $p(x)$ удовлетворяет условию Дини -- Липшица \eqref{DiniLipCond} на $[a,b]$, $0 \le a < b \le 1$. Тогда
+\begin{equation}
+J=\int\limits_{a}^{b} \Bigl( \frac{1}{1-x} \Bigr)^{p(x)}dx \le
+c(p) \int\limits_{a}^{b} \Bigl( \frac{1}{1-x} \Bigr)^{p(1)}dx.
+\end{equation}
+Если $b=1$, то справедлива и оценка снизу:
+\begin{equation}
+J \ge
+c(p) \int\limits_{a}^{1} \Bigl( \frac{1}{1-x} \Bigr)^{p(1)}dx.
+\end{equation}
+\end{lemma}
+\begin{definition}
+Будем говорить, что $p(x)$ удовлетворяет условию Дини -- Липшица в точке $a$ слева, если для $x$ из некоторой левой окрестности точки $a$ выполняется соотношение:
+\begin{equation}\label{DL-at-point}
+|p(a)-p(x)| \le \frac{C_0}{-\log(a-x)}.
+\end{equation}
+\end{definition}
+
+\begin{lemma}\label{st-px-p1-func}
+Пусть $p(x)$ удовлетворяет условию Дини -- Липшица в точке $1$ слева. Тогда существует константа $c(p)$, зависящая только от $p(x)$, такая что для любого $y$ из некоторой левой окрестности $1$ и $x \in [y,1]$ справедливо неравенство:
+\begin{equation}
+f(x,y)=\Bigl(\frac{1}{1-y}\Bigr)^{p(x)} \le c(p)\Bigl(\frac{1}{1-y}\Bigr)^{p(1)}.
+\end{equation}
+Если $p(1)>0$, то имеет место и обратное неравенство:
+\begin{equation}
+f(x,y) \ge c(p)\Bigl(\frac{1}{1-y}\Bigr)^{p(1)}.
+\end{equation}
+\end{lemma}
+
+
+\section*{Заключение}
+
+В ходе исследования ограниченности операторов $T_i(f)$ в $L^{p(\cdot)}$ ($i=1,2$) оказалось удобным разбить интеграл на три части:
+\begin{equation*}
+\int_{-1}^1 T_i(f)(x)^{p(x)}dx=\Bigl(\int_{-1}^{-1+\varepsilon} + \int_{-1+\varepsilon}^{1-\varepsilon} + \int_{1-\varepsilon}^{1}\Bigr)T_i(f)(x)^{p(x)}dx=J_1+J_2+J_3,
+\end{equation*}
+и оценить их по отдельности. Неравенство
+$$
+J_2\le c(\varepsilon,p),
+$$
+было показано в \cite{tad-SHII-Leg}, а чтобы показать ограниченность величин $J_1$ и $J_3$ там потребовалось наложить на показатель условие постоянства концах $[-1,1]$. Полученные нами результаты, связанные с изучением свойств ядра $K(x,y)$, позволяют рассчитывать на устранение условия постоянства на концах отрезка $[-1,1]$.
