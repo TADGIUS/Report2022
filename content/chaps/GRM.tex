@@ -14,7 +14,7 @@
 Например, ряды Фурье по полиномам, ортогональным по Соболеву, представляется более естественным аппаратом, чем ряды Фурье по классическим ортогональным полиномам, для приближенного решения краевых задач, в которых требуется анализ поведения приближенного решения в одной или нескольких точках.
 При решении таких задач важную роль играют сходимость и скорость сходимости рядов Фурье. В этом параграфе эти вопросы будут рассмотрены для систем полиномов, ортогональных по Соболеву и порожденных полиномами Якоби (см. п. \ref{Ram-Jac}) и Мейкснера (см. п. \ref{Ram-Mex}).}
 
-\section{Об аппроксимативных свойствах рядов Фурье по полиномам Якоби $P_n^{\alpha-r,-r}(x)$, ортогональным по Соболеву}\label{Ram-Jac}
+\section{Об аппроксимативных свойствах рядов Фурье по полиномам Якоби \texorpdfstring{\linebreak$P_n^{\alpha-r,-r}(x)$}{}, ортогональным по Соболеву}\label{Ram-Jac}
 
 \textcolor{red}{\textbf{ Аннотация.} Рассмотрена задача об отклонении от функции $f$ из пространства $W^r$ частичных сумм ряда Фурье по системе полиномов Якоби $\{P_n^{\alpha-r,-r}(x)\}$, ортогональной относительно скалярного произведения типа Соболева. Исследовано поведение функции типа Лебега частичных сумм ряда Фурье по системе $\{P_n^{\alpha-r,-r}(x)\}$. Получены оценки в терминах модуля непрерывности $r$ - ой производной функции $f$.}
 
@@ -103,7 +103,7 @@ $$
 	\end{multline}
 	
 	\item
-	формула Кристоффеля -- Дарбу
+	формула Кристоффеля--Дарбу
 	\begin{multline}\label{Kris_Dar}
 		K_n^{\alpha,\beta}(x,t)=\sum_{k=0}^{n}\frac{P_k^{\alpha,\beta}(x)P_k^{\alpha,\beta}(t)}{h_k^{\alpha,\beta}}=\frac{2^{-\alpha-\beta}}{2n+\alpha+\beta+2}\times\\
 		\frac{\Gamma(n+2)\Gamma(n+\alpha+\beta+2)}{\Gamma(n+\alpha+1)\Gamma(n+\beta+1)}
@@ -131,7 +131,7 @@ $$
 c(\alpha,\beta)\frac{n}{|x-t|}\left[(1-t)|P_{n}^{\alpha+1,\beta}(t)P_{n}^{\alpha,\beta}(x)|+
 (1-x)|P_{n}^{\alpha+1,\beta}(x)P_{n}^{\alpha,\beta}(t)|\right].
 $$
-Если воспользоваться равенством~\eqref{beta_1}, то можно получить аналогичную оценку для $K_n^{\alpha,\beta}(x,t)$:
+Если воспользоваться равенством~\eqref{beta_1}, то можно получить аналогичную оценку для \linebreak$K_n^{\alpha,\beta}(x,t)$:
 $$
 |K_n^{\alpha,\beta}(x,t)|\le
 c(\alpha,\beta)\frac{n}{|x-t|}\left[(1+t)|P_{n}^{\alpha,\beta+1}(t)P_{n}^{\alpha,\beta}(x)|+
@@ -252,7 +252,7 @@ $$
 
 \subsection{Некоторые сведения о полиномах Мейкснера}
 
-Пусть $N>0$, $\delta=1/N$, $\Omega_\delta=\{0,\delta,2\delta,\ldots \}$. Через $M_{n,N}^{\alpha}(x)$ обозначим модифицированные полиномы Мейкснера, которые при $\alpha>-1$ ортогональны на сетке $\Omega_\delta$ относительно веса $\rho_N(x)=e^{-x}\frac{\Gamma(Nx+\alpha+1)}{\Gamma(Nx+1)}(1-e^{-\delta})^{\alpha+1}$. Соответствующие ортонормированные полиномы мы обозначим через $m_{n,N}^{\alpha}(x)=\frac{1}{\sqrt{h_n^\alpha}}M_{n,N}^{\alpha}(x)$, где $h_n^\alpha={n+\alpha\choose n}e^{n\delta}\Gamma(\alpha+1)$. Приведем некоторые свойства полиномов $M_{n,N}^{\alpha}(x)$, которые можно найти в \cite{Ram-SharBook}:
+Пусть $N>0$, $\delta=1/N$, $\Omega_\delta=\{0,\delta,2\delta,\ldots \}$. Через $M_{n,N}^{\alpha}(x)$ обозначим модифицированные полиномы Мейкснера, которые при $\alpha>-1$ ортогональны на сетке $\Omega_\delta$ относительно веса $\rho_N(x)=e^{-x}\frac{\Gamma(Nx+\alpha+1)}{\Gamma(Nx+1)}(1-e^{-\delta})^{\alpha+1}$. Соответствующие ортонормированные полиномы мы обозначим через $m_{n,N}^{\alpha}(x)=\frac{1}{\sqrt{h_n^\alpha}}M_{n,N}^{\alpha}(x)$, где $h_n^\alpha={\binom{n+\alpha}{n}}e^{n\delta}\Gamma(\alpha+1)$. Приведем некоторые свойства полиномов $M_{n,N}^{\alpha}(x)$, которые можно найти в \cite{Ram-SharBook}:
 \begin{itemize}
 \item
 формула Родрига
@@ -264,7 +264,7 @@ M_{n,N}^{\alpha}(x)=\frac{\Gamma(Nx+1)e^{n\delta+x}}{n!\Gamma(Nx+\alpha+1)}
 \item
 явный вид
 \begin{equation}\label{Ram-explicit-rep}
-M_{n,N}^\alpha(x)={n+\alpha\choose n}\sum_{k=0}^n{n^{[k]}(Nx)^{[k]}\over(\alpha+1)_kk!}\left(1-e^\delta\right)^k;
+M_{n,N}^\alpha(x)={\binom{n+\alpha}{n}}\sum_{k=0}^n{\frac{n^{[k]}(Nx)^{[k]}}{(\alpha+1)_kk!}}\left(1-e^\delta\right)^k;
 \end{equation}
 \item
 равенства
@@ -285,8 +285,8 @@ M_{n+1,N}^\alpha(x)M_{n,N}^\alpha(y)}{x-y},
 \end{itemize}
 которую посредством элементарных преобразований можно записать в следующем виде
 $$
-K_{n,N}^\alpha(x,y)={\alpha_n\over(\alpha_n+\alpha_{n-1})}m_{n,N}^{\alpha}(x)m_{n,N}^{\alpha}(y)+
-{\alpha_n\alpha_{n-1}\over\alpha_n+\alpha_{n-1}}{\delta\over e^{\delta\over2}-e^{-{\delta\over2}}} {1\over y-x}\times
+K_{n,N}^\alpha(x,y)={\frac{\alpha_n}{(\alpha_n+\alpha_{n-1})}}m_{n,N}^{\alpha}(x)m_{n,N}^{\alpha}(y)+
+{\frac{\alpha_n\alpha_{n-1}}{\alpha_n+\alpha_{n-1}}}{\frac{\delta}{e^{\frac{\delta}{2}}-e^{-{\frac{\delta}{2}}}}} {\frac{1}{y-x}}\times
 $$
 $$
 \left[m_{n,N}^\alpha(y)\left(m_{n+1,N}^\alpha(x)- m_{n-1,N}^\alpha(x)\right)
@@ -302,9 +302,9 @@ e^{-x/2}\left|m_{n,N}^\alpha(x\pm s\delta)\right|\le c(\alpha,\lambda,s)\theta_n
 \begin{equation*}
 A_n^\alpha(x)=\begin{cases}
 \theta_n^{\alpha},&  0\le x\le \frac{1}{\theta_n},\\
-\theta_n^{\alpha/2-1/4}x^{-\alpha/2-1/4},&     \frac{1}{\theta_n}<x\le {\theta_n\over 2},\\
-\left[\theta_n(\theta_n^{1/3}+|x-\theta_n|)\right]^{-1/4},& {\theta_n\over2}<x\leq{3\theta_n\over2},\\
-e^{-x/4}, & {3\theta_n\over2}<x<\infty,
+\theta_n^{\alpha/2-1/4}x^{-\alpha/2-1/4},&     \frac{1}{\theta_n}<x\le {\frac{\theta_n}{2}},\\
+\left[\theta_n(\theta_n^{1/3}+|x-\theta_n|)\right]^{-1/4},& {\frac{\theta_n}{2}}<x\leq{\frac{3\theta_n}{2}},\\
+e^{-x/4}, & {\frac{3\theta_n}{2}}<x<\infty,
 \end{cases}
 \end{equation*}
 $$
@@ -313,9 +313,9 @@ $$
 \begin{equation*}
 c(\alpha,\lambda)\begin{cases}
 \theta_n^{\alpha/2-1},&  0\le x\le \frac{1}{\theta_n},\\
-\theta_n^{-3/4}x^{-\alpha/2+1/4},&     \frac{1}{\theta_n}<x\le {\theta_n\over 2},\\
-x^{-\alpha/2}\theta_n^{-3/4}\left[\theta_n^{1/3}+|x-\theta_n|\right]^{1/4},& {\theta_n\over2}<x\leq{3\theta_n\over2},\\
-e^{-x/4}, & {3\theta_n\over2}<x<\infty,
+\theta_n^{-3/4}x^{-\alpha/2+1/4},&     \frac{1}{\theta_n}<x\le {\frac{\theta_n}{2}},\\
+x^{-\alpha/2}\theta_n^{-3/4}\left[\theta_n^{1/3}+|x-\theta_n|\right]^{1/4},& {\frac{\theta_n}{2}}<x\leq{\frac{3\theta_n}{2}},\\
+e^{-x/4}, & {\frac{3\theta_n}{2}}<x<\infty,
 \end{cases}
 \end{equation*}
 где здесь и далее $c(\alpha)$, $c(\alpha, \lambda)$, $c(\alpha, \lambda, s)$ -- положительные числа, зависящие только от указанных параметров, причем различные в разных местах.
@@ -352,25 +352,25 @@ m_{n,N}^{\alpha,r}(x)=
 где $x^{[n]}=x(x-1)\cdots(x-n+1)$, $\Omega_\delta^x=\{0, \delta, \ldots, x-r\delta\}$. Заметим, что $m_{n,N}^{\alpha,r}(x)=0$ при $n\ge r$, $x\in\{0, \delta, \ldots, (r-1)\delta\}$. Действительно, из~\eqref{Ram-Pol-second} и~\eqref{Ram-explicit-rep} имеем
 $$
 m_{n,N}^{\alpha,r}(x)=\frac{1}{\sqrt{h_{n-r}^\alpha}}
-{n-r+\alpha\choose n-r}\sum_{k=0}^{n-r}{(n-r)^{[k]}\left(1-e^\delta\right)^k\over(\alpha+1)_kk!}P_{k+r}(x),
+{\binom{n-r+\alpha}{n-r}}\sum_{k=0}^{n-r}{\frac{(n-r)^{[k]}\left(1-e^\delta\right)^k}{(\alpha+1)_kk!}}P_{k+r}(x),
 $$
 где $P_{k+r}(x)=\frac{1}{(r-1)!}\sum\limits_{t\in \Omega_\delta^x}(Nx-1-Nt)^{[r-1]}(Nx)^{[k]}$. Запишем дискретный аналог формулы Тейлора для функции $d(x)=(Nx)^{[k+r]}$:
 $$
-d(x)=\sum_{k=0}^{r-1}\Delta_\delta^kd(0){(Nx)^{[k]}\over k!}+\frac{1}{(r-1)!}\sum\limits_{t\in \Omega_\delta^x}(Nx-1-Nt)^{[r-1]}\Delta^r_\delta d(x)=
+d(x)=\sum_{k=0}^{r-1}\Delta_\delta^kd(0){\frac(Nx)^{[k]}{k!}}+\frac{1}{(r-1)!}\sum\limits_{t\in \Omega_\delta^x}(Nx-1-Nt)^{[r-1]}\Delta^r_\delta d(x)=
 $$
 $$
-\sum_{k=0}^{r-1}\Delta_\delta^kd(0){(Nx)^{[k]}\over k!}+(k+r)^{[r]}P_{k+r}(x)=(k+r)^{[r]}P_{k+r}(x).
+\sum_{k=0}^{r-1}\Delta_\delta^kd(0){\frac(Nx)^{[k]}{k!}}+(k+r)^{[r]}P_{k+r}(x)=(k+r)^{[r]}P_{k+r}(x).
 $$
 Отсюда $P_{k+r}(x)=\frac{d(x)}{(k+r)^{[r]}}=\frac{(Nx)^{[k+r]}}{(k+r)^{[r]}}$. А поскольку $(Nx)^{[k+r]}=0$ для $k\ge0$, $x\in\{0, \delta, \ldots, (r-1)\delta\}$, то $m_{n,N}^{\alpha,r}(x)=0$ при $n\ge r$, $x\in\{0, \delta, \ldots, (r-1)\delta\}$.
 
 Если теперь запишем дискретный аналог формулы Тейлора для полинома $M_{n,N}^{\alpha-r}(x)$ и воспользуемся равенством~\eqref{Ram-deriv}, то получим
 $$
-M_{n,N}^{\alpha-r}(x)=\sum_{k=0}^{r-1}\Delta_\delta^kM_{n,N}^{\alpha-r}(0){(Nx)^{[k]}\over k!}+
+M_{n,N}^{\alpha-r}(x)=\sum_{k=0}^{r-1}\Delta_\delta^kM_{n,N}^{\alpha-r}(0){\frac(Nx)^{[k]}{k!}}+
 \frac{(1-e^\delta)^r}{(r-1)!}\sum\limits_{t\in \Omega_\delta^x}(Nx-1-Nt)^{[r-1]}M_{n-r,N}^{\alpha}(x).
 $$
 Отсюда с учетом~\eqref{Ram-Pol-second} имеем
 \begin{equation}\label{Ram-rep-alpha-r}
-m_{n,N}^{\alpha,r}(x)= \frac{1}{(1-e^\delta)^r}\frac{1}{\sqrt{h_{n}^{\alpha}}}\left[M_{n,N}^{\alpha-r}(x)-\sum_{k=0}^{r-1}\Delta_\delta^kM_{n,N}^{\alpha-r}(0){(Nx)^{[k]}\over k!}\right],
+m_{n,N}^{\alpha,r}(x)= \frac{1}{(1-e^\delta)^r}\frac{1}{\sqrt{h_{n}^{\alpha}}}\left[M_{n,N}^{\alpha-r}(x)-\sum_{k=0}^{r-1}\Delta_\delta^kM_{n,N}^{\alpha-r}(0){\frac(Nx)^{[k]}{k!}}\right],
 \end{equation}
 где $\Delta^k_\delta M_{n,N}^{\alpha-r}(0)=(1-e^\delta)^k\frac{\Gamma(n+\alpha-r+1)}{(n-k)!\Gamma(\alpha-r+k+1)}$. Заметим, что $\Delta^k_\delta M_{n,N}^{\alpha-r}(0)=0$ при $\alpha=0$.
 
@@ -391,7 +391,7 @@ m_{n-\nu,N}^{\alpha,r-\nu}(x),& \nu\le n<r,\\
 
 Из теоремы \textbf{B} следует, что система полиномов $\{m_{n,N}^{\alpha,r}(x)\}$ полна в пространстве $W^r_{l^2_{\rho_N}(\Omega_\delta)}$. Нетрудно проверить, что ряд Фурье функции $f\in W^r_{l^2_{\rho_N}(\Omega_\delta)}$ по этой системе имеет следующий вид
 \begin{equation}\label{Ram-Fourier-series}
-f(x)\sim \sum_{k=0}^{r-1}\Delta_\delta^kf(0){(Nx)^{[k]}\over k!}+\sum_{k=r}^\infty c^\alpha_{r,k}(f)m^{\alpha,r}_{k,N}(x),
+f(x)\sim \sum_{k=0}^{r-1}\Delta_\delta^kf(0){\frac(Nx)^{[k]}{k!}}+\sum_{k=r}^\infty c^\alpha_{r,k}(f)m^{\alpha,r}_{k,N}(x),
 \end{equation}
 где
 \begin{equation*}
@@ -404,7 +404,7 @@ c^\alpha_{r,k}(f)=\sum_{t\in\Omega_\delta}\Delta_\delta^r f(t)m^\alpha_{k-r,N}(t
 
 Далее, через $S_{n+r,N}^{\alpha,r}(f,x)$ обозначим частичную сумму ряда~\eqref{Ram-Fourier-series}:
 \begin{equation}\label{Ram-Part-sum}
-S_{n+r,N}^{\alpha,r}(f,x)=\sum_{k=0}^{r-1}\Delta_\delta^kf(0){(Nx)^{[k]}\over k!}+\sum_{k=r}^{n+r} c^\alpha_{r,k}(f)m^{\alpha,r}_{k,N}(x).
+S_{n+r,N}^{\alpha,r}(f,x)=\sum_{k=0}^{r-1}\Delta_\delta^kf(0){\frac(Nx)^{[k]}{k!}}+\sum_{k=r}^{n+r} c^\alpha_{r,k}(f)m^{\alpha,r}_{k,N}(x).
 \end{equation}
 Из~\eqref{Ram-Part-sum} следует, что для $S_{n+r,N}^{\alpha,r}(x)$ имеют место равенства
 \begin{equation*}
@@ -415,13 +415,13 @@ S_{n+r,N}^{\alpha,r}(f,x)=f(x), \quad x\in\{0, \delta, \ldots, (r-1)\delta\}.
 S_{n+r,N}^{\alpha,r}(p_{n+r},x)\equiv p_{n+r}(x).
 \end{equation*}
 
-Рассмотрим теперь вопрос об аппроксимативных свойствах частичных сумм $S_{n+r,N}^{\alpha,r}(f,x)$ при $\alpha=0$. В этом случае из~\eqref{Ram-rep-alpha-r} и~\eqref{Ram-parametr-r} следует, что для $m_{n+r,N}^{0,r}(x)$ имеет место равенство
+Рассмотрим теперь вопрос об аппроксимативных свойствах частичных сумм \\$S_{n+r,N}^{\alpha,r}(f,x)$ при $\alpha=0$. В этом случае из~\eqref{Ram-rep-alpha-r} и~\eqref{Ram-parametr-r} следует, что для $m_{n+r,N}^{0,r}(x)$ имеет место равенство
 $$
 m_{n+r,N}^{0,r}(x)=\frac{(Nx)^{[r]}}{\sqrt{(n+r)^{[r]}}}m_{n,N}^r(x-r\delta).
 $$
 Тогда~\eqref{Ram-Part-sum} можно записать в виде
 \begin{equation*}
-S_{n+r,N}^{0,r}(f,x)=\sum_{k=0}^{r-1}\Delta_\delta^kf(0){(Nx)^{[k]}\over k!}+(Nx)^{[r]}\sum_{k=r}^{n+r} c^0_{r,k}(f)\frac{m^{r}_{k-r,N}(x-r\delta)}{\sqrt{k^{[r]}}}.
+S_{n+r,N}^{0,r}(f,x)=\sum_{k=0}^{r-1}\Delta_\delta^kf(0){\frac{(Nx)^{[k]}}{k!}}+(Nx)^{[r]}\sum_{k=r}^{n+r} c^0_{r,k}(f)\frac{m^{r}_{k-r,N}(x-r\delta)}{\sqrt{k^{[r]}}}.
 \end{equation*}
 
 Далее, через $q_{n+r}(x)$ алгебраический полином степени $n+r,$ для которого
@@ -434,12 +434,12 @@ $$
 $$
 Отсюда для $x\in\Omega_{r,\delta}=\{r\delta, (r+1)\delta, \ldots\}$
 $$
-e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-q_{n+r}(x)\right|+
+e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}\left|f(x)-q_{n+r}(x)\right|+
 $$
 \begin{equation}\label{Ram-gadz-eq15}
-e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|S_{n+r,N}^{0,r}(q_{n+r}-f,x)\right|.
+e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}\left|S_{n+r,N}^{0,r}(q_{n+r}-f,x)\right|.
 \end{equation}
-Так как $\sum\limits_{k=0}^{r-1}\Delta_\delta^k(q_{n+r}(0)-f(0)){(Nx)^{[k]}\over k!}=0$, то
+Так как $\sum\limits_{k=0}^{r-1}\Delta_\delta^k(q_{n+r}(0)-f(0)){\frac(Nx)^{[k]}{k!}}=0$, то
 $$
 S_{n+r,N}^{0,r}(q_{n+r}-f,x)=
 (Nx)^{[r]}\sum_{k=r}^{n+r}c_{r,k}^0(q_{n+r}-f) \frac{m^{r}_{k-r,N}(x-r\delta)}{\sqrt{k^{[r]}}}=
@@ -468,23 +468,23 @@ S_{n+r,N}^{0,r}(q_{n+r}-f,x)=\frac{(e^{\delta}-1)^{r+1}}{e^\delta}(Nx)^{[r]}\sum
 $$
 Отсюда и из \eqref{Ram-gadz-eq15} выводим
 \begin{multline}\label{Ram-gadz-eq16}
-e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-q_{n+r}(x)\right|+\\
-\frac{(e^{\delta}-1)^{r+1}}{e^\delta}e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}(Nx)^{[r]}\sum_{t\in\Omega_{r,\delta}}(q_{n+r}(t)-f(t))e^{-t}K_{n,N}^r(t-r\delta,x-r\delta).
+e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}\left|f(x)-q_{n+r}(x)\right|+\\
+\frac{(e^{\delta}-1)^{r+1}}{e^\delta}e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}(Nx)^{[r]}\sum_{t\in\Omega_{r,\delta}}(q_{n+r}(t)-f(t))e^{-t}K_{n,N}^r(t-r\delta,x-r\delta).
 \end{multline}
 
 Положим
 \begin{equation}\label{Ram-gadz-eq17}
-E_{k}^r(f,\delta)=\inf_{q_{k}}\sup_{x\in\Omega_{r,\delta}} e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-q_{k}(x)\right|,
+E_{k}^r(f,\delta)=\inf_{q_{k}}\sup_{x\in\Omega_{r,\delta}} e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}\left|f(x)-q_{k}(x)\right|,
 \end{equation}
 где нижняя грань берется по всем алгебраическим полиномам $q_{k}(x)$ степени $k,$ для которых $\Delta_\delta^i f(0)=\Delta_\delta^i q_{k}(0)\ (i=\overline{0, r-1}).$
 Тогда из \eqref{Ram-gadz-eq16} и \eqref{Ram-gadz-eq17} получаем
 \begin{equation}\label{Ram-LebIne}
-e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq E_{n+r}^r(f,\delta)(1+\lambda_{n,N}^{r}(x)),
+e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}\left|f(x)-S_{n+r,N}^{0,r}(f,x)\right|\leq E_{n+r}^r(f,\delta)(1+\lambda_{n,N}^{r}(x)),
 \end{equation}
 где
 $$
-\lambda_{n,N}^{r}(x)=\frac{(e^{\delta}-1)^{r+1}}{e^\delta}e^{-{x\over 2}}x^{-{r\over 2}+{1\over 4}}(Nx)^{[r]}
-\sum_{t\in\Omega_{r,\delta}}e^{-{t\over 2}}t^{{r\over 2}-{1\over 4}}
+\lambda_{n,N}^{r}(x)=\frac{(e^{\delta}-1)^{r+1}}{e^\delta}e^{-{\frac{x}{2}}}x^{-{\frac{r}{2}}+{\frac{1}{4}}}(Nx)^{[r]}
+\sum_{t\in\Omega_{r,\delta}}e^{-{\frac{t}{2}}}t^{{\frac{r}{2}}-{\frac{1}{4}}}
 \left|K_{n,N}^r(t-r\delta,x-r\delta)\right|.
 $$
 В связи с неравенством \eqref{Ram-LebIne} возникает задача об оценке величины $\lambda_{n,N}^{r}(x)$ на $[r\delta,\infty)$. Пусть $\nu=4n+2r+2$. Введем обозначения:
@@ -501,11 +501,11 @@ $$
 $$
 2) если $x\in X_3$, то
 $$
-\lambda_{n,N}^{r}(x)\leq c(\lambda,r)\left[\ln(n+1)+\left(\frac{\nu}{\nu^{1\over3}+|x-\nu|}\right)^{\frac{1}{4}}\right];
+\lambda_{n,N}^{r}(x)\leq c(\lambda,r)\left[\ln(n+1)+\left(\frac{\nu}{\nu^{\frac{1}{3}}+|x-\nu|}\right)^{\frac{1}{4}}\right];
 $$
 3) если $x\in X_4$, то
 $$
-\lambda_{n,N}^{r}(x)\leq c(\lambda,r)n^{-{r\over 2}+{7\over 4}}x^{{r\over 2}+{1\over 4}}e^{-\frac{x}{4}}.
+\lambda_{n,N}^{r}(x)\leq c(\lambda,r)n^{-{\frac{r}{2}}+{\frac{7}{4}}}x^{{\frac{r}{2}}+{\frac{1}{4}}}e^{-\frac{x}{4}}.
 $$
 \end{theorem}
 
