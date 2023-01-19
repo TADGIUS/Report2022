@@ -14,14 +14,15 @@
 \newtheorem{hypothesis}{Гипотеза}[chapter]
 
 \newtheorem{cond}{Условие}
-\newtheorem{theoremA}{Теорема}
-\newtheorem{lemmaA}{Лемма}[section]
-\newtheorem{corollaryA}{Следствие}
+\newtheorem{theoremA}{Теорема}[chapter]
+\newtheorem{lemmaA}{Лемма}[chapter]
+\newtheorem{corollaryA}{Следствие}[chapter]
 
 \newtheorem{state}{Предложение}
 \newtheorem{proposition}{Предложение}
-\renewcommand{\thetheoremA}{\Alph{theoremA}}
-\renewcommand{\thelemmaA}{\thesection.\Alph{lemmaA}}
+\renewcommand{\thetheoremA}{\thechapter.\Alph{theoremA}}
+\renewcommand{\thelemmaA}{\thechapter.\Alph{lemmaA}}
+\renewcommand{\thecorollaryA}{\thechapter.\Alph{corollaryA}}
 \newcommand{\No}{\textnumero}
 
 \newcommand{\norm}[1]{\|#1\|_{p(\cdot),w}}

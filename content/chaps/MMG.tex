@@ -1,50 +1,6 @@
- \chapter{Системы функций, ортогональные относительно дискретно-непрерывных скалярных произведений типа Соболева}
-
-
-
-\section*{Введение}
-% \textcolor{red}{Обозначим через $W^r_{L^p_\rho}=W^r_{L^p_\rho}[a,b]$ пространство Соболева, состоящее из $r-1$ непрерывно дифференцируемых на $[a,b]$ функций $f$, таких что $f^{(r-1)}$ абсолютно непрерывна и $f^{(r)} \in L^p_\rho[a,b]$, где $L^p_\rho=L^p_\rho[a,b]$ --- весовое пространство Лебега: $L^p_\rho[a,b] = \{ f: \int_a^b |f(x)|^p\rho(x)dx \}$. При $p=2$ в пространстве $W^r_{L^p_\rho}$ можно ввести скалярное произведение:
-% \begin{equation}\label{mmg-sob-prod}
-% 	\langle f, g \rangle = \sum_{k=0}^{r-1}f^{(k)}(a)g^{(k)}(a)+\int_a^b f^{(r)}(x)g^{(r)}(x)\rho(x)dx.
-% \end{equation}
-% Указанное скалярное произведение принято называть дискретно-непрерывным скалярным произведением типа Соболева.}
-
-% \textcolor{red}{Норму в пространстве $W^r_{L^p_\rho}$ определим следующим образом:
-% \begin{equation}\label{mmg-sob-norm-def}
-% 	\|f\|_{W^r_{L^p_\rho}} = \Bigl[
-% 	\sum_{k=0}^{r-1}|f^{(k)}(a)|^p + \int_a^b |f^{(r)}(t)|^p \rho(t)dt
-% 	\Bigr]^{1/p}.
-% \end{equation}}
-
-% \textcolor{red}{Скалярное произведение типа Соболева характеризуется тем, что оно включает в себя производные перемножаемых функций. Достаточно общий вид скалярного произведения типа Соболева может быть выражен формулой
-% \begin{equation}\label{mmg-inner-prod-sob-common}
-% 	\langle f,g \rangle = \sum_{k=0}^{m}\int\limits_{\mathbb{R}}f^{(k)}(x)g^{(k)}(x)d\mu_k,
-% \end{equation}
-% где $d\mu_k$ --- борелевские меры. Подробный обзор результатов, полученных для систем полиномов, ортогональных относительно различных соболевских скалярных произведений вида \eqref{mmg-inner-prod-sob-common}, можно найти в обзорной работе \cite{mmg-MarcellanXu2015}.}
-
-% \textcolor{red}{Как правило, рассматриваются следующие виды соболевских скалярных произведений \eqref{mmg-inner-prod-sob-common}:
-% \begin{itemize}
-% 	\item
-% 	непрерывные (все меры $\mu_k$, $k \ge 0$, абсолютно непрерывны),
-% 	\item
-% 	дискретные ($\mu_0$ абсолютна непрерывна, а $\mu_k$, $k \ge 1$, --- дискретны),
-% 	\item
-% 	дискретно-непрерывные ($\mu_m$ абсолютна непрерывна, а $\mu_k$, $k < m$, --- дискретны).	
-% \end{itemize}}
-
-% \textcolor{red}{Исследованиям вопросов сходимости рядов Фурье по полиномам, ортогональным относительно непрерывного скалярного произведения, посвящены, например, работы \cite{mmg-MarcellanJacobiSobolev,mmg-CiaurriJacobiSobolev,mmg-CiaurriCoherentPairs,mmg-Fejzullahu2010,mmg-Fejzullahu2013}. В \cite{mmg-MarcellanJacobiSobolev,mmg-CiaurriJacobiSobolev} рассматривается случай, когда $d\mu_k(x)=w_{\alpha+k,\beta+k}(x)dx$, где $w_{\alpha+k,\beta+k}(x)=(1-x)^{\alpha+k}(1+x)^{\beta+k}$ --- веса Якоби. В работе \cite{mmg-CiaurriCoherentPairs} исследуется случай $m=1$, причем меры $\mu_0$ и $\mu_1$ образуют так называемую когерентную пару (см. \cite{mmg-IserlesKoch1991,mmg-MarcellanXu2015}). В \cite{mmg-Fejzullahu2010} получены необходимые условия сходимости по норме ряда Фурье для полиномов, ортогональных относительно \eqref{mmg-inner-prod-sob-common} при $m=1$ и $d\mu_0(x)=d\mu_1(x)=(1-x^2)^{\alpha-1/2}dx$.}
-
-% \textcolor{red}{В случае дискретных скалярных произведений сходимость соответствующих рядов Фурье исследовалась в работах \cite{mmg-Marcellan2002,mmg-Rocha2003,mmg-OsilenkerFourier2012,mmg-OsilenkerLinearMethods2015,mmg-Fejzullahu2009,mmg-CiaurriSigma2018}. В работах \cite{mmg-Marcellan2002,mmg-Rocha2003} рассмотрены вопросы поточечной и равномерной сходимости рядов Фурье в случае скалярного произведения вида:
-% \begin{equation*}
-% 	\langle f,g \rangle = \int_{-1}^{1}f(x)g(x)d\mu(x)+
-% 	\sum_{k=1}^K\sum_{i=0}^{N_k} M_{k,i}f^{(i)}(a_k)g^{(i)}(a_k),
-% \end{equation*}
-% где $d\mu(x)$ --- мера Якоби. В \cite{mmg-OsilenkerFourier2012,mmg-OsilenkerLinearMethods2015,mmg-Fejzullahu2009,mmg-CiaurriSigma2018} рассмотрен частный случай приведенного выше скалярного произведения ($K=2$, $N_1=N_2=1$, $a_1=-1$, $a_2=1$) и исследована сходимость рядов Фурье и их линейных средних по соответствующим ортогональным полиномам.}
-
-% \textcolor{red}{Ряды Фурье в дискретно-непрерывном случае довольно подробно исследовались в работах Шарапудинова И.И. (см. \cite{mmg-SharapudinovUMN,mmg-SharapudinovIzvRan2019} и приведенные там списки литературы). В них рассматривается скалярное произведение вида \eqref{mmg-sob-prod}.
-% В \cite{mmg-SharapudinovUMN,mmg-SharapudinovIzvRan2019,mmg-MMG2019,mmg-Gadzhimirzaev2019} исследованы вопросы поточечной и равномерной сходимости рядов Фурье по системам, ортогональным относительно \eqref{mmg-sob-prod} и ассоциированным с такими классическими системами, как система полиномов Якоби, Лагерра, система функций Хаара, Уолша, Лагерра и система косинусов. При некоторых значениях параметров, фигурирующих в определениях классических систем, изучены аппроксимативные свойства рядов Фурье по указанным системам.}
-
-В настоящем пункте остановимся более подробно на некоторых результатах, связанных со скалярным произведением \eqref{mmg-sob-prod} в случае $\rho(x)=\rho(\alpha,\beta; x)=(1-x)^\alpha(1+x)^\beta$.
+\chapter{Ряды Фурье по полиномам Якоби --- Соболева}\label{MMG}
+\section{Введение}
+В данном разделе мы остановимся более подробно на некоторых результатах, связанных со скалярным произведением \eqref{mmg-sob-prod} в случае $\rho(x)=\rho(\alpha,\beta; x)=(1-x)^\alpha(1+x)^\beta$.
 
 Пусть $\mathcal{P}^{\alpha,\beta}=\{ \hat{P}_n^{\alpha,\beta} \}_{n=0}^\infty$ --- система полиномов, ортонормированных на отрезке $[-1,1]$ с весом Якоби $\rho(\alpha,\beta; x)$ (система полиномов Якоби). Введем в рассмотрение новую систему функций $\mathcal{P}^{\alpha,\beta}_r$, $r \ge 1$, с помощью равенств:
 \begin{gather}
@@ -133,8 +89,53 @@
 \end{equation}
 где $K^{\alpha,\beta}_n(t,u)=\sum_{k=0}^{n}\hat{P}^{\alpha,\beta}_{k}(t)\hat{P}^{\alpha,\beta}_{k}(u)$.
 
+\section{Некоторые сведения о полиномах Якоби}
+Для произвольных действительных чисел $\alpha$ и $\beta$ полиномы Якоби $P_n^{\alpha,\beta}(x)$ можно определить~\cite{Ram-Sege} с помощью формулы Родрига
+$$
+P_n^{\alpha,\beta}(x)=\frac{(-1)^n}{2^nn!}\frac{1}{\kappa(x)}\frac{d^n}{dx^n}\{\kappa(x)\sigma^n(x)\},
+$$
+где $\kappa(x)=\kappa(x;\alpha,\beta)=(1-x)^\alpha(1+x)^\beta$, $\sigma(x)=1-x^2$. Отметим также следующие свойства полиномов $P_n^{\alpha,\beta}(x)$, которые можно найти в~\cite{Ram-Sege}:
+\begin{itemize}
+	\item
+	соотношение ортогональности
+	$$
+	\int_{-1}^{1}P_n^{\alpha,\beta}(x)P_m^{\alpha,\beta}(x)\kappa(x)dx=h_n^{\alpha,\beta}\delta_{n,m},\quad \alpha, \beta>-1,
+	$$
+	где
+	$$
+	h_n^{\alpha,\beta}=\frac{\Gamma(n+\alpha+1)\Gamma(n+\beta+1)2^{\alpha+\beta+1}}{n!(2n+\alpha+\beta+1)\Gamma(n+\alpha+\beta+1)};
+	$$
+	
+	\item
+	равенства
+	\begin{multline}\label{alpha_1}
+	(1-x)P_n^{\alpha+1,\beta}(x)=\\
+	\frac{2}{2n+\alpha+\beta+2}\left[(n+\alpha+1)P_n^{\alpha,\beta}(x)-(n+1)P_{n+1}^{\alpha,\beta}(x)\right],
+	\end{multline}
+	\begin{multline}\label{beta_1}
+	(1+x)P_n^{\alpha,\beta+1}(x)=\\
+	\frac{2}{2n+\alpha+\beta+2}\left[(n+\beta+1)P_n^{\alpha,\beta}(x)+(n+1)P_{n+1}^{\alpha,\beta}(x)\right];
+	\end{multline}
+	
+	\item
+	формула Кристоффеля--Дарбу
+	\begin{multline}\label{Kris_Dar}
+	K_n^{\alpha,\beta}(x,t)=\sum_{k=0}^{n}\frac{P_k^{\alpha,\beta}(x)P_k^{\alpha,\beta}(t)}{h_k^{\alpha,\beta}}=\frac{2^{-\alpha-\beta}}{2n+\alpha+\beta+2}\times\\
+	\frac{\Gamma(n+2)\Gamma(n+\alpha+\beta+2)}{\Gamma(n+\alpha+1)\Gamma(n+\beta+1)}
+	\frac{P_{n+1}^{\alpha,\beta}(x)P_n^{\alpha,\beta}(t)-P_n^{\alpha,\beta}(x)P_{n+1}^{\alpha,\beta}(t)}{x-t};
+	\end{multline}
+	
+	\item
+	весовая оценка ($-1\le x\le1$)
+	\begin{equation*}
+	\sqrt{n}|P_n^{\alpha,\beta}(x)|\le c(\alpha,\beta)\left(\sqrt{1-x}+\frac{1}{n}\right)^{-\alpha-\frac12}
+	\left(\sqrt{1+x}+\frac{1}{n}\right)^{-\beta-\frac12},
+	\end{equation*}
+\end{itemize}
+где здесь и всюду в дальнейшем $c$, $c(\alpha,\beta)$, $c(\alpha,\beta,r)$ -- положительные числа, зависящие только от указанных параметров и различные в разных местах.
+
 \section{Пространство Соболева}
-В этом разделе будут рассмотрены некоторые свойства пространств Соболева $W^r_{L^1_{\rho(\alpha, \beta)}}$, $\rho(\alpha, \beta; x)=(1-x)^\alpha(1+x)^\beta$.
+В этом подразделе будут рассмотрены некоторые свойства пространств Соболева $W^r_{L^1_{\rho(\alpha, \beta)}}$, $\rho(\alpha, \beta; x)=(1-x)^\alpha(1+x)^\beta$.
 
 \begin{lemma}\label{mmg-complete-W1L1rho}
 	Пространство Соболева $W^r_{L^1_{\rho(\alpha, \beta)}}$ является полным при $-1 < \alpha, \beta \le 0$.
